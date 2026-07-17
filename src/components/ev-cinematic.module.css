@@ -1,0 +1,134 @@
+.cinematic {
+  position: relative;
+  width: 100%;
+  height: 165svh;
+  overflow: clip;
+  color: #fff;
+  background: #020812;
+  isolation: isolate;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: #020812;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+.driverVideo {
+  object-position: center center;
+}
+
+.shade {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(2, 8, 18, .88), rgba(2, 8, 18, .06) 62%),
+    linear-gradient(90deg, rgba(2, 8, 18, .7), transparent 66%);
+  pointer-events: none;
+}
+
+.copy {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 10vh;
+  left: 0;
+  min-width: 0;
+}
+
+.copy > span {
+  display: block;
+  color: #10d9e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.copy h2 {
+  max-width: 960px;
+  margin: 20px 0;
+  font-size: clamp(64px, 8.5vw, 128px);
+  line-height: .9;
+  letter-spacing: -.072em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.copy p {
+  max-width: 680px;
+  margin: 0;
+  color: #d4dce6;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.5;
+}
+
+.source {
+  position: absolute;
+  z-index: 2;
+  right: 26px;
+  bottom: 28px;
+  color: rgba(255, 255, 255, .58);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+@media (max-width: 900px) {
+  .cinematic {
+    height: 145svh;
+  }
+
+  .video {
+    object-position: 58% center;
+  }
+
+  .driverVideo {
+    object-position: 38% center;
+  }
+}
+
+@media (max-width: 620px) {
+  .cinematic {
+    height: 130svh;
+  }
+
+  .shade {
+    background: linear-gradient(0deg, rgba(2, 8, 18, .94), rgba(2, 8, 18, .06) 76%);
+  }
+
+  .copy {
+    bottom: 15vh;
+  }
+
+  .copy h2 {
+    max-width: 94%;
+    font-size: clamp(50px, 15vw, 60px);
+  }
+
+  .source {
+    right: 15px;
+    bottom: 82px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    transform: none !important;
+  }
+}

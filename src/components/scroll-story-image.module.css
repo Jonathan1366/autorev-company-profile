@@ -1,0 +1,35 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  z-index: 0;
+  inset: -7%;
+  will-change: transform;
+}
+
+.layer img {
+  object-fit: cover;
+}
+
+.glint {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(112deg, transparent 35%, rgba(255, 255, 255, .14) 48%, transparent 61%);
+  transform: translateX(-120%);
+  animation: glint 8s 1.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glint {
+  0%, 70% { transform: translateX(-120%); }
+  90%, 100% { transform: translateX(120%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glint { display: none; }
+}
