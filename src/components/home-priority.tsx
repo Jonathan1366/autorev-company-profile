@@ -23,7 +23,7 @@ export function HomeRental({ locale }: { locale: Locale }) {
           <h2>{locale === "id" ? "Pergi bersama. Pulang bawa cerita." : "Go together. Bring back stories."}</h2>
           <p>{locale === "id" ? "Rental EV untuk perjalanan yang ingin dinikmati, bukan dipikirkan." : "EV rental for journeys worth enjoying, not overthinking."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/rental")} variant="primary">{locale === "id" ? "Pilih Cara Sewa" : "Choose Your Rental"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/autorev-rental")} variant="primary">{locale === "id" ? "Pilih Cara Sewa" : "Choose Your Rental"}</ButtonLink>
         </Reveal>
       </div>
     </section>
@@ -43,7 +43,7 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
           <h2>{locale === "id" ? "EV siap kerja." : "EVs ready for work."}</h2>
           <p>{locale === "id" ? "Untuk corporate dan owner rental." : "For companies and rental owners."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/business")} variant="light">{locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/autorev-business")} variant="light">{locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}</ButtonLink>
         </Reveal>
       </div>
     </section>
@@ -63,7 +63,7 @@ export function HomeDriver({ locale }: { locale: Locale }) {
           <h2>{locale === "id" ? "Berkendara listrik. Raih lebih jauh." : "Drive electric. Achieve more."}</h2>
           <p>{locale === "id" ? "Program mitra awal dengan EV dan dukungan operasional AutoRev." : "A founding EV driver program backed by AutoRev operations."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/drivers")} variant="primary">{locale === "id" ? "Lihat Program" : "View Program"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Lihat Program" : "View Program"}</ButtonLink>
         </Reveal>
       </div>
     </section>
@@ -86,7 +86,7 @@ export function HomeRoadmap({ locale }: { locale: Locale }) {
           <div className="system-roadmap__shade"/>
           <div className="system-roadmap__stages">{stages.map((stage,index)=><div key={stage}><small>0{index+1}</small><strong>{stage}</strong>{index<stages.length-1&&<ArrowRight size={22}/>}</div>)}</div>
         </Reveal>
-        <ButtonLink href={localizePath(locale,"/technology")} variant="ghost">{locale === "id" ? "Lihat RevAuto" : "Explore RevAuto"}</ButtonLink>
+        <ButtonLink href={localizePath(locale,"/revauto")} variant="ghost">{locale === "id" ? "Lihat RevAuto" : "Explore RevAuto"}</ButtonLink>
       </div>
     </section>
   );

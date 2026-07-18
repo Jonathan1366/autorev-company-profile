@@ -40,7 +40,7 @@ export function Hero({ locale }: { locale: Locale }) {
           <motion.p initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .52, duration: .65 }}>{home.subtitle}</motion.p>
           <motion.div className="hero__actions" initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .62, duration: .65 }}>
             <ButtonLink href={localizePath(locale, "/contact?type=rental")} variant="light">{common.explore}</ButtonLink>
-            <ButtonLink href={localizePath(locale, "/business")} variant="ghost">{locale === "id" ? "Untuk Bisnis" : "For Business"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/autorev-business")} variant="ghost">{locale === "id" ? "Untuk Bisnis" : "For Business"}</ButtonLink>
           </motion.div>
           <motion.div className="hero__proof" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .78, duration: .7 }}><span>100% EV</span><span>{locale === "id" ? "Lepas kunci atau driver" : "Self drive or with driver"}</span><span>{locale === "id" ? "Personal dan bisnis" : "Personal and business"}</span></motion.div>
         </motion.div>

@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
     qualities: [75, 90, 92],
     minimumCacheTTL: 31_536_000,
   },
+  async redirects() {
+    return [
+      { source: "/:locale(id|en)/rental", destination: "/:locale/autorev-rental", permanent: true },
+      { source: "/:locale(id|en)/drivers", destination: "/:locale/founding-driver", permanent: true },
+      { source: "/:locale(id|en)/business", destination: "/:locale/autorev-business", permanent: true },
+      { source: "/:locale(id|en)/technology", destination: "/:locale/revauto", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -20,13 +20,13 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
   const cards = locale === "id" ? [
-    { label: "UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", cta: "Pilih Rental", href: "/rental", icon: CarFront },
-    { label: "JADI MITRA", title: "Founding Driver", text: "Program awal mitra driver EV AutoRev.", cta: "Jadi Mitra", href: "/drivers", icon: Gauge },
-    { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", cta: "Untuk Bisnis", href: "/business", icon: Building2 },
+    { label: "UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", cta: "Pilih Rental", href: "/autorev-rental", icon: CarFront },
+    { label: "JADI MITRA", title: "Founding Driver", text: "Program awal mitra driver EV AutoRev.", cta: "Jadi Mitra", href: "/founding-driver", icon: Gauge },
+    { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", cta: "Untuk Bisnis", href: "/autorev-business", icon: Building2 },
   ] : [
-    { label: "FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", cta: "Choose Rental", href: "/rental", icon: CarFront },
-    { label: "BECOME A PARTNER", title: "Founding Driver", text: "AutoRev's early EV driver partner program.", cta: "Become a Partner", href: "/drivers", icon: Gauge },
-    { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", cta: "For Business", href: "/business", icon: Building2 },
+    { label: "FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", cta: "Choose Rental", href: "/autorev-rental", icon: CarFront },
+    { label: "BECOME A PARTNER", title: "Founding Driver", text: "AutoRev's early EV driver partner program.", cta: "Become a Partner", href: "/founding-driver", icon: Gauge },
+    { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", cta: "For Business", href: "/autorev-business", icon: Building2 },
   ];
   return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;
 }

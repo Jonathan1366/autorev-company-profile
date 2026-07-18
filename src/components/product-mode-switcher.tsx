@@ -16,13 +16,13 @@ export function ProductModeSwitcher({ locale }: { locale: Locale }) {
     title: home.peopleTitle,
     text: home.peopleText,
     items: locale === "id" ? ["Sewa kendaraan", "Temukan bantuan", "Jadwalkan perawatan", "Pantau perbaikan"] : ["Rent a vehicle", "Find assistance", "Schedule maintenance", "Track repair"],
-    href: localizePath(locale, "/rental"),
+    href: localizePath(locale, "/autorev-rental"),
   };
   const business = {
     title: home.businessTitle,
     text: home.businessText,
     items: locale === "id" ? ["Kelola armada", "Pantau ketersediaan", "Atur maintenance", "Kendalikan downtime"] : ["Manage your fleet", "Monitor availability", "Plan maintenance", "Control downtime"],
-    href: localizePath(locale, "/business"),
+    href: localizePath(locale, "/autorev-business"),
   };
   const active = mode === "people" ? people : business;
 

@@ -17,8 +17,21 @@ const titles = {
 
 export type PageKey = keyof typeof titles;
 
+const pagePaths: Record<PageKey, string> = {
+  home: "",
+  rental: "/autorev-rental",
+  business: "/autorev-business",
+  drivers: "/founding-driver",
+  partners: "/partners",
+  technology: "/revauto",
+  about: "/about",
+  contact: "/contact",
+  privacy: "/privacy",
+  terms: "/terms",
+};
+
 export function pageMetadata(locale: Locale, page: PageKey, description?: string): Metadata {
-  const path = page === "home" ? "" : `/${page}`;
+  const path = pagePaths[page];
   const title = titles[page][locale];
   const canonical = `${siteConfig.url}/${locale}${path}`;
   const resolvedDescription = description || siteConfig.description;

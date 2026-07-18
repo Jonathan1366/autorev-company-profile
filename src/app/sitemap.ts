@@ -3,7 +3,7 @@ import { locales } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/rental", "/business", "/drivers", "/partners", "/technology", "/about", "/contact", "/privacy", "/terms"];
+  const routes = ["", "/autorev-rental", "/founding-driver", "/autorev-business", "/partners", "/revauto", "/about", "/contact", "/privacy", "/terms"];
   return routes.flatMap((route) => locales.map((locale) => ({
     url: `${siteConfig.url}/${locale}${route}`,
     lastModified: new Date("2026-07-15"),

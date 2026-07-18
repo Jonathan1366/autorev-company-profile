@@ -20,19 +20,19 @@ export function Navbar({ locale }: { locale: Locale }) {
   const alternate = alternateLocale(locale);
   const routeWithoutLocale = pathname.replace(/^\/(id|en)/, "") || "";
   const services = locale === "id" ? [
-    { href: "/rental", label: "01 · UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/drivers", label: "02 · JADI MITRA", title: "Founding Driver", text: "Mulai sebagai mitra driver EV AutoRev.", image: "/images/autorev-driver-passenger-v3.png" },
-    { href: "/business", label: "03 · UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", image: "/images/autorev-corporate-ev-v2.png" },
+    { href: "/autorev-rental", label: "01 · UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
+    { href: "/founding-driver", label: "02 · JADI MITRA", title: "Founding Driver", text: "Mulai sebagai mitra driver EV AutoRev.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/autorev-business", label: "03 · UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
-    { href: "/rental", label: "01 · FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/drivers", label: "02 · BECOME A PARTNER", title: "Founding Driver", text: "Start as an AutoRev EV driver partner.", image: "/images/autorev-driver-passenger-v3.png" },
-    { href: "/business", label: "03 · FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", image: "/images/autorev-corporate-ev-v2.png" },
+    { href: "/autorev-rental", label: "01 · FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
+    { href: "/founding-driver", label: "02 · BECOME A PARTNER", title: "Founding Driver", text: "Start as an AutoRev EV driver partner.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/autorev-business", label: "03 · FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", image: "/images/autorev-corporate-ev-v2.png" },
   ];
   const links = [
-    { href: "/rental", label: locale === "id" ? "EV Rental" : "EV Rental" },
-    { href: "/drivers", label: "Founding Driver" },
-    { href: "/business", label: locale === "id" ? "Bisnis" : "Business" },
-    { href: "/technology", label: "RevAuto" },
+    { href: "/autorev-rental", label: locale === "id" ? "EV Rental" : "EV Rental" },
+    { href: "/founding-driver", label: "Founding Driver" },
+    { href: "/autorev-business", label: locale === "id" ? "Bisnis" : "Business" },
+    { href: "/revauto", label: "RevAuto" },
     { href: "/about", label: locale === "id" ? "Tentang" : "About" },
   ];
 
@@ -62,7 +62,7 @@ export function Navbar({ locale }: { locale: Locale }) {
         <BrandLogo locale={locale} inverse />
         <nav className="desktop-nav" aria-label={locale === "id" ? "Navigasi utama" : "Main navigation"}>
           <button className={servicesOpen ? "is-active" : ""} onMouseEnter={() => setServicesOpen(true)} onClick={() => setServicesOpen((value) => !value)} aria-expanded={servicesOpen} aria-controls="services-navigation">{locale === "id" ? "Layanan EV" : "EV Services"}<ChevronDown size={14}/></button>
-          <Link href={localizePath(locale, "/technology")} className={pathname.endsWith("/technology") ? "is-active" : ""}>RevAuto</Link>
+          <Link href={localizePath(locale, "/revauto")} className={pathname.endsWith("/revauto") ? "is-active" : ""}>RevAuto</Link>
           <Link href={localizePath(locale, "/about")} className={pathname.endsWith("/about") ? "is-active" : ""}>{locale === "id" ? "Tentang" : "About"}</Link>
         </nav>
         <div className="nav-actions">
@@ -78,7 +78,7 @@ export function Navbar({ locale }: { locale: Locale }) {
             <div className={styles.media}><Image src={item.image} alt="" fill sizes="(max-width: 1100px) 33vw, 410px" quality={90}/></div>
             <small>{item.label}</small><strong>{item.title}</strong><span>{item.text}</span><ArrowUpRight size={20}/>
           </Link>)}</div>
-          <Link className={styles.next} href={localizePath(locale, "/technology")} onClick={() => setServicesOpen(false)}><span><small>{locale === "id" ? "04 · SISTEM" : "04 · SYSTEM"}</small><strong>RevAuto</strong><i>{locale === "id" ? "Kelola unit, booking, driver, charging, maintenance, dan laporan." : "Manage vehicles, bookings, drivers, charging, maintenance, and reporting."}</i></span><ArrowRight size={22}/></Link>
+          <Link className={styles.next} href={localizePath(locale, "/revauto")} onClick={() => setServicesOpen(false)}><span><small>{locale === "id" ? "04 · SISTEM" : "04 · SYSTEM"}</small><strong>RevAuto</strong><i>{locale === "id" ? "Kelola unit, booking, driver, charging, maintenance, dan laporan." : "Manage vehicles, bookings, drivers, charging, maintenance, and reporting."}</i></span><ArrowRight size={22}/></Link>
         </motion.div>}
       </AnimatePresence>
 

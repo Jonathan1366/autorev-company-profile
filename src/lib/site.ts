@@ -16,9 +16,9 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { href: "/rental", label: { id: "EV Rental", en: "EV Rental" } },
-  { href: "/drivers", label: { id: "Founding Driver", en: "Founding Driver" } },
-  { href: "/business", label: { id: "Bisnis EV", en: "EV Business" } },
-  { href: "/technology", label: { id: "RevAuto", en: "RevAuto" } },
+  { href: "/autorev-rental", label: { id: "EV Rental", en: "EV Rental" } },
+  { href: "/founding-driver", label: { id: "Founding Driver", en: "Founding Driver" } },
+  { href: "/autorev-business", label: { id: "Bisnis EV", en: "EV Business" } },
+  { href: "/revauto", label: { id: "RevAuto", en: "RevAuto" } },
   { href: "/about", label: { id: "Tentang", en: "About" } },
 ] as const;
