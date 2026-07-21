@@ -13,6 +13,13 @@ const types: { type: LeadType; icon: typeof CarFront; id: string; en: string }[]
   { type: "system", icon: MonitorCog, id: "Demo RevAuto", en: "RevAuto Demo" },
 ];
 
+const descriptions: Record<string, { id: string; en: string }> = {
+  rental: { id: "Pilih lepas kunci atau dengan driver. Ceritakan rencana perjalanan Anda.", en: "Choose self drive or travel with a driver. Tell us about your journey." },
+  driver: { id: "Pilih rental fleksibel atau Sewa Jadi Milik. Tim kami menghubungi Anda maksimal 7 hari.", en: "Choose flexible rental or Rent to Own. Our team will contact you within 7 days." },
+  business: { id: "Ceritakan kebutuhan armada dan operasional agar solusi pertama kami langsung relevan.", en: "Share your fleet and operating needs so our first solution is immediately relevant." },
+  system: { id: "Bagikan cara kerja rental Anda saat ini untuk menyiapkan demo RevAuto yang tepat.", en: "Share how your rental operation works today so we can prepare the right RevAuto demo." },
+};
+
 export function ContactHub({ locale, initialType = "rental" }: { locale: Locale; initialType?: LeadType }) {
   const [active, setActive] = useState<LeadType>(types.some((item) => item.type === initialType) ? initialType : "rental");
   const selected = types.find((item) => item.type === active)!;
@@ -23,7 +30,7 @@ export function ContactHub({ locale, initialType = "rental" }: { locale: Locale;
         {types.map((item) => { const Icon = item.icon; return <button key={item.type} className={active === item.type ? "is-active" : ""} onClick={() => setActive(item.type)} role="tab" aria-selected={active === item.type}><Icon size={20} /><span>{item[locale]}</span></button>; })}
       </div>
       <div className="contact-hub__body">
-        <div className="contact-hub__intro"><span>0{types.findIndex((item) => item.type === active) + 1}</span><SelectedIcon size={30} /><h2>{selected[locale]}</h2><p>{locale === "id" ? "Isi detail singkat agar percakapan pertama kami lebih relevan. Tidak ada biaya atau komitmen pada tahap ini." : "Share a few details so our first conversation is more relevant. There is no fee or commitment at this stage."}</p></div>
+        <div className="contact-hub__intro"><span>0{types.findIndex((item) => item.type === active) + 1}</span><SelectedIcon size={30} /><h2>{selected[locale]}</h2><p>{descriptions[active]?.[locale] || (locale === "id" ? "Isi detail singkat agar percakapan pertama kami lebih relevan." : "Share a few details so our first conversation is more relevant.")}</p></div>
         <LeadForm key={active} locale={locale} type={active} />
       </div>
     </div>

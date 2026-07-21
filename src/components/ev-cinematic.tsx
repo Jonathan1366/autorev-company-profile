@@ -11,7 +11,7 @@ export function EVCinematic({ locale, scene = "mountain" }: { locale: Locale; sc
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const scale = useTransform(scrollYProgress, [0, .35, .75, 1], reduceMotion ? [1,1,1,1] : [1.12,1,1.02,1.08]);
   const copyY = useTransform(scrollYProgress, [0,.35,.72,1], reduceMotion ? [0,0,0,0] : [100,0,-15,-100]);
-  const copyOpacity = useTransform(scrollYProgress, [0,.28,.72,1], [0,1,1,0]);
+  const copyOpacity = useTransform(scrollYProgress, [0,.28,.72,1], reduceMotion ? [1,1,1,1] : [0,1,1,0]);
 
   const story = scene === "mountain"
     ? {
@@ -31,9 +31,9 @@ export function EVCinematic({ locale, scene = "mountain" }: { locale: Locale; sc
     : {
         source: "/videos/autorev-highway-city.mp4",
         poster: "/images/autorev-corporate-ev-v2.png",
-        eyebrow: locale === "id" ? "FOUNDING DRIVER · DALAM PERJALANAN" : "FOUNDING DRIVER · ON THE ROAD",
-        title: locale === "id" ? "Terus jalan. Terus tumbuh." : "Keep moving. Keep growing.",
-        text: locale === "id" ? "Setiap perjalanan membawa Anda lebih dekat ke target berikutnya." : "Every trip moves you closer to your next goal.",
+        eyebrow: locale === "id" ? "FOUNDING DRIVER · JALAN MENUJU MILIK" : "FOUNDING DRIVER · A PATH TO OWNERSHIP",
+        title: locale === "id" ? "Setiap jalan punya tujuan." : "Every drive has a destination.",
+        text: locale === "id" ? "Pilih rental untuk hari ini, atau jalankan program menuju EV milik sendiri." : "Rent for today, or work through the program toward an EV of your own.",
       };
 
   return <section className={styles.cinematic} ref={ref} aria-label={locale === "id" ? "Perjalanan kendaraan listrik" : "Electric vehicle journey"}>

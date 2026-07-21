@@ -13,7 +13,10 @@ Production: [autorev-bisnis.vercel.app](https://autorev-bisnis.vercel.app)
 - Structured Rev AI demo and code-native product previews
 - Native product previews for customer app, business dashboard, ecosystem, and partner network
 - Five lead flows: rental, business/fleet, driver, service partner, and strategic partner
-- Shared Zod validation, React Hook Form, honeypot, payload limit, in-memory rate limiting, and webhook delivery
+- Shared Zod validation, React Hook Form, honeypot, payload limit, in-memory rate limiting, and secure webhook delivery
+- One Google Sheets lead tracker with Dashboard plus dedicated tabs for each business line
+- Premium registration receipt with reference number, seven-day follow-up expectation, and WhatsApp delivery status
+- Meta WhatsApp Business template automation with a safe manual-follow-up fallback
 - Server-rendered metadata, canonical URLs, language alternatives, Open Graph, X card, Organization JSON-LD, sitemap, and robots
 - Reduced-motion support, keyboard states, semantic structure, and mobile navigation
 - Official AutoRev logos supplied by the founder plus an original generated automotive hero
@@ -61,8 +64,8 @@ Copy [`.env.example`](./.env.example) to `.env.local`.
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Production | Canonical site origin without a trailing slash |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Optional override | Digits only; defaults to the confirmed `6281367408145` |
-| `LEAD_WEBHOOK_URL` | Production forms | Secure endpoint that persists and/or routes lead submissions |
-| `LEAD_WEBHOOK_SECRET` | Recommended | Bearer secret sent to the lead webhook |
+| `LEAD_WEBHOOK_URL` | Production forms | Deployed Google Apps Script `/exec` URL that persists and routes lead submissions |
+| `LEAD_WEBHOOK_SECRET` | Production forms | Server-only secret shared with the Apps Script webhook |
 | `NEXT_PUBLIC_ANALYTICS_ID` | Optional | Reserved for a consent-aware analytics integration |
 
 ### Lead safety behavior
@@ -70,6 +73,12 @@ Copy [`.env.example`](./.env.example) to `.env.local`.
 The production API **returns `503` when `LEAD_WEBHOOK_URL` is missing**. This is intentional: it prevents the UI from claiming success when no lead storage is connected. In development, valid requests return `202` for local UI testing. Do not put a webhook secret in any `NEXT_PUBLIC_` variable.
 
 The in-memory rate limiter is suitable as a first layer. For high-volume or multi-region deployment, replace it with a shared rate-limit store such as Vercel KV or Upstash and add Turnstile after a privacy review.
+
+### Lead tracker and WhatsApp
+
+The operating tracker is [AutoRev Lead Tracker](https://docs.google.com/spreadsheets/d/1mr1Ens0FquUOsJcLEG0w8Ekmzp7nlfMElwfE-6deD8I/edit). New submissions enter `Semua Leads`; the other tabs are filtered operational views for Founding Driver, Rental Customer, AutoRev Business, RevAuto, and partnerships.
+
+The deployable bridge lives in [`integrations/google-apps-script`](./integrations/google-apps-script). Configure its Script Properties and deploy it as a Web App before setting `LEAD_WEBHOOK_URL` in Vercel. WhatsApp automation requires a registered Meta WhatsApp Business Platform number, a permanent/system-user access token, Phone Number ID, and approved ID/EN utility templates. Secrets are never committed to Git.
 
 ## Project structure
 
@@ -85,6 +94,7 @@ src/
   lib/                    # copy, locale utilities, metadata, schemas, site config
   proxy.ts                # root -> /id redirect
 public/images/            # official and original project assets
+integrations/              # Google Sheets and WhatsApp lead-delivery bridge
 docs/                     # sitemap, wireframe, design and content guidance
 ```
 
@@ -133,7 +143,9 @@ Keep founder assets unchanged. Add future vehicle, app, or partner photography u
 - [x] No external font request at runtime
 - [x] No fabricated metrics, customer logos, reviews, prices, or partner counts
 - [x] Production build, lint, and strict TypeScript pass
-- [ ] Configure persistent lead storage and perform an end-to-end delivery test
+- [x] Create the persistent multi-tab AutoRev Lead Tracker
+- [x] Deploy the Apps Script webhook, add Vercel secrets, and perform a live form delivery test
+- [ ] Connect the approved WhatsApp Business templates and perform a live message test
 - [ ] Add consent-aware analytics only after choosing a provider
 - [ ] Run Lighthouse against the deployed production URL (target: Performance 90+, Accessibility/Best Practices/SEO 95+)
 - [ ] Replace social placeholders after official profiles are live

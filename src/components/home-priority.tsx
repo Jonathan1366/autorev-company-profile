@@ -52,18 +52,18 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
 
 export function HomeDriver({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Charging gratis sesuai program.", "Perawatan EV lebih simpel.", "Mulai tanpa DP.", "Lebih banyak ruang untuk mencapai target."]
-    : ["Charging included under the program.", "Simpler EV maintenance.", "Start with no down payment.", "More room to achieve your goals."];
+    ? ["Rental fleksibel atau Sewa Jadi Milik.", "Charging gratis sesuai program.", "Makan siang Senin sampai Jumat di titik program.", "Dukungan BPJS dan paguyuban sesuai kelayakan."]
+    : ["Flexible rental or Rent to Own.", "Charging included under program terms.", "Weekday lunch at participating program points.", "BPJS and driver-community support, subject to eligibility."];
   return (
     <section className="section priority-feature priority-feature--light" id="founding-driver">
       <div className="container priority-feature__grid priority-feature__grid--reverse">
         <ScrollStoryImage className="priority-feature__visual" src="/images/autorev-driver-passenger-v3.png" alt={locale === "id" ? "Mitra driver kendaraan listrik mengantar penumpang" : "An electric vehicle driver partner taking a passenger"}/>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">FOUNDING DRIVER</span>
-          <h2>{locale === "id" ? "Berkendara listrik. Raih lebih jauh." : "Drive electric. Achieve more."}</h2>
-          <p>{locale === "id" ? "Program mitra awal dengan EV dan dukungan operasional AutoRev." : "A founding EV driver program backed by AutoRev operations."}</p>
+          <h2>{locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}</h2>
+          <p>{locale === "id" ? "Pilih EV untuk disewa atau jalankan program hingga menjadi milik Anda." : "Choose a flexible EV rental or work through the program toward ownership."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Lihat Program" : "View Program"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Pilih Program" : "Choose Your Program"}</ButtonLink>
         </Reveal>
       </div>
     </section>

@@ -21,11 +21,11 @@ export function Navbar({ locale }: { locale: Locale }) {
   const routeWithoutLocale = pathname.replace(/^\/(id|en)/, "") || "";
   const services = locale === "id" ? [
     { href: "/autorev-rental", label: "01 · UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/founding-driver", label: "02 · JADI MITRA", title: "Founding Driver", text: "Mulai sebagai mitra driver EV AutoRev.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/founding-driver", label: "02 · JADI MITRA", title: "Founding Driver", text: "Rental fleksibel atau Sewa Jadi Milik.", image: "/images/autorev-driver-passenger-v3.png" },
     { href: "/autorev-business", label: "03 · UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
     { href: "/autorev-rental", label: "01 · FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/founding-driver", label: "02 · BECOME A PARTNER", title: "Founding Driver", text: "Start as an AutoRev EV driver partner.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/founding-driver", label: "02 · BECOME A PARTNER", title: "Founding Driver", text: "Flexible rental or Rent to Own.", image: "/images/autorev-driver-passenger-v3.png" },
     { href: "/autorev-business", label: "03 · FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", image: "/images/autorev-corporate-ev-v2.png" },
   ];
   const links = [
