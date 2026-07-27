@@ -21,16 +21,16 @@ export function Navbar({ locale }: { locale: Locale }) {
   const routeWithoutLocale = pathname.replace(/^\/(id|en)/, "") || "";
   const services = locale === "id" ? [
     { href: "/autorev-rental", label: "01 · UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/founding-driver", label: "02 · JADI MITRA", title: "Founding Driver", text: "Rental fleksibel atau Sewa Jadi Milik.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/founding-driver", label: "02 · FOUNDING DRIVER", title: "Sewa Jadi Milik", text: "Kerja dengan EV. Tuntaskan program. Jadi milik Anda.", image: "/images/autorev-driver-passenger-v3.png" },
     { href: "/autorev-business", label: "03 · UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
     { href: "/autorev-rental", label: "01 · FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
-    { href: "/founding-driver", label: "02 · BECOME A PARTNER", title: "Founding Driver", text: "Flexible rental or Rent to Own.", image: "/images/autorev-driver-passenger-v3.png" },
+    { href: "/founding-driver", label: "02 · FOUNDING DRIVER", title: "Rent to Own", text: "Drive the EV. Complete the program. Make it yours.", image: "/images/autorev-driver-passenger-v3.png" },
     { href: "/autorev-business", label: "03 · FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", image: "/images/autorev-corporate-ev-v2.png" },
   ];
   const links = [
     { href: "/autorev-rental", label: locale === "id" ? "EV Rental" : "EV Rental" },
-    { href: "/founding-driver", label: "Founding Driver" },
+    { href: "/founding-driver", label: locale === "id" ? "Sewa Jadi Milik" : "Rent to Own" },
     { href: "/autorev-business", label: locale === "id" ? "Bisnis" : "Business" },
     { href: "/revauto", label: "RevAuto" },
     { href: "/about", label: locale === "id" ? "Tentang" : "About" },

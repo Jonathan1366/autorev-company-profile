@@ -13,9 +13,9 @@ export const copy = {
       foundingProgram: "Program founding partner",
     },
     home: {
-      eyebrow: "Rental EV · Jabodetabek",
-      title: "Sewa EV. Bangun armada. Tetap bergerak.",
-      subtitle: "Kendaraan listrik untuk customer, driver, dan perusahaan.",
+      eyebrow: "Founding Driver · Sewa Jadi Milik",
+      title: "Sewa. Jalan. Jadi milik.",
+      subtitle: "Cari penghasilan dengan EV hari ini. Tuntaskan programnya, lalu bawa pulang unit Anda sesuai perjanjian.",
       ecosystemTitle: "Satu ekosistem. Setiap perjalanan kendaraan.",
       ecosystemText:
         "Dari kendaraan dipesan hingga kembali produktif, AutoRev menyatukan customer, fleet owner, teknisi, bengkel, towing, dan supplier dalam alur yang lebih transparan.",
@@ -52,9 +52,9 @@ export const copy = {
       foundingProgram: "Founding partner program",
     },
     home: {
-      eyebrow: "EV rental · Greater Jakarta",
-      title: "Rent EVs. Build fleets. Keep moving.",
-      subtitle: "Electric vehicles for customers, drivers, and companies.",
+      eyebrow: "Founding Driver · Rent to Own",
+      title: "Rent. Drive. Own.",
+      subtitle: "Earn with an EV today. Complete the program, then make the vehicle yours under the agreement.",
       ecosystemTitle: "One ecosystem. Every vehicle journey.",
       ecosystemText:
         "From booking to productive return, AutoRev connects customers, fleet owners, technicians, workshops, towing, and suppliers through a more transparent workflow.",

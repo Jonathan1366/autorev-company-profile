@@ -22,7 +22,7 @@ const needs: Record<LeadType, { id: string[]; en: string[] }> = {
   business: { id: ["Corporate lepas kunci", "Corporate dengan driver", "Armada untuk owner rental", "Charging dan perawatan"], en: ["Corporate self drive", "Corporate with driver", "Fleet for rental owners", "Charging and maintenance"] },
   system: { id: ["Demo RevAuto", "Kelola armada EV", "Kelola booking dan driver", "Charging dan maintenance", "Invoice dan laporan"], en: ["RevAuto demo", "Manage an EV fleet", "Manage bookings and drivers", "Charging and maintenance", "Invoices and reporting"] },
   partner: { id: ["Bengkel", "Teknisi", "Towing", "Supplier parts", "Replacement rental", "Layanan lainnya"], en: ["Workshop", "Technician", "Towing", "Parts supplier", "Replacement rental", "Other services"] },
-  driver: { id: ["Sewa Jadi Milik", "Rental EV fleksibel", "Benefit program", "Daftar Founding Driver"], en: ["Rent to Own", "Flexible EV rental", "Program benefits", "Join Founding Driver"] },
+  driver: { id: ["Mulai Sewa Jadi Milik", "Rental EV fleksibel", "Program keluarga AutoRev", "Konsultasi Founding Driver"], en: ["Start Rent to Own", "Flexible EV rental", "AutoRev community program", "Founding Driver consultation"] },
   strategic: { id: ["Kemitraan otomotif", "Teknologi", "Insurance / broker", "Investor", "Media / lainnya"], en: ["Automotive partnership", "Technology", "Insurance / broker", "Investor", "Media / other"] },
 };
 

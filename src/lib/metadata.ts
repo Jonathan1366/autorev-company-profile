@@ -3,10 +3,10 @@ import type { Locale } from "./i18n";
 import { siteConfig } from "./site";
 
 const titles = {
-  home: { id: "Rental EV & Armada Listrik", en: "EV Rental & Electric Fleets" },
+  home: { id: "Sewa Jadi Milik EV", en: "EV Rent to Own" },
   rental: { id: "Rental Kendaraan Listrik", en: "Electric Vehicle Rental" },
   business: { id: "Rental EV untuk Bisnis", en: "EV Rental for Business" },
-  drivers: { id: "Founding Driver", en: "Founding Driver" },
+  drivers: { id: "Sewa Jadi Milik · Founding Driver", en: "Rent to Own · Founding Driver" },
   partners: { id: "AutoRev Partner", en: "AutoRev Partner" },
   technology: { id: "RevAuto · Sistem Rental EV", en: "RevAuto · EV Rental System" },
   about: { id: "Tentang AutoRev", en: "About AutoRev" },

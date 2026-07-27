@@ -52,8 +52,8 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
 
 export function HomeDriver({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Rental fleksibel atau Sewa Jadi Milik.", "Charging gratis sesuai program.", "Makan siang Senin sampai Jumat di titik program.", "Dukungan BPJS dan paguyuban sesuai kelayakan."]
-    : ["Flexible rental or Rent to Own.", "Charging included under program terms.", "Weekday lunch at participating program points.", "BPJS and driver-community support, subject to eligibility."];
+    ? ["Pilih rental fleksibel atau Sewa Jadi Milik.", "Program jelas menuju EV milik Anda.", "Charging gratis dan perawatan lebih ringan.", "Makan siang, dukungan BPJS, dan paguyuban."]
+    : ["Choose flexible rental or Rent to Own.", "A clear path toward owning your EV.", "Included charging and simpler maintenance.", "Weekday lunch, BPJS support, and a driver community."];
   return (
     <section className="section priority-feature priority-feature--light" id="founding-driver">
       <div className="container priority-feature__grid priority-feature__grid--reverse">
@@ -61,9 +61,9 @@ export function HomeDriver({ locale }: { locale: Locale }) {
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">FOUNDING DRIVER</span>
           <h2>{locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}</h2>
-          <p>{locale === "id" ? "Pilih EV untuk disewa atau jalankan program hingga menjadi milik Anda." : "Choose a flexible EV rental or work through the program toward ownership."}</p>
+          <p>{locale === "id" ? "Bukan sekadar kendaraan untuk bekerja. Ini jalan menuju EV milik Anda, dengan keluarga AutoRev di belakang Anda." : "More than a vehicle for work. It is a path toward your own EV, backed by the AutoRev community."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Pilih Program" : "Choose Your Program"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Lihat Sewa Jadi Milik" : "Explore Rent to Own"}</ButtonLink>
         </Reveal>
       </div>
     </section>

@@ -7,10 +7,10 @@ export function FinalCTA({ locale }: { locale: Locale }) {
   return (
     <section className="final-cta">
       <div className="container final-cta__content">
-        <span className="eyebrow eyebrow--light"><i />AUTOREV</span>
-        <h2>{locale === "id" ? "Siap bergerak dengan EV?" : "Ready to move with EV?"}</h2>
-        <p>{locale === "id" ? "Pilih rental, program driver, bisnis, atau RevAuto." : "Choose rental, the driver program, business, or RevAuto."}</p>
-        <div><ButtonLink href={localizePath(locale, "/contact")} variant="light">{locale === "id" ? "Daftar Sekarang" : "Register Now"}</ButtonLink><ButtonLink href={`https://wa.me/${siteConfig.whatsapp}`} variant="ghost">WhatsApp</ButtonLink></div>
+        <span className="eyebrow eyebrow--light"><i />FOUNDING DRIVER · AUTOREV</span>
+        <h2>{locale === "id" ? "Siap mengubah perjalanan jadi kepemilikan?" : "Ready to turn every drive into ownership?"}</h2>
+        <p>{locale === "id" ? "Mulai Sewa Jadi Milik dan bangun jalan menuju EV Anda sendiri." : "Start Rent to Own and build your path toward an EV of your own."}</p>
+        <div><ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="light">{locale === "id" ? "Mulai Jadi Pemilik" : "Start Your Ownership Path"}</ButtonLink><ButtonLink href={`https://wa.me/${siteConfig.whatsapp}`} variant="ghost">WhatsApp</ButtonLink></div>
       </div>
     </section>
   );

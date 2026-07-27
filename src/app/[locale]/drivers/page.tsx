@@ -15,7 +15,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  return isLocale(locale) ? pageMetadata(locale, "drivers", locale === "id" ? "Founding Driver AutoRev: rental EV fleksibel atau Sewa Jadi Milik, dengan dukungan program untuk driver." : "AutoRev Founding Driver: flexible EV rental or a Rent to Own path, with driver program support.") : {};
+  return isLocale(locale) ? pageMetadata(locale, "drivers", locale === "id" ? "Founding Driver AutoRev: sewa EV untuk bekerja atau jalani Sewa Jadi Milik, lengkap dengan dukungan keluarga driver." : "AutoRev Founding Driver: rent an EV for work or follow a Rent to Own path, backed by a driver community.") : {};
 }
 
 export default async function DriversPage({ params }: Props) {
@@ -23,41 +23,44 @@ export default async function DriversPage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw as Locale;
   const benefits = locale === "id" ? [
-    { title: "Sewa Jadi Milik", text: "Jalankan program sampai tuntas. Setelah seluruh kewajiban dan verifikasi selesai, EV menjadi milik Anda." },
-    { title: "Rental fleksibel", text: "Belum ingin mengambil jalur kepemilikan? Mulai dari skema rental yang sesuai kebutuhan." },
-    { title: "Charging gratis", text: "Nikmati charging di jaringan dan batas pemakaian yang ditentukan program." },
-    { title: "Makan siang hari kerja", text: "Makan siang Senin sampai Jumat tersedia di titik program yang berpartisipasi." },
-    { title: "Dukungan BPJS", text: "Akses dukungan BPJS mengikuti status kepesertaan dan kelayakan program." },
-    { title: "Paguyuban driver", text: "Tempat berbagi informasi, saling bantu, dan bertumbuh bersama sesama mitra." },
-    { title: "Perawatan lebih simpel", text: "Rutinitas servis EV yang ringkas membantu Anda kembali ke jalan lebih cepat." },
-    { title: "Dukungan AutoRev", text: "Tim mendampingi proses verifikasi, onboarding, dan kebutuhan operasional program." },
+    { title: "Punya arah, bukan sekadar sewa", text: "Tuntaskan Sewa Jadi Milik. Setelah seluruh kewajiban dan verifikasi selesai, EV menjadi milik Anda." },
+    { title: "Tetap fleksibel", text: "Belum siap menuju kepemilikan? Mulai dari rental EV yang mengikuti cara Anda bekerja." },
+    { title: "Biaya jalan lebih ringan", text: "Charging gratis tersedia dalam jaringan dan batas pemakaian yang ditentukan program." },
+    { title: "Makan siang untuk hari kerja", text: "Makan siang Senin sampai Jumat tersedia di titik program yang berpartisipasi." },
+    { title: "Perlindungan yang ikut berjalan", text: "Dukungan BPJS tersedia sesuai status kepesertaan dan kelayakan program." },
+    { title: "Ada keluarga di belakang Anda", text: "Paguyuban menjadi tempat berbagi kabar, saling bantu, dan tumbuh bersama." },
+    { title: "EV lebih simpel dirawat", text: "Perawatan yang lebih ringkas membantu Anda kembali mencari penghasilan lebih cepat." },
+    { title: "Tim yang mendampingi", text: "AutoRev membantu proses verifikasi, onboarding, dan kebutuhan operasional program." },
   ] : [
-    { title: "Rent to Own", text: "Complete the program and every verified obligation. Once cleared, the EV becomes yours." },
-    { title: "Flexible rental", text: "Not ready for the ownership path? Start with an EV rental that fits the way you work." },
-    { title: "Charging included", text: "Eligible charging is covered within the program network and usage allowance." },
-    { title: "Weekday lunch", text: "Lunch is available Monday through Friday at participating program points." },
-    { title: "BPJS support", text: "BPJS support follows membership status and program eligibility." },
-    { title: "Driver community", text: "Share practical knowledge, find support, and grow with fellow drivers." },
-    { title: "Simpler maintenance", text: "A streamlined EV service routine helps you get back on the road sooner." },
-    { title: "AutoRev support", text: "Our team supports verification, onboarding, and day-to-day program needs." },
+    { title: "A destination, not just a rental", text: "Complete Rent to Own and every verified obligation. Once cleared, the EV becomes yours." },
+    { title: "Freedom to stay flexible", text: "Not ready for ownership? Start with an EV rental that fits the way you work." },
+    { title: "Lower everyday running costs", text: "Eligible charging is included within the program network and usage allowance." },
+    { title: "Lunch on working days", text: "Lunch is available Monday through Friday at participating program points." },
+    { title: "Protection that moves with you", text: "BPJS support is available based on membership status and program eligibility." },
+    { title: "A community behind you", text: "Share practical knowledge, find support, and grow with fellow drivers." },
+    { title: "Simpler EV care", text: "A streamlined service routine helps you return to earning sooner." },
+    { title: "A team by your side", text: "AutoRev supports verification, onboarding, and day-to-day program needs." },
   ];
-  const path = locale === "id" ? ["Pilih skema", "Jalankan program", "Jadi pemilik"] : ["Choose a path", "Complete the program", "Become the owner"];
+  const path = locale === "id" ? ["Pilih jalan Anda", "Tuntaskan komitmen", "Bawa pulang EV Anda"] : ["Choose your path", "Complete your commitment", "Make the EV yours"];
+  const familyPoints = locale === "id"
+    ? ["Makan siang Senin sampai Jumat", "Dukungan BPJS sesuai kelayakan", "Paguyuban yang saling menjaga"]
+    : ["Lunch from Monday to Friday", "BPJS support for eligible members", "A driver community that looks out for each other"];
 
   return <>
     <PageHero
       locale={locale}
-      eyebrow={locale === "id" ? "RENTAL EV · SEWA JADI MILIK" : "EV RENTAL · RENT TO OWN"}
+      eyebrow={locale === "id" ? "FOUNDING DRIVER · SEWA JADI MILIK" : "FOUNDING DRIVER · RENT TO OWN"}
       status="FOUNDING DRIVER"
-      title={locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}
-      text={locale === "id" ? "Pilih rental fleksibel atau jalankan program sampai EV menjadi milik Anda." : "Choose a flexible rental or work through the program until the EV becomes yours."}
+      title={locale === "id" ? "Jalan hari ini. Miliki EV Anda nanti." : "Drive it today. Make it yours."}
+      text={locale === "id" ? "Mulai dari rental fleksibel, atau pilih Sewa Jadi Milik. Tuntaskan programnya, lalu bawa pulang EV Anda sesuai perjanjian." : "Start with a flexible rental or choose Rent to Own. Complete the program, then make the EV yours under the agreement."}
       primaryHref="/contact?type=driver"
-      primaryLabel={locale === "id" ? "Pilih Program" : "Choose Your Program"}
-      secondaryLabel={locale === "id" ? "Lihat Benefit" : "Explore Benefits"}
+      primaryLabel={locale === "id" ? "Mulai Sewa Jadi Milik" : "Start Rent to Own"}
+      secondaryLabel={locale === "id" ? "Kenali Keluarga AutoRev" : "Meet the AutoRev Community"}
     ><DriverHeroVisual locale={locale}/></PageHero>
 
     <section className="section driver-program" id="explore">
       <div className="container driver-program__grid">
-        <SectionHeading eyebrow={locale === "id" ? "PROGRAM UNTUK DRIVER" : "BUILT FOR DRIVERS"} title={locale === "id" ? "Hari ini untuk bekerja. Besok bisa jadi milik." : "Drive today. Build toward ownership."}/>
+        <SectionHeading eyebrow={locale === "id" ? "PROGRAM UNTUK DRIVER" : "BUILT FOR DRIVERS"} title={locale === "id" ? "Kerja hari ini. Bangun milik Anda." : "Earn today. Build what becomes yours."}/>
         <div className="driver-benefit-list">{benefits.map((benefit, index) => <Reveal key={benefit.title} className="driver-benefit-row" delay={(index % 4) * .04}><span>0{index + 1}</span><Check size={20}/><div><strong>{benefit.title}</strong><p>{benefit.text}</p></div></Reveal>)}</div>
       </div>
     </section>
@@ -67,10 +70,11 @@ export default async function DriversPage({ params }: Props) {
     <section className="section driver-career">
       <div className="container driver-career__grid">
         <Reveal>
-          <span className="eyebrow eyebrow--light">{locale === "id" ? "KERJA · MILIK · KELUARGA" : "WORK · OWN · BELONG"}</span>
-          <h2>{locale === "id" ? "Jalan bersama. Tumbuh sebagai keluarga." : "Move together. Grow as a community."}</h2>
-          <p>{locale === "id" ? "AutoRev menyatukan jalur kepemilikan, dukungan operasional, dan paguyuban agar perjalanan Anda tidak dijalani sendirian." : "AutoRev brings together an ownership path, operational support, and a driver community so you never have to build alone."}</p>
-          <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="light">{locale === "id" ? "Daftar Minat" : "Register Interest"}</ButtonLink>
+          <span className="eyebrow eyebrow--light">{locale === "id" ? "LEBIH DARI MITRA" : "MORE THAN A PARTNER"}</span>
+          <h2>{locale === "id" ? "Bukan sekadar mitra. Anda keluarga AutoRev." : "More than a partner. You belong at AutoRev."}</h2>
+          <p>{locale === "id" ? "Ada yang menemani saat mulai, membantu ketika jalan terasa berat, dan merayakan saat EV itu akhirnya menjadi milik Anda." : "A community to welcome you at the start, support you through hard days, and celebrate when the EV finally becomes yours."}</p>
+          <ul className="driver-family-points">{familyPoints.map((point) => <li key={point}><Check size={18}/><span>{point}</span></li>)}</ul>
+          <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="light">{locale === "id" ? "Mulai Perjalanan Saya" : "Start My Journey"}</ButtonLink>
         </Reveal>
         <Reveal className="career-path" delay={.08}>{path.map((item, index) => <div key={item}><span>0{index + 1}</span><strong>{item}</strong>{index < path.length - 1 && <ArrowRight size={24}/>}</div>)}</Reveal>
       </div>

@@ -20,12 +20,12 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
   const cards = locale === "id" ? [
+    { label: "FOUNDING DRIVER", title: "Sewa Jadi Milik", text: "Cari penghasilan. Tuntaskan program. Bawa pulang EV Anda.", cta: "Mulai Jadi Pemilik", href: "/founding-driver", icon: Gauge },
     { label: "UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", cta: "Pilih Rental", href: "/autorev-rental", icon: CarFront },
-    { label: "JADI MITRA", title: "Founding Driver", text: "Rental fleksibel atau Sewa Jadi Milik.", cta: "Pilih Program", href: "/founding-driver", icon: Gauge },
     { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", cta: "Untuk Bisnis", href: "/autorev-business", icon: Building2 },
   ] : [
+    { label: "FOUNDING DRIVER", title: "Rent to Own", text: "Earn with the EV. Complete the program. Make it yours.", cta: "Start Your Ownership Path", href: "/founding-driver", icon: Gauge },
     { label: "FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", cta: "Choose Rental", href: "/autorev-rental", icon: CarFront },
-    { label: "BECOME A PARTNER", title: "Founding Driver", text: "Flexible rental or a path to ownership.", cta: "Choose a Program", href: "/founding-driver", icon: Gauge },
     { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", cta: "For Business", href: "/autorev-business", icon: Building2 },
   ];
   return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;

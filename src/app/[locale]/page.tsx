@@ -14,7 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return pageMetadata(locale, "home", locale === "id" ? "Rental kendaraan listrik untuk customer, driver, dan perusahaan di Jabodetabek." : "Electric vehicle rental for customers, drivers, and companies across Greater Jakarta.");
+  return pageMetadata(locale, "home", locale === "id" ? "Sewa Jadi Milik AutoRev: gunakan EV untuk bekerja, tuntaskan program, lalu jadikan unit itu milik Anda." : "AutoRev Rent to Own: drive an EV for work, complete the program, then make the vehicle yours.");
 }
 
 export default async function HomePage({ params }: Props) {
@@ -26,13 +26,13 @@ export default async function HomePage({ params }: Props) {
     <Hero locale={locale}/>
     <section className="section section--services" id="services">
       <div className="container">
-        <SectionHeading eyebrow={locale === "id" ? "TIGA BISNIS UTAMA" : "THREE CORE SERVICES"} title={locale === "id" ? "Pilih cara Anda bergerak." : "Choose how you move."} text={locale === "id" ? "Customer, mitra driver, atau bisnis." : "Customer, driver partner, or business."} align="center"/>
+        <SectionHeading eyebrow={locale === "id" ? "MULAI DARI SINI" : "START HERE"} title={locale === "id" ? "EV yang bekerja untuk masa depan Anda." : "An EV that works for your future."} text={locale === "id" ? "Bangun EV milik Anda, sewa untuk perjalanan, atau gerakkan bisnis dengan armada listrik." : "Build toward your own EV, rent for a journey, or move your business with an electric fleet."} align="center"/>
         <ServiceGateway locale={locale}/>
       </div>
     </section>
-    <HomeRental locale={locale}/>
-    <EVCinematic locale={locale}/>
     <HomeDriver locale={locale}/>
+    <EVCinematic locale={locale} scene="driver"/>
+    <HomeRental locale={locale}/>
     <HomeBusiness locale={locale}/>
     <HomeRoadmap locale={locale}/>
     <FinalCTA locale={locale}/>

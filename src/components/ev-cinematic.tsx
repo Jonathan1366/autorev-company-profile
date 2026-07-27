@@ -31,9 +31,9 @@ export function EVCinematic({ locale, scene = "mountain" }: { locale: Locale; sc
     : {
         source: "/videos/autorev-highway-city.mp4",
         poster: "/images/autorev-corporate-ev-v2.png",
-        eyebrow: locale === "id" ? "FOUNDING DRIVER · JALAN MENUJU MILIK" : "FOUNDING DRIVER · A PATH TO OWNERSHIP",
-        title: locale === "id" ? "Setiap jalan punya tujuan." : "Every drive has a destination.",
-        text: locale === "id" ? "Pilih rental untuk hari ini, atau jalankan program menuju EV milik sendiri." : "Rent for today, or work through the program toward an EV of your own.",
+        eyebrow: locale === "id" ? "FOUNDING DRIVER · SEWA JADI MILIK" : "FOUNDING DRIVER · RENT TO OWN",
+        title: locale === "id" ? "Kerja Anda punya arah." : "Your work can build toward more.",
+        text: locale === "id" ? "Gunakan EV untuk mencari penghasilan hari ini. Tuntaskan programnya, lalu jadikan EV itu milik Anda." : "Use the EV to earn today. Complete the program, then make the EV yours.",
       };
 
   return <section className={styles.cinematic} ref={ref} aria-label={locale === "id" ? "Perjalanan kendaraan listrik" : "Electric vehicle journey"}>
