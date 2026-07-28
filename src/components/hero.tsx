@@ -18,12 +18,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const copyY = useTransform(scrollYProgress, [0, .72], [0, reduceMotion ? 0 : -45]);
   const copyOpacity = useTransform(scrollYProgress, [0, .68], [1, reduceMotion ? 1 : .12]);
   const { home } = getCopy(locale);
-  const titleLines = locale === "id"
-    ? ["Sewa.", "Jalan.", "Jadi milik."]
-    : ["Rent.", "Drive.", "Own."];
-  const ownershipSteps = locale === "id"
-    ? ["Daftar", "Jalankan", "Jadi milik"]
-    : ["Apply", "Drive", "Own"];
+  const titleLines = ["EV Rental."];
   return (
     <section className="hero" id="top" ref={ref}>
       <motion.div className="hero__media" style={{ scale: imageScale, y: imageY }}>
@@ -42,29 +37,11 @@ export function Hero({ locale }: { locale: Locale }) {
           </motion.h1>
           <motion.p initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .52, duration: .65 }}>{home.subtitle}</motion.p>
           <motion.div className="hero__actions" initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .62, duration: .65 }}>
-            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Bandingkan Paket" : "Compare Plans"}</ButtonLink>
-            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan Saya" : "Check My Eligibility"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Lihat Paket Driver" : "View Driver Plans"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan Awal" : "Check Initial Eligibility"}</ButtonLink>
           </motion.div>
-          <motion.div className="hero__proof" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .78, duration: .7 }}><span>{locale === "id" ? "Mulai Rp300.000/hari" : "From IDR 300,000/day"}</span><span>{locale === "id" ? "Tenor 5 tahun" : "5-year program"}</span><span>{locale === "id" ? "Tanpa deposit / DP" : "No deposit / down payment"}</span></motion.div>
         </motion.div>
       </div>
-      <motion.aside
-        className="hero__ownership"
-        aria-label={locale === "id" ? "Perjalanan menuju kepemilikan EV" : "Your path to EV ownership"}
-        initial={reduceMotion ? false : { opacity: 0, x: 28 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: .82, duration: .72, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="hero__ownership-head">
-          <span>{locale === "id" ? "PERJALANAN KEPEMILIKAN" : "OWNERSHIP JOURNEY"}</span>
-          <i>FOUNDING DRIVER</i>
-        </div>
-        <ol>{ownershipSteps.map((step, index) => <li key={step}><small>0{index + 1}</small><strong>{step}</strong></li>)}</ol>
-        <div className="hero__ownership-foot">
-          <span>EV</span>
-          <p><strong>{locale === "id" ? "Tujuannya jelas." : "A destination in sight."}</strong><small>{locale === "id" ? "Tuntaskan program. Bawa pulang jadi milik." : "Complete the program. Make the EV yours."}</small></p>
-        </div>
-      </motion.aside>
       <a className="hero__scroll" href="#services" aria-label={locale === "id" ? "Lihat layanan" : "Explore services"}><span>{locale === "id" ? "JELAJAHI" : "EXPLORE"}</span><ChevronDown size={17} /></a>
     </section>
   );

@@ -20,11 +20,11 @@ export function Navbar({ locale }: { locale: Locale }) {
   const alternate = alternateLocale(locale);
   const routeWithoutLocale = pathname.replace(/^\/(id|en)/, "") || "";
   const services = locale === "id" ? [
-    { href: "/founding-driver", label: "01 · FOUNDING DRIVER · MULAI RP300 RIBU/HARI", title: "Sewa Jadi Milik", text: "Program 5 tahun tanpa deposit, DP, atau pelunasan akhir.", image: "/images/autorev-founding-driver-v2.png" },
+    { href: "/founding-driver", label: "01 · FOUNDING DRIVER · MULAI RP300 RIBU/HARI", title: "Program Driver EV", text: "Program 5 tahun tanpa deposit, DP, atau pelunasan akhir.", image: "/images/autorev-founding-driver-v2.png" },
     { href: "/autorev-rental", label: "02 · RENTAL PERJALANAN", title: "EV Rental", text: "Harian, mingguan, atau bulanan. Lepas kunci atau dengan driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
     { href: "/autorev-business", label: "03 · UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
-    { href: "/founding-driver", label: "01 · FOUNDING DRIVER · FROM IDR 300K/DAY", title: "Rent to Own", text: "Five-year program with no deposit, down payment, or final balloon payment.", image: "/images/autorev-founding-driver-v2.png" },
+    { href: "/founding-driver", label: "01 · FOUNDING DRIVER · FROM IDR 300K/DAY", title: "EV Driver Program", text: "Five-year program with no deposit, down payment, or final balloon payment.", image: "/images/autorev-founding-driver-v2.png" },
     { href: "/autorev-rental", label: "02 · TRAVEL RENTAL", title: "EV Rental", text: "Daily, weekly, or monthly. Self drive or with a driver.", image: "/images/autorev-rental-roadtrip-v3.png" },
     { href: "/autorev-business", label: "03 · FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", image: "/images/autorev-corporate-ev-v2.png" },
   ];

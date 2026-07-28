@@ -11,8 +11,8 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="container footer-top">
         <div className="footer-intro">
           <BrandLogo locale={locale} inverse />
-          <p>{locale === "id" ? "Dari kendaraan kerja hari ini menuju EV milik Anda." : "From today’s working vehicle toward an EV of your own."}</p>
-          <span>{locale === "id" ? "100% listrik. Jalan kepemilikan jelas." : "100% electric. A clear path to ownership."}</span>
+          <p>{locale === "id" ? "EV rental untuk perjalanan, operasional driver, dan kebutuhan bisnis." : "EV rental for journeys, driver operations, and business needs."}</p>
+          <span>{locale === "id" ? "Rental · Founding Driver · Business" : "Rental · Founding Driver · Business"}</span>
         </div>
         <div className="footer-links">
           <div>
@@ -37,7 +37,7 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} AutoRev Mobilitas Indonesia.</span>
-        <span>{locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}</span>
+        <span>{locale === "id" ? "EV Rental. Dibangun untuk bergerak." : "EV Rental. Built to move."}</span>
       </div>
     </footer>
   );

@@ -20,13 +20,13 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
   const cards = locale === "id" ? [
-    { label: "FOUNDING DRIVER · MULAI RP300.000/HARI", title: "Sewa Jadi Milik", text: "Cari penghasilan. Tuntaskan program 5 tahun. Proses EV menjadi milik sesuai kontrak.", cta: "Bandingkan Paket", href: "/founding-driver#paket", icon: Gauge },
-    { label: "UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", cta: "Pilih Rental", href: "/autorev-rental", icon: CarFront },
-    { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", cta: "Untuk Bisnis", href: "/autorev-business", icon: Building2 },
+    { label: "FOUNDING DRIVER · MULAI RP300.000/HARI", title: "EV Rental. Menuju Milik.", text: "Program EV Car Plus selama 5 tahun, dengan alih kepemilikan sesuai kontrak.", cta: "Lihat Struktur Paket", href: "/founding-driver#paket", icon: Gauge },
+    { label: "UNTUK CUSTOMER", title: "AutoRev EV Rental", text: "Lepas kunci atau dengan driver, untuk kebutuhan harian hingga bulanan.", cta: "Lihat Pilihan Rental", href: "/autorev-rental", icon: CarFront },
+    { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV dan dukungan operasional untuk corporate serta owner rental.", cta: "Lihat Solusi Bisnis", href: "/autorev-business", icon: Building2 },
   ] : [
-    { label: "FOUNDING DRIVER · FROM IDR 300,000/DAY", title: "Rent to Own", text: "Pursue earnings. Complete the five-year program. Transfer ownership under the contract.", cta: "Compare Plans", href: "/founding-driver#paket", icon: Gauge },
-    { label: "FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", cta: "Choose Rental", href: "/autorev-rental", icon: CarFront },
-    { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", cta: "For Business", href: "/autorev-business", icon: Building2 },
+    { label: "FOUNDING DRIVER · FROM IDR 300,000/DAY", title: "EV Rental. Path to Ownership.", text: "A five-year Car Plus EV program with ownership transfer under the contract.", cta: "View Plan Structure", href: "/founding-driver#paket", icon: Gauge },
+    { label: "FOR CUSTOMERS", title: "AutoRev EV Rental", text: "Self drive or with a driver, from daily to monthly needs.", cta: "View Rental Options", href: "/autorev-rental", icon: CarFront },
+    { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets and operational support for companies and rental owners.", cta: "View Business Solutions", href: "/autorev-business", icon: Building2 },
   ];
   return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;
 }

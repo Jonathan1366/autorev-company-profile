@@ -11,19 +11,16 @@ import {
   CalendarDays,
   CarFront,
   Check,
-  ChevronRight,
   Clock3,
   FileCheck2,
   GraduationCap,
   HandCoins,
   MapPinned,
   ShieldCheck,
-  Sparkles,
   UserRoundCheck,
   Utensils,
   WalletCards,
   Wrench,
-  X,
 } from "lucide-react";
 import {
   motion,
@@ -51,25 +48,22 @@ type Plan = {
 
 const copy = {
   id: {
-    eyebrow: "PROGRAM FOUNDING DRIVER · ANGKATAN PERTAMA",
-    title: ["Sewa.", "Jalan.", "Jadi Milik."],
-    salesLine: "Cari penghasilan hari ini. Miliki EV Anda setelah program selesai.",
-    intro:
-      "Jalankan EV kategori Car Plus mulai Rp300.000 per hari. Tanpa deposit atau uang muka, tanpa pelunasan akhir. Kepemilikan diproses setelah tenor 5 tahun, seluruh kewajiban, dan verifikasi selesai sesuai kontrak.",
-    heroCta: "Bandingkan Paket",
-    eligibility: "Cek Kelayakan Saya",
-    heroFacts: ["Mulai Rp300.000/hari", "Tenor 5 tahun", "Libur bebas setoran"],
-    journey: ["Daftar", "Beroperasi", "Tuntaskan", "Jadi milik"],
-    priceEyebrow: "PAKET FOUNDING DRIVER",
-    priceTitle: "Pilih ritme kerja yang paling cocok.",
+    eyebrow: "AUTOREV · FOUNDING DRIVER",
+    title: ["EV Rental."],
+    salesLine: "Untuk operasional driver.",
+    intro: "Pilih paket yang sesuai dengan kebutuhan operasional Anda.",
+    heroCta: "Lihat Paket",
+    eligibility: "Cek Kelayakan Awal",
+    priceEyebrow: "PILIHAN PAKET",
+    priceTitle: "Pilih paket.",
     priceText:
-      "Dua paket, satu tujuan: menuntaskan program menuju EV milik Anda.",
+      "Bandingkan Regular dan Premium sesuai ritme operasional Anda.",
     plans: [
       {
         name: "Founding Regular",
-        badge: "SETORAN LEBIH RINGAN",
+        badge: "2 HARI LIBUR · BEBAS SETORAN",
         price: "Rp300.000",
-        description: "Untuk memulai dengan setoran harian yang lebih ringan.",
+        description: "Setoran harian lebih rendah dengan seluruh benefit inti program.",
         accent: "cyan",
         highlights: ["2 hari", "1x / minggu", "5 tahun"],
         benefits: [
@@ -83,13 +77,13 @@ const copy = {
           "Tanpa deposit atau uang muka",
           "Tanpa pelunasan akhir",
         ],
-        cta: "Pilih Founding Regular",
+        cta: "Cek Kelayakan Regular",
       },
       {
         name: "Founding Premium",
-        badge: "BENEFIT LEBIH LENGKAP",
+        badge: "3 HARI LIBUR · BEBAS SETORAN",
         price: "Rp350.000",
-        description: "Benefit mingguan lebih lengkap dan satu hari libur tambahan.",
+        description: "Satu hari libur tambahan dan benefit makan lebih sering.",
         accent: "violet",
         highlights: ["3 hari", "4x / minggu", "5 tahun"],
         benefits: [
@@ -103,13 +97,13 @@ const copy = {
           "Tanpa deposit atau uang muka",
           "Tanpa pelunasan akhir",
         ],
-        cta: "Pilih Founding Premium",
+        cta: "Cek Kelayakan Premium",
       },
     ] satisfies Plan[],
     priceNote:
       "Setoran dibayar paling lambat pukul 22.00 WIB pada hari operasional. Hari libur sesuai paket bebas setoran. Detail jadwal libur, charging, servis, maintenance, dan asuransi mengikuti kontrak serta ketentuan program.",
-    compareEyebrow: "BANDINGKAN DENGAN JELAS",
-    compareTitle: "Tidak ada biaya besar yang disembunyikan di ujung.",
+    compareEyebrow: "PERBANDINGAN PAKET",
+    compareTitle: "Detail Regular dan Premium.",
     compareText:
       "Perbedaan utama berada pada setoran harian, jumlah hari libur, dan benefit makan. Jalur kepemilikan serta benefit kendaraan utama berlaku pada kedua paket.",
     compareHead: ["Detail", "Founding Regular", "Founding Premium"],
@@ -125,18 +119,18 @@ const copy = {
       ["Training", "Bila diperlukan", "Bila diperlukan"],
       ["Servis & asuransi", "Sesuai program", "Sesuai program"],
     ],
-    sharedEyebrow: "BERLAKU UNTUK KEDUA PAKET",
-    sharedTitle: "Yang Anda dapatkan, sejak perjalanan dimulai.",
+    sharedEyebrow: "CAKUPAN PROGRAM",
+    sharedTitle: "Fasilitas di kedua paket.",
     shared: [
-      ["Jalur menuju kepemilikan", "Tuntaskan tenor 5 tahun dan seluruh kewajiban untuk proses pengalihan kepemilikan sesuai kontrak."],
-      ["Tanpa biaya awal besar", "Tidak ada deposit atau uang muka, serta tidak ada pelunasan kepemilikan di akhir tenor."],
+      ["Pengalihan kepemilikan", "Tuntaskan tenor 5 tahun dan seluruh kewajiban untuk proses pengalihan kepemilikan sesuai kontrak."],
+      ["Biaya awal", "Tidak ada deposit atau uang muka, serta tidak ada pelunasan kepemilikan di akhir tenor."],
       ["Charging sampai 2029", "Charging gratis tersedia sampai tahun 2029 sesuai ketentuan program."],
-      ["Perlindungan kendaraan", "Servis, maintenance, dan asuransi diberikan sesuai cakupan program."],
-      ["Pendampingan untuk memulai", "Persiapan akun dan training tersedia bagi driver yang memerlukannya."],
-      ["Hari libur benar-benar libur", "Dua atau tiga hari per bulan sesuai paket, tanpa kewajiban setoran pada hari tersebut."],
+      ["Servis dan perlindungan", "Servis, maintenance, dan asuransi diberikan sesuai cakupan program."],
+      ["Onboarding driver", "Persiapan akun dan training tersedia bagi driver yang memerlukannya."],
+      ["Hari libur tanpa setoran", "Dua atau tiga hari per bulan sesuai paket, tanpa kewajiban setoran pada hari tersebut."],
     ],
-    stepsEyebrow: "DARI DAFTAR MENUJU MILIK",
-    stepsTitle: "Satu perjalanan. Tujuh langkah yang transparan.",
+    stepsEyebrow: "ALUR PROGRAM",
+    stepsTitle: "Dari pendaftaran hingga pengalihan kepemilikan.",
     steps: [
       ["Pilih paket dan cek kelayakan", "Pilih Regular, Premium, atau konsultasikan kebutuhan Anda terlebih dahulu."],
       ["Siapkan dokumen", "KTP, Kartu Keluarga, dan SIM A aktif sebagai dokumen awal AutoRev."],
@@ -146,46 +140,46 @@ const copy = {
       ["Beroperasi dan tuntaskan program", "Gunakan kendaraan sesuai ketentuan dan selesaikan kewajiban selama tenor lima tahun."],
       ["Verifikasi dan alih kepemilikan", "Setelah tenor dan kewajiban selesai, administrasi kepemilikan diproses sesuai kontrak."],
     ],
-    profileEyebrow: "DUA TITIK MULAI",
-    profileTitle: "Baru mulai atau sudah berpengalaman? Keduanya punya jalur.",
+    profileEyebrow: "PROFIL DRIVER",
+    profileTitle: "Jalur untuk driver baru dan berpengalaman.",
     beginner: {
       label: "DRIVER PEMULA",
-      title: "Mulai dengan bekal yang benar.",
+      title: "Persiapan untuk driver baru.",
       text: "Bila diperlukan, AutoRev menyediakan training sekitar satu minggu, termasuk pengenalan EV, aturan operasional, dan persiapan akun.",
       cta: "Saya Driver Pemula",
     },
     experienced: {
       label: "DRIVER BERPENGALAMAN",
-      title: "Akun lama tetap bisa berjalan.",
+      title: "Verifikasi untuk akun yang sudah aktif.",
       text: "Gunakan akun yang sudah ada sepanjang akun dan kendaraan memenuhi ketentuan platform. Proses difokuskan pada verifikasi, onboarding, dan persiapan EV.",
       cta: "Saya Sudah Berpengalaman",
     },
-    pathEyebrow: "PILIH JALUR AUTOREV",
-    pathTitle: "Founding Driver berbeda dari rental perjalanan biasa.",
+    pathEyebrow: "LAYANAN AUTOREV",
+    pathTitle: "Pilih layanan sesuai kebutuhan.",
     paths: [
-      ["PROGRAM DRIVER", "Sewa Jadi Milik", "Untuk driver yang ingin beroperasi dengan EV dan menuntaskan jalur kepemilikan 5 tahun.", "/founding-driver#paket", "Lihat paket driver"],
+      ["PROGRAM DRIVER", "Founding Driver", "Untuk driver yang ingin beroperasi dengan EV dan menuntaskan jalur kepemilikan 5 tahun.", "/founding-driver#paket", "Lihat paket driver"],
       ["UNTUK PERJALANAN", "EV Rental", "Untuk kebutuhan harian, mingguan, atau bulanan—lepas kunci maupun dengan driver.", "/autorev-rental", "Lihat rental perjalanan"],
       ["UNTUK PERUSAHAAN", "AutoRev Business", "Untuk kebutuhan armada dan operasional bisnis, corporate, atau owner rental.", "/autorev-business", "Lihat solusi bisnis"],
     ],
-    platformEyebrow: "FLEKSIBEL UNTUK BEROPERASI",
-    platformTitle: "Satu EV. Lebih banyak pilihan untuk mencari order.",
+    platformEyebrow: "PLATFORM OPERASIONAL",
+    platformTitle: "Platform operasional yang dapat digunakan.",
     platformText:
       "EV kategori Car Plus dapat digunakan pada layanan Car Plus maupun Car Standard di Grab sesuai aktivasi akun, ketersediaan layanan, wilayah, dan kebijakan platform. Kendaraan juga dapat digunakan pada platform mobilitas atau pengantaran lain yang sesuai.",
     platformNote:
       "Aktivasi akun, kategori layanan, ketersediaan order, dan wilayah mengikuti verifikasi serta kebijakan masing-masing platform. AutoRev tidak menjamin aktivasi akun, jumlah order, atau penghasilan. Penyebutan merek tidak menunjukkan kerja sama atau endorsement kecuali dinyatakan resmi.",
-    docsTitle: "Tiga dokumen untuk memulai.",
+    docsTitle: "Dokumen untuk verifikasi awal.",
     docsText:
       "Setelah dokumen awal diperiksa, proses dilanjutkan dengan penjelasan program, persiapan akun, training bila diperlukan, dan persiapan kendaraan.",
     security: "AutoRev tidak pernah meminta kata sandi atau kode OTP akun platform Anda.",
-    statusEyebrow: "BENEFIT & PENGEMBANGAN",
-    statusTitle: "Jelas mana yang termasuk, mana yang sedang dibangun.",
+    statusEyebrow: "STATUS LAYANAN",
+    statusTitle: "Cakupan aktif dan pengembangan.",
     statuses: [
       ["TERMASUK DALAM PROGRAM", "Kendaraan, jalur kepemilikan, hari libur bebas setoran, meal benefit, charging, serta servis, maintenance, dan asuransi sesuai ketentuan."],
       ["SESUAI VERIFIKASI / KETENTUAN", "Aktivasi akun, kategori layanan platform, cakupan servis, maintenance, asuransi, serta penggunaan charging."],
       ["DIKEMBANGKAN BERTAHAP", "BPJS, booth atau kantin, paguyuban driver, dan family gathering. Belum dianggap benefit aktif sebelum dikonfirmasi."],
     ],
     operationEyebrow: "KETENTUAN OPERASIONAL",
-    operationTitle: "Aturannya jelas sebelum Anda mulai jalan.",
+    operationTitle: "Ketentuan operasional utama.",
     operations: [
       ["Setoran harian", "Dibayarkan setiap hari operasional paling lambat pukul 22.00 WIB."],
       ["Hari libur bebas setoran", "Regular mendapat 2 hari dan Premium 3 hari libur per bulan. Tidak ada setoran pada hari libur sesuai paket."],
@@ -195,8 +189,8 @@ const copy = {
       ["Perawatan kendaraan", "Driver wajib menjaga kondisi, kebersihan, dan keamanan kendaraan."],
       ["Insiden atau kecelakaan", "Kerusakan, insiden, atau kecelakaan wajib segera dilaporkan kepada tim AutoRev."],
     ],
-    faqEyebrow: "JAWABAN TANPA PUTAR-PUTAR",
-    faqTitle: "Sebelum mendaftar, pastikan semuanya jelas.",
+    faqEyebrow: "INFORMASI PROGRAM",
+    faqTitle: "Hal yang perlu dipahami sebelum mendaftar.",
     faqs: [
       ["Apakah kendaraan benar-benar menjadi milik saya?", "Program dirancang untuk pengalihan kepemilikan setelah tenor 5 tahun, seluruh kewajiban, verifikasi akhir, dan proses administrasi selesai sesuai kontrak."],
       ["Apakah ada deposit atau uang muka?", "Tidak. Regular dan Premium tidak memerlukan deposit atau uang muka."],
@@ -219,33 +213,30 @@ const copy = {
       ["Izin wajib", "Untuk penggunaan luar kota"],
     ],
     finalEyebrow: "FOUNDING DRIVER AUTOREV",
-    finalTitle: "Dari perjalanan pertama menuju EV milik sendiri.",
+    finalTitle: "Pelajari paketnya. Mulai saat Anda siap.",
     finalText:
-      "Pilih paket sekarang atau bicara dengan tim terlebih dahulu. Tidak perlu langsung memutuskan sebelum semua ketentuan Anda pahami.",
+      "Bandingkan Regular dan Premium, lalu bicara dengan tim AutoRev untuk memastikan programnya sesuai dengan kebutuhan operasional Anda.",
     finalCta: "Cek Kelayakan Awal",
     finalSecondary: "Tanya via WhatsApp",
     disclaimer:
       "Program Founding Driver mengikuti kelayakan peserta, ketersediaan unit, wilayah operasional, kontrak, dan ketentuan program. Kepemilikan dialihkan setelah tenor 5 tahun, seluruh kewajiban, verifikasi akhir, dan administrasi pengalihan selesai. Tidak ada deposit atau uang muka dan tidak ada pelunasan kepemilikan di akhir tenor; kewajiban yang masih tertunggak berdasarkan kontrak tetap harus diselesaikan. Charging gratis berlaku sampai tahun 2029 sesuai ketentuan program. AutoRev tidak menjamin aktivasi akun, jumlah order, atau penghasilan.",
   },
   en: {
-    eyebrow: "AUTOREV FOUNDING DRIVER · FIRST COHORT",
-    title: ["Rent.", "Drive.", "Own."],
-    salesLine: "Pursue earnings today. Own your EV when the program is complete.",
-    intro:
-      "Drive a Car Plus-category EV from IDR 300,000 per day. No security deposit or down payment, and no end-of-term balloon payment. Ownership is transferred after the five-year term, all obligations, and verification are completed under the contract.",
-    heroCta: "Compare Plans",
-    eligibility: "Check My Eligibility",
-    heroFacts: ["From IDR 300,000/day", "5-year program", "Payment-free days off"],
-    journey: ["Apply", "Operate", "Complete", "Own"],
-    priceEyebrow: "FOUNDING DRIVER PLANS",
-    priceTitle: "Choose the rhythm that fits you.",
-    priceText: "Two plans, one goal: complete the path toward owning your EV.",
+    eyebrow: "AUTOREV · FOUNDING DRIVER",
+    title: ["EV Rental."],
+    salesLine: "Built for driver operations.",
+    intro: "Choose the plan that fits your operating needs.",
+    heroCta: "View Plans",
+    eligibility: "Initial Eligibility Check",
+    priceEyebrow: "PLAN OPTIONS",
+    priceTitle: "Choose a plan.",
+    priceText: "Compare Regular and Premium based on your operating rhythm.",
     plans: [
       {
         name: "Founding Regular",
-        badge: "LOWER DAILY PAYMENT",
+        badge: "2 DAYS OFF · NO PAYMENT DUE",
         price: "IDR 300,000",
-        description: "A lighter daily payment to begin your ownership journey.",
+        description: "A lower daily payment with every core program benefit.",
         accent: "cyan",
         highlights: ["2 days", "1x / week", "5 years"],
         benefits: [
@@ -259,13 +250,13 @@ const copy = {
           "No security deposit or down payment",
           "No end-of-term balloon payment",
         ],
-        cta: "Choose Founding Regular",
+        cta: "Check Regular Eligibility",
       },
       {
         name: "Founding Premium",
-        badge: "MORE COMPLETE BENEFITS",
+        badge: "3 DAYS OFF · NO PAYMENT DUE",
         price: "IDR 350,000",
-        description: "More weekly benefits and one additional day off.",
+        description: "One additional day off and more frequent meal benefits.",
         accent: "violet",
         highlights: ["3 days", "4x / week", "5 years"],
         benefits: [
@@ -279,13 +270,13 @@ const copy = {
           "No security deposit or down payment",
           "No end-of-term balloon payment",
         ],
-        cta: "Choose Founding Premium",
+        cta: "Check Premium Eligibility",
       },
     ] satisfies Plan[],
     priceNote:
       "Daily program payments are due by 10:00 PM WIB on operating days. No daily payment is due on the plan’s designated days off. Scheduling, charging, service, maintenance, and insurance details are governed by the contract and program terms.",
-    compareEyebrow: "COMPARE WITH CLARITY",
-    compareTitle: "No large cost hidden at the finish line.",
+    compareEyebrow: "PLAN COMPARISON",
+    compareTitle: "Regular and Premium in detail.",
     compareText:
       "The main differences are the daily payment, number of days off, and meal benefits. The ownership path and core vehicle benefits apply to both plans.",
     compareHead: ["Detail", "Founding Regular", "Founding Premium"],
@@ -301,18 +292,18 @@ const copy = {
       ["Training", "When needed", "When needed"],
       ["Service & insurance", "Under program terms", "Under program terms"],
     ],
-    sharedEyebrow: "INCLUDED IN BOTH PLANS",
-    sharedTitle: "What comes with the journey.",
+    sharedEyebrow: "PROGRAM COVERAGE",
+    sharedTitle: "Included in both plans.",
     shared: [
-      ["A clear path to ownership", "Complete the five-year term and all obligations for ownership transfer under the contract."],
-      ["No large upfront payment", "No deposit or down payment and no ownership balloon payment at the end."],
+      ["Ownership transfer", "Complete the five-year term and all obligations for ownership transfer under the contract."],
+      ["Upfront cost", "No deposit or down payment and no ownership balloon payment at the end."],
       ["Charging through 2029", "Free charging is available through 2029 under the program terms."],
-      ["Vehicle protection", "Service, maintenance, and insurance are provided within the program scope."],
-      ["Help getting started", "Account preparation and training are available for drivers who need them."],
-      ["Days off are truly off", "Two or three days each month, based on plan, with no daily payment due."],
+      ["Service and protection", "Service, maintenance, and insurance are provided within the program scope."],
+      ["Driver onboarding", "Account preparation and training are available for drivers who need them."],
+      ["Payment-free days off", "Two or three days each month, based on plan, with no daily payment due."],
     ],
-    stepsEyebrow: "FROM APPLYING TO OWNING",
-    stepsTitle: "One journey. Seven transparent steps.",
+    stepsEyebrow: "PROGRAM FLOW",
+    stepsTitle: "From application to ownership transfer.",
     steps: [
       ["Choose a plan and check eligibility", "Choose Regular, Premium, or discuss your needs first."],
       ["Prepare your documents", "Indonesian ID card, Family Card, and a valid Class A licence as initial AutoRev documents."],
@@ -322,46 +313,46 @@ const copy = {
       ["Operate and complete the program", "Use the vehicle under the rules and complete all obligations over five years."],
       ["Final verification and ownership transfer", "Once complete, the ownership administration proceeds under the contract."],
     ],
-    profileEyebrow: "TWO STARTING POINTS",
-    profileTitle: "New to driving or already experienced? There is a path for both.",
+    profileEyebrow: "DRIVER PROFILES",
+    profileTitle: "A path for new and experienced drivers.",
     beginner: {
       label: "NEW DRIVER",
-      title: "Start with the right foundation.",
+      title: "Preparation for new drivers.",
       text: "When needed, AutoRev provides approximately one week of training covering EV familiarization, operating rules, and account preparation.",
       cta: "I Am a New Driver",
     },
     experienced: {
       label: "EXPERIENCED DRIVER",
-      title: "Keep using an eligible account.",
+      title: "Verification for an active account.",
       text: "Use your existing account as long as the account and vehicle meet the platform rules. We focus on verification, onboarding, and preparing the EV.",
       cta: "I Am Experienced",
     },
-    pathEyebrow: "CHOOSE YOUR AUTOREV PATH",
-    pathTitle: "Founding Driver is different from a travel rental.",
+    pathEyebrow: "AUTOREV SERVICES",
+    pathTitle: "Choose the service that fits the need.",
     paths: [
-      ["DRIVER PROGRAM", "Rent to Own", "For drivers who want to operate an EV and complete a five-year ownership path.", "/founding-driver#paket", "View driver plans"],
+      ["DRIVER PROGRAM", "Founding Driver", "For drivers who want to operate an EV and complete a five-year ownership path.", "/founding-driver#paket", "View driver plans"],
       ["FOR TRAVEL", "EV Rental", "For daily, weekly, or monthly travel—self drive or with a driver.", "/autorev-rental", "View travel rental"],
       ["FOR COMPANIES", "AutoRev Business", "For corporate fleets, business operations, and rental owners.", "/autorev-business", "View business solutions"],
     ],
-    platformEyebrow: "FLEXIBLE WAYS TO OPERATE",
-    platformTitle: "One EV. More ways to pursue orders.",
+    platformEyebrow: "OPERATING PLATFORMS",
+    platformTitle: "Compatible operating platforms.",
     platformText:
       "The Car Plus-category EV may be used for Car Plus or Car Standard services on Grab, subject to account activation, service availability, operating area, and platform policies. It may also be used on other compatible mobility or delivery platforms.",
     platformNote:
       "Account activation, service categories, order availability, and operating areas are determined by each platform. AutoRev does not guarantee account activation, order volume, or earnings. Mentioning a platform does not imply a partnership or endorsement unless officially stated.",
-    docsTitle: "Three documents to get started.",
+    docsTitle: "Documents for initial verification.",
     docsText:
       "After the initial documents are reviewed, the process continues with a program briefing, account preparation, training if needed, and vehicle preparation.",
     security: "AutoRev will never ask for your platform account password or OTP code.",
-    statusEyebrow: "BENEFITS & DEVELOPMENT",
-    statusTitle: "See what is included and what is still being built.",
+    statusEyebrow: "SERVICE STATUS",
+    statusTitle: "Active coverage and development.",
     statuses: [
       ["INCLUDED IN THE PROGRAM", "Vehicle, ownership path, payment-free days off, meal benefit, charging, and service, maintenance, and insurance under the terms."],
       ["SUBJECT TO VERIFICATION / TERMS", "Account activation, platform categories, service, maintenance, insurance scope, and charging usage."],
       ["BEING DEVELOPED", "BPJS, food booths or canteens, driver community, and family gatherings. These are not active benefits until confirmed."],
     ],
     operationEyebrow: "OPERATING TERMS",
-    operationTitle: "Know the rules before you start driving.",
+    operationTitle: "Core operating terms.",
     operations: [
       ["Daily program payment", "Due on every operating day by 10:00 PM WIB."],
       ["Payment-free days off", "Regular includes 2 and Premium 3 days off per month. No daily payment is due on those designated days."],
@@ -371,8 +362,8 @@ const copy = {
       ["Vehicle care", "Drivers must maintain the vehicle’s condition, cleanliness, and security."],
       ["Incidents or accidents", "Damage, incidents, or accidents must be reported to the AutoRev team immediately."],
     ],
-    faqEyebrow: "STRAIGHT ANSWERS",
-    faqTitle: "Make sure everything is clear before you apply.",
+    faqEyebrow: "PROGRAM INFORMATION",
+    faqTitle: "What to understand before applying.",
     faqs: [
       ["Will the EV actually become mine?", "The program is designed for ownership transfer after the five-year term, all obligations, final verification, and administration are completed under the contract."],
       ["Is there a deposit or down payment?", "No. Neither Regular nor Premium requires a security deposit or down payment."],
@@ -395,9 +386,9 @@ const copy = {
       ["Approval", "Required for out-of-town use"],
     ],
     finalEyebrow: "AUTOREV FOUNDING DRIVER",
-    finalTitle: "From the first drive toward owning your EV.",
+    finalTitle: "Review the plans. Start when you are ready.",
     finalText:
-      "Choose a plan now or speak with the team first. You do not have to decide until you understand every term.",
+      "Compare Regular and Premium, then speak with AutoRev to confirm the program fits your operating needs.",
     finalCta: "Check Initial Eligibility",
     finalSecondary: "Ask on WhatsApp",
     disclaimer:
@@ -428,22 +419,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
         <div className={styles.heroGrid} />
         <div className={`container ${styles.heroInner}`}>
           <motion.div
-            className={styles.heroJourney}
-            initial={{ opacity: 0, x: -18 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: .68, duration: .65, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span>01</span>
-            {t.journey.map((step, index) => (
-              <div key={step}>
-                <i />
-                <small>{step}</small>
-                {index < t.journey.length - 1 && <ChevronRight aria-hidden="true" />}
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
             className={styles.heroCopy}
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
@@ -451,20 +426,13 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
           >
             <span className={styles.eyebrow}><i />{t.eyebrow}</span>
             <h1 aria-label={t.title.join(" ")}>
-              {t.title.map((line, index) => (
-                <span key={line} className={index === t.title.length - 1 ? styles.heroSerif : undefined}>
-                  {line}
-                </span>
-              ))}
+              {t.title.map((line) => <span key={line}>{line}</span>)}
             </h1>
             <strong className={styles.salesLine}>{t.salesLine}</strong>
             <p>{t.intro}</p>
             <div className={styles.heroActions}>
               <a className={styles.primaryButton} href="#paket">{t.heroCta}<ArrowDown /></a>
               <Link className={styles.ghostButton} href={localizePath(locale, "/contact?type=driver")}>{t.eligibility}<ArrowRight /></Link>
-            </div>
-            <div className={styles.heroFacts}>
-              {t.heroFacts.map((fact) => <span key={fact}><Check />{fact}</span>)}
             </div>
           </motion.div>
         </div>
@@ -493,8 +461,14 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             <span className={styles.sectionEyebrow}>{t.sharedEyebrow}</span>
             <h2>{t.sharedTitle}</h2>
             <div className={styles.noFees}>
-              <span><X />0 deposit / DP</span>
-              <span><X />0 pelunasan akhir</span>
+              <span>
+                <strong>{locale === "id" ? "Rp0" : "IDR 0"}</strong>
+                <i>{locale === "id" ? "deposit / DP" : "deposit / down payment"}</i>
+              </span>
+              <span>
+                <strong>{locale === "id" ? "Rp0" : "IDR 0"}</strong>
+                <i>{locale === "id" ? "pelunasan akhir" : "final balloon payment"}</i>
+              </span>
             </div>
           </RevealBlock>
           <div className={styles.sharedGrid}>
@@ -622,7 +596,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
           </RevealBlock>
           <RevealBlock className={styles.documentCard}>
             <FileCheck2 />
-            <span>{locale === "id" ? "DOKUMEN AWAL AUTOREV" : "INITIAL AUTOREV DOCUMENTS"}</span>
+            <span>{locale === "id" ? "VERIFIKASI AWAL" : "INITIAL VERIFICATION"}</span>
             <h3>{t.docsTitle}</h3>
             <ul>
               <li><Check />KTP</li>
@@ -763,8 +737,8 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
   const glowY = useMotionValue(0);
   const normalizedX = useMotionValue(0);
   const normalizedY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(normalizedY, [-.5, .5], [2.1, -2.1]), { stiffness: 250, damping: 26 });
-  const rotateY = useSpring(useTransform(normalizedX, [-.5, .5], [-2.1, 2.1]), { stiffness: 250, damping: 26 });
+  const rotateX = useSpring(useTransform(normalizedY, [-.5, .5], [.8, -.8]), { stiffness: 250, damping: 28 });
+  const rotateY = useSpring(useTransform(normalizedX, [-.5, .5], [-.8, .8]), { stiffness: 250, damping: 28 });
 
   function handlePointerMove(event: ReactPointerEvent<HTMLElement>) {
     if (reduceMotion || event.pointerType === "touch") return;
@@ -798,7 +772,7 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
       <motion.i className={styles.spotlight} aria-hidden="true" style={{ x: glowX, y: glowY }} />
       <div className={styles.planTop}>
         <span>{plan.badge}</span>
-        <Sparkles />
+        <small>0{index + 1}</small>
       </div>
       <h3>{plan.name}</h3>
       <p>{plan.description}</p>

@@ -20,10 +20,10 @@ export function HomeRental({ locale }: { locale: Locale }) {
         <ScrollStoryImage className="priority-feature__visual" src="/images/autorev-rental-roadtrip-v3.png" alt={locale === "id" ? "Rombongan memulai perjalanan dengan kendaraan listrik" : "Friends beginning a journey in an electric vehicle"}/>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">AUTOREV EV RENTAL</span>
-          <h2>{locale === "id" ? "Pergi bersama. Pulang bawa cerita." : "Go together. Bring back stories."}</h2>
-          <p>{locale === "id" ? "Rental EV untuk perjalanan yang ingin dinikmati, bukan dipikirkan." : "EV rental for journeys worth enjoying, not overthinking."}</p>
+          <h2>{locale === "id" ? "EV untuk setiap perjalanan." : "An EV for every journey."}</h2>
+          <p>{locale === "id" ? "Lepas kunci atau dengan driver, dengan durasi yang mengikuti kebutuhan Anda." : "Self drive or with a driver, for a duration that fits your needs."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/autorev-rental")} variant="primary">{locale === "id" ? "Pilih Cara Sewa" : "Choose Your Rental"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/autorev-rental")} variant="primary">{locale === "id" ? "Lihat Pilihan Rental" : "View Rental Options"}</ButtonLink>
         </Reveal>
       </div>
     </section>
@@ -40,8 +40,8 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
         <Reveal className="priority-feature__visual"><Image src="/images/autorev-corporate-ev-v2.png" alt={locale === "id" ? "Armada kendaraan listrik untuk operasional perusahaan" : "Electric vehicles ready for company operations"} fill sizes="(max-width: 900px) 100vw, 55vw" quality={92}/></Reveal>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow eyebrow--light">{locale === "id" ? "UNTUK PERUSAHAAN" : "FOR COMPANIES"}</span>
-          <h2>{locale === "id" ? "EV siap kerja." : "EVs ready for work."}</h2>
-          <p>{locale === "id" ? "Untuk corporate dan owner rental." : "For companies and rental owners."}</p>
+          <h2>{locale === "id" ? "Armada EV. Siap beroperasi." : "An EV fleet. Ready to operate."}</h2>
+          <p>{locale === "id" ? "Pilihan kendaraan dan dukungan operasional untuk corporate serta owner rental." : "Vehicles and operational support for companies and rental owners."}</p>
           <FeaturePoints points={points}/>
           <ButtonLink href={localizePath(locale,"/autorev-business")} variant="light">{locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}</ButtonLink>
         </Reveal>
@@ -60,10 +60,10 @@ export function HomeDriver({ locale }: { locale: Locale }) {
         <ScrollStoryImage className="priority-feature__visual" src="/images/autorev-driver-passenger-v3.png" alt={locale === "id" ? "Mitra driver kendaraan listrik mengantar penumpang" : "An electric vehicle driver partner taking a passenger"}/>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">FOUNDING DRIVER</span>
-          <h2>{locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}</h2>
-          <p>{locale === "id" ? "Cari penghasilan dengan EV kategori Car Plus hari ini. Setelah program lima tahun, seluruh kewajiban, dan verifikasi selesai, kepemilikan diproses sesuai kontrak." : "Pursue earnings with a Car Plus-category EV today. After the five-year program, all obligations, and verification are complete, ownership is processed under the contract."}</p>
+          <h2>{locale === "id" ? "EV Rental untuk kerja. Menuju milik." : "EV rental for work. A path to ownership."}</h2>
+          <p>{locale === "id" ? "Operasikan EV kategori Car Plus melalui program 5 tahun. Setelah kewajiban program dan verifikasi selesai, alih kepemilikan diproses sesuai kontrak." : "Operate a Car Plus-category EV through a five-year program. Once program obligations and verification are complete, ownership transfer is processed under the contract."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Bandingkan Regular & Premium" : "Compare Regular & Premium"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Lihat Struktur Paket" : "View Plan Structure"}</ButtonLink>
         </Reveal>
       </div>
     </section>

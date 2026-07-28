@@ -8,7 +8,7 @@ import { LeadForm } from "./lead-form";
 
 const types: { type: LeadType; icon: typeof CarFront; id: string; en: string }[] = [
   { type: "rental", icon: CarFront, id: "Rental EV", en: "EV Rental" },
-  { type: "driver", icon: Gauge, id: "Sewa Jadi Milik", en: "Rent to Own" },
+  { type: "driver", icon: Gauge, id: "Founding Driver", en: "Founding Driver" },
   { type: "business", icon: Building2, id: "Bisnis EV", en: "EV Business" },
   { type: "system", icon: MonitorCog, id: "Demo RevAuto", en: "RevAuto Demo" },
 ];

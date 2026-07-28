@@ -14,7 +14,7 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return pageMetadata(locale, "home", locale === "id" ? "Sewa Jadi Milik AutoRev: gunakan EV untuk bekerja, tuntaskan program, lalu jadikan unit itu milik Anda." : "AutoRev Rent to Own: drive an EV for work, complete the program, then make the vehicle yours.");
+  return pageMetadata(locale, "home", locale === "id" ? "EV rental AutoRev untuk perjalanan, operasional driver, dan kebutuhan bisnis. Program Founding Driver tersedia mulai Rp300.000 per hari." : "AutoRev EV rental for journeys, driver operations, and business needs. The Founding Driver program starts from IDR 300,000 per day.");
 }
 
 export default async function HomePage({ params }: Props) {
