@@ -8,9 +8,9 @@ export function FinalCTA({ locale }: { locale: Locale }) {
     <section className="final-cta">
       <div className="container final-cta__content">
         <span className="eyebrow eyebrow--light"><i />FOUNDING DRIVER · AUTOREV</span>
-        <h2>{locale === "id" ? "Siap mengubah perjalanan jadi kepemilikan?" : "Ready to turn every drive into ownership?"}</h2>
-        <p>{locale === "id" ? "Mulai Sewa Jadi Milik dan bangun jalan menuju EV Anda sendiri." : "Start Rent to Own and build your path toward an EV of your own."}</p>
-        <div><ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="light">{locale === "id" ? "Mulai Jadi Pemilik" : "Start Your Ownership Path"}</ButtonLink><ButtonLink href={`https://wa.me/${siteConfig.whatsapp}`} variant="ghost">WhatsApp</ButtonLink></div>
+        <h2>{locale === "id" ? "Siap memulai jalur menuju EV milik sendiri?" : "Ready to start your path toward owning an EV?"}</h2>
+        <p>{locale === "id" ? "Bandingkan paket mulai Rp300.000 per hari, pahami kontraknya, lalu cek kelayakan awal Anda." : "Compare plans from IDR 300,000 per day, understand the contract, then check your initial eligibility."}</p>
+        <div><ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Bandingkan Paket" : "Compare Plans"}</ButtonLink><ButtonLink href={`https://wa.me/${siteConfig.whatsapp}`} variant="ghost">WhatsApp</ButtonLink></div>
       </div>
     </section>
   );

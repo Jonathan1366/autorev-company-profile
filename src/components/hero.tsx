@@ -22,8 +22,8 @@ export function Hero({ locale }: { locale: Locale }) {
     ? ["Sewa.", "Jalan.", "Jadi milik."]
     : ["Rent.", "Drive.", "Own."];
   const ownershipSteps = locale === "id"
-    ? ["Sewa", "Jalankan", "Miliki"]
-    : ["Rent", "Drive", "Own"];
+    ? ["Daftar", "Jalankan", "Jadi milik"]
+    : ["Apply", "Drive", "Own"];
   return (
     <section className="hero" id="top" ref={ref}>
       <motion.div className="hero__media" style={{ scale: imageScale, y: imageY }}>
@@ -42,10 +42,10 @@ export function Hero({ locale }: { locale: Locale }) {
           </motion.h1>
           <motion.p initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .52, duration: .65 }}>{home.subtitle}</motion.p>
           <motion.div className="hero__actions" initial={reduceMotion ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .62, duration: .65 }}>
-            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="light">{locale === "id" ? "Mulai Jadi Pemilik" : "Start Your Ownership Path"}</ButtonLink>
-            <ButtonLink href={localizePath(locale, "/founding-driver")} variant="ghost">{locale === "id" ? "Lihat Cara Kerjanya" : "See How It Works"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Bandingkan Paket" : "Compare Plans"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan Saya" : "Check My Eligibility"}</ButtonLink>
           </motion.div>
-          <motion.div className="hero__proof" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .78, duration: .7 }}><span>100% EV</span><span>{locale === "id" ? "Jalur kepemilikan jelas" : "A clear ownership path"}</span><span>{locale === "id" ? "Didampingi AutoRev" : "Backed by AutoRev"}</span></motion.div>
+          <motion.div className="hero__proof" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .78, duration: .7 }}><span>{locale === "id" ? "Mulai Rp300.000/hari" : "From IDR 300,000/day"}</span><span>{locale === "id" ? "Tenor 5 tahun" : "5-year program"}</span><span>{locale === "id" ? "Tanpa deposit / DP" : "No deposit / down payment"}</span></motion.div>
         </motion.div>
       </div>
       <motion.aside

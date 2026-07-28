@@ -52,8 +52,8 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
 
 export function HomeDriver({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Pilih rental fleksibel atau Sewa Jadi Milik.", "Program jelas menuju EV milik Anda.", "Charging gratis dan perawatan lebih ringan.", "Makan siang, dukungan BPJS, dan paguyuban."]
-    : ["Choose flexible rental or Rent to Own.", "A clear path toward owning your EV.", "Included charging and simpler maintenance.", "Weekday lunch, BPJS support, and a driver community."];
+    ? ["Mulai Rp300.000 per hari, tenor 5 tahun.", "Tanpa deposit / DP dan tanpa pelunasan akhir.", "2–3 hari libur per bulan, bebas setoran.", "Charging sampai 2029 serta servis dan asuransi sesuai program."]
+    : ["From IDR 300,000 per day over five years.", "No deposit, down payment, or final balloon payment.", "2–3 payment-free days off each month.", "Charging through 2029, plus service and insurance under the program."];
   return (
     <section className="section priority-feature priority-feature--light" id="founding-driver">
       <div className="container priority-feature__grid priority-feature__grid--reverse">
@@ -61,9 +61,9 @@ export function HomeDriver({ locale }: { locale: Locale }) {
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">FOUNDING DRIVER</span>
           <h2>{locale === "id" ? "Sewa. Jalan. Jadi Milik." : "Rent. Drive. Own."}</h2>
-          <p>{locale === "id" ? "Bukan sekadar kendaraan untuk bekerja. Ini jalan menuju EV milik Anda, dengan keluarga AutoRev di belakang Anda." : "More than a vehicle for work. It is a path toward your own EV, backed by the AutoRev community."}</p>
+          <p>{locale === "id" ? "Cari penghasilan dengan EV kategori Car Plus hari ini. Setelah program lima tahun, seluruh kewajiban, dan verifikasi selesai, kepemilikan diproses sesuai kontrak." : "Pursue earnings with a Car Plus-category EV today. After the five-year program, all obligations, and verification are complete, ownership is processed under the contract."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Lihat Sewa Jadi Milik" : "Explore Rent to Own"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Bandingkan Regular & Premium" : "Compare Regular & Premium"}</ButtonLink>
         </Reveal>
       </div>
     </section>

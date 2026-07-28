@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "AutoRev",
   tagline: "Drive Today. Own Tomorrow.",
   description:
-    "Sewa Jadi Milik untuk Founding Driver: gunakan EV untuk bekerja, tuntaskan program, dan jadikan unit itu milik Anda. AutoRev juga melayani rental EV dan armada listrik untuk bisnis.",
+    "Program Founding Driver AutoRev: jalankan EV kategori Car Plus mulai Rp300.000 per hari dan tuntaskan jalur kepemilikan 5 tahun sesuai kontrak. Tersedia juga rental perjalanan dan armada EV untuk bisnis.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://autorev-bisnis.vercel.app",
   email: "jonathanfarelemanuel@gmail.com",
   phoneDisplay: "0813 6740 8145",
@@ -16,8 +16,8 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { href: "/autorev-rental", label: { id: "EV Rental", en: "EV Rental" } },
-  { href: "/founding-driver", label: { id: "Sewa Jadi Milik", en: "Rent to Own" } },
+  { href: "/founding-driver", label: { id: "Program Driver", en: "Driver Program" } },
+  { href: "/autorev-rental", label: { id: "Rental Perjalanan", en: "Travel Rental" } },
   { href: "/autorev-business", label: { id: "Bisnis EV", en: "EV Business" } },
   { href: "/revauto", label: { id: "RevAuto", en: "RevAuto" } },
   { href: "/about", label: { id: "Tentang", en: "About" } },

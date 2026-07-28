@@ -15,7 +15,7 @@ export const copy = {
     home: {
       eyebrow: "Founding Driver · Sewa Jadi Milik",
       title: "Sewa. Jalan. Jadi milik.",
-      subtitle: "Cari penghasilan dengan EV hari ini. Tuntaskan programnya, lalu bawa pulang unit Anda sesuai perjanjian.",
+      subtitle: "Cari penghasilan dengan EV mulai Rp300.000 per hari. Tuntaskan program 5 tahun, lalu proses EV menjadi milik Anda sesuai kontrak.",
       ecosystemTitle: "Satu ekosistem. Setiap perjalanan kendaraan.",
       ecosystemText:
         "Dari kendaraan dipesan hingga kembali produktif, AutoRev menyatukan customer, fleet owner, teknisi, bengkel, towing, dan supplier dalam alur yang lebih transparan.",
@@ -54,7 +54,7 @@ export const copy = {
     home: {
       eyebrow: "Founding Driver · Rent to Own",
       title: "Rent. Drive. Own.",
-      subtitle: "Earn with an EV today. Complete the program, then make the vehicle yours under the agreement.",
+      subtitle: "Pursue earnings with an EV from IDR 300,000 per day. Complete the five-year program, then transfer the EV under the contract.",
       ecosystemTitle: "One ecosystem. Every vehicle journey.",
       ecosystemText:
         "From booking to productive return, AutoRev connects customers, fleet owners, technicians, workshops, towing, and suppliers through a more transparent workflow.",

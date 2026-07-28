@@ -20,11 +20,11 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
   const cards = locale === "id" ? [
-    { label: "FOUNDING DRIVER", title: "Sewa Jadi Milik", text: "Cari penghasilan. Tuntaskan program. Bawa pulang EV Anda.", cta: "Mulai Jadi Pemilik", href: "/founding-driver", icon: Gauge },
+    { label: "FOUNDING DRIVER · MULAI RP300.000/HARI", title: "Sewa Jadi Milik", text: "Cari penghasilan. Tuntaskan program 5 tahun. Proses EV menjadi milik sesuai kontrak.", cta: "Bandingkan Paket", href: "/founding-driver#paket", icon: Gauge },
     { label: "UNTUK CUSTOMER", title: "EV Rental", text: "Lepas kunci atau dengan driver.", cta: "Pilih Rental", href: "/autorev-rental", icon: CarFront },
     { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV untuk corporate dan owner rental.", cta: "Untuk Bisnis", href: "/autorev-business", icon: Building2 },
   ] : [
-    { label: "FOUNDING DRIVER", title: "Rent to Own", text: "Earn with the EV. Complete the program. Make it yours.", cta: "Start Your Ownership Path", href: "/founding-driver", icon: Gauge },
+    { label: "FOUNDING DRIVER · FROM IDR 300,000/DAY", title: "Rent to Own", text: "Pursue earnings. Complete the five-year program. Transfer ownership under the contract.", cta: "Compare Plans", href: "/founding-driver#paket", icon: Gauge },
     { label: "FOR CUSTOMERS", title: "EV Rental", text: "Self drive or with a driver.", cta: "Choose Rental", href: "/autorev-rental", icon: CarFront },
     { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets for companies and rental owners.", cta: "For Business", href: "/autorev-business", icon: Building2 },
   ];

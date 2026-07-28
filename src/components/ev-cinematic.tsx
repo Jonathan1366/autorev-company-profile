@@ -33,7 +33,7 @@ export function EVCinematic({ locale, scene = "mountain" }: { locale: Locale; sc
         poster: "/images/autorev-corporate-ev-v2.png",
         eyebrow: locale === "id" ? "FOUNDING DRIVER · SEWA JADI MILIK" : "FOUNDING DRIVER · RENT TO OWN",
         title: locale === "id" ? "Kerja Anda punya arah." : "Your work can build toward more.",
-        text: locale === "id" ? "Gunakan EV untuk mencari penghasilan hari ini. Tuntaskan programnya, lalu jadikan EV itu milik Anda." : "Use the EV to earn today. Complete the program, then make the EV yours.",
+        text: locale === "id" ? "Gunakan EV untuk mencari penghasilan hari ini. Tuntaskan tenor lima tahun dan seluruh kewajiban, lalu proses kepemilikan sesuai kontrak." : "Use the EV to pursue earnings today. Complete the five-year term and all obligations, then transfer ownership under the contract.",
       };
 
   return <section className={styles.cinematic} ref={ref} aria-label={locale === "id" ? "Perjalanan kendaraan listrik" : "Electric vehicle journey"}>
@@ -47,6 +47,10 @@ export function EVCinematic({ locale, scene = "mountain" }: { locale: Locale; sc
         <h2>{story.title}</h2>
         <p>{story.text}</p>
       </motion.div>
+      {scene === "driver" && <div className={styles.telemetry} aria-hidden="true">
+        <span><i />EV · ON ROUTE</span>
+        <div><small>JABODETABEK</small><strong>05</strong></div>
+      </div>}
       <small className={styles.source}>{locale === "id" ? "VISUAL SINEMATIK" : "CINEMATIC VISUAL"}</small>
     </div>
   </section>;
