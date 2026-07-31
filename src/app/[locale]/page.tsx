@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero";
 import { ServiceGateway } from "@/components/home-showcase";
 import { HomeBusiness, HomeDriver, HomeRental, HomeRoadmap } from "@/components/home-priority";
 import { EVCinematic } from "@/components/ev-cinematic";
+import { OwnershipJourney } from "@/components/ownership-journey";
 import { FinalCTA } from "@/components/final-cta";
 import { SectionHeading } from "@/components/section-heading";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -31,6 +32,7 @@ export default async function HomePage({ params }: Props) {
       </div>
     </section>
     <HomeDriver locale={locale}/>
+    <OwnershipJourney locale={locale}/>
     <EVCinematic locale={locale} scene="driver"/>
     <HomeRental locale={locale}/>
     <HomeBusiness locale={locale}/>

@@ -1,0 +1,55 @@
+.card {
+  --spot-x: 50%;
+  --spot-y: 45%;
+  isolation: isolate;
+}
+
+.card > :not(.spotlight) {
+  position: relative;
+  z-index: 2;
+}
+
+.spotlight {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(380px circle at var(--spot-x) var(--spot-y), rgba(8, 102, 255, .15), transparent 66%);
+  pointer-events: none;
+  transition: opacity .32s cubic-bezier(.22, 1, .36, 1);
+}
+
+.card:first-child .spotlight {
+  background:
+    radial-gradient(400px circle at var(--spot-x) var(--spot-y), rgba(16, 217, 232, .18), transparent 65%);
+}
+
+.card:hover .spotlight,
+.card:focus-within .spotlight {
+  opacity: 1;
+}
+
+.card :global(.service-gateway__top) svg,
+.card > a svg {
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.card:hover :global(.service-gateway__top) svg,
+.card:focus-within :global(.service-gateway__top) svg {
+  transform: translateY(-3px) rotate(-4deg);
+}
+
+.card:hover > a svg,
+.card:focus-within > a svg {
+  transform: translateX(5px);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .spotlight { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card :global(.service-gateway__top) svg,
+  .card > a svg { transition: none; }
+}

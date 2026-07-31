@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { ContactDock } from "@/components/contact-dock";
+import { MotionProvider } from "@/components/motion-provider";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 
@@ -41,11 +42,13 @@ export default async function LocaleLayout({ children, params }: Readonly<{ chil
   return (
     <html lang={locale}>
       <body>
-        <a className="skip-link" href="#main-content">Skip to content</a>
-        <Navbar locale={locale} />
-        <main id="main-content">{children}</main>
-        <ContactDock locale={locale} />
-        <Footer locale={locale} />
+        <MotionProvider>
+          <a className="skip-link" href="#main-content">Skip to content</a>
+          <Navbar locale={locale} />
+          <main id="main-content">{children}</main>
+          <ContactDock locale={locale} />
+          <Footer locale={locale} />
+        </MotionProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c") }} />
       </body>
     </html>

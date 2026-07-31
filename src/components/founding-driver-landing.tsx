@@ -33,6 +33,7 @@ import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 import { EVCinematic } from "./ev-cinematic";
+import { OwnershipJourney } from "./ownership-journey";
 import styles from "./founding-driver-landing.module.css";
 
 type Plan = {
@@ -492,6 +493,8 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
           </div>
         </div>
       </section>
+
+      <OwnershipJourney locale={locale} />
 
       <EVCinematic locale={locale} scene="driver" />
 

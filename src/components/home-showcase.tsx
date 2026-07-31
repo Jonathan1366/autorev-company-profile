@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -10,6 +11,7 @@ import {
 } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
+import gatewayStyles from "./service-gateway-effects.module.css";
 
 export function ServiceMarquee({ locale }: { locale: Locale }) {
   const items = locale === "id" ? ["EV Rental", "Bisnis EV", "Founding Driver", "RevAuto", "Charging", "Maintenance"] : ["EV Rental", "EV Business", "Founding Driver", "RevAuto", "Charging", "Maintenance"];
@@ -19,6 +21,11 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
+  const trackSpotlight = (event: ReactPointerEvent<HTMLElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty("--spot-x", `${event.clientX - bounds.left}px`);
+    event.currentTarget.style.setProperty("--spot-y", `${event.clientY - bounds.top}px`);
+  };
   const cards = locale === "id" ? [
     { label: "FOUNDING DRIVER · MULAI RP300.000/HARI", title: "EV Rental. Menuju Milik.", text: "Program EV Car Plus selama 5 tahun, dengan alih kepemilikan sesuai kontrak.", cta: "Lihat Struktur Paket", href: "/founding-driver#paket", icon: Gauge },
     { label: "UNTUK CUSTOMER", title: "AutoRev EV Rental", text: "Lepas kunci atau dengan driver, untuk kebutuhan harian hingga bulanan.", cta: "Lihat Pilihan Rental", href: "/autorev-rental", icon: CarFront },
@@ -28,7 +35,7 @@ export function ServiceGateway({ locale }: { locale: Locale }) {
     { label: "FOR CUSTOMERS", title: "AutoRev EV Rental", text: "Self drive or with a driver, from daily to monthly needs.", cta: "View Rental Options", href: "/autorev-rental", icon: CarFront },
     { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets and operational support for companies and rental owners.", cta: "View Business Solutions", href: "/autorev-business", icon: Building2 },
   ];
-  return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;
+  return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article className={gatewayStyles.card} onPointerMove={trackSpotlight} key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><span className={gatewayStyles.spotlight} aria-hidden="true"/><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;
 }
 
 export function EcosystemStory({ locale }: { locale: Locale }) {
