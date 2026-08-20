@@ -82,7 +82,7 @@ type Receipt = {
   whatsappStatus: string;
 };
 
-export function LeadForm({ type, locale, initialPackage = "", initialExperience = "" }: { type: LeadType; locale: Locale; initialPackage?: string; initialExperience?: string }) {
+export function LeadForm({ type, locale, initialPackage = "", initialExperience = "", initialVehicle = "" }: { type: LeadType; locale: Locale; initialPackage?: string; initialExperience?: string; initialVehicle?: string }) {
   const t = labels[locale];
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [receipt, setReceipt] = useState<Receipt | null>(null);
@@ -98,7 +98,7 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
       organization: "",
       city: "",
       vehicleCount: "",
-      vehicleType: "",
+      vehicleType: initialVehicle.trim().slice(0, 300),
       serviceDate: "",
       specialization: "",
       capacity: "",
@@ -130,8 +130,8 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
       setStatus("success");
     } catch {
       const message = locale === "id"
-        ? `Halo AutoRev, saya ingin mendaftar.\nJalur: ${type}\nNama: ${values.name}\nPaket: ${values.driverPackage || "-"}\nPengalaman: ${values.driverExperience || "-"}\nKebutuhan: ${values.need}\nDetail: ${values.details}`
-        : `Hi AutoRev, I would like to register.\nPath: ${type}\nName: ${values.name}\nPlan: ${values.driverPackage || "-"}\nExperience: ${values.driverExperience || "-"}\nRequirement: ${values.need}\nDetails: ${values.details}`;
+        ? `Halo AutoRev, saya ingin mendaftar.\nJalur: ${type}\nNama: ${values.name}\nKendaraan: ${values.vehicleType || "-"}\nPaket: ${values.driverPackage || "-"}\nPengalaman: ${values.driverExperience || "-"}\nKebutuhan: ${values.need}\nDetail: ${values.details}`
+        : `Hi AutoRev, I would like to register.\nPath: ${type}\nName: ${values.name}\nVehicle: ${values.vehicleType || "-"}\nPlan: ${values.driverPackage || "-"}\nExperience: ${values.driverExperience || "-"}\nRequirement: ${values.need}\nDetails: ${values.details}`;
       setFallbackUrl(`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`);
       setStatus("error");
     }
@@ -199,6 +199,7 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
           : (locale === "id" ? "Semakin konkret informasinya, semakin relevan respons pertama kami." : "The more specific the details, the more relevant our first response can be.")}
       >
         {(type === "rental" || type === "partner") && <Field label={t.city} marker={type === "rental" ? t.required : t.optional} optional={type !== "rental"} error={validation(errors.city, "Masukkan kota atau lokasi kebutuhan.", "Enter the city or required location.")}><input autoComplete={type === "partner" ? "street-address" : "address-level2"} placeholder={locale === "id" ? "Contoh: Jakarta Selatan" : "Example: South Jakarta"} {...register("city")} /></Field>}
+        {(type === "rental" || type === "business") && <Field label={locale === "id" ? "Kendaraan yang diminati" : "Vehicle of interest"} marker={t.optional} optional><input autoComplete="off" placeholder={locale === "id" ? "Contoh: VinFast Limo Green" : "Example: VinFast Limo Green"} {...register("vehicleType")} /></Field>}
         {type === "rental" && <Field label={t.date} marker={t.optional} optional error={validation(errors.serviceDate, "Periksa kembali tanggal kebutuhan.", "Check the required date.")}><input type="date" {...register("serviceDate")} /></Field>}
         {(type === "business" || type === "system") && <Field label={t.count} marker={t.optional} optional error={validation(errors.vehicleCount, "Periksa kembali jumlah kendaraan.", "Check the vehicle count.")}><input inputMode="numeric" placeholder={locale === "id" ? "Contoh: 10–25 unit" : "Example: 10–25 vehicles"} {...register("vehicleCount")} /></Field>}
         {type === "partner" && <div className="form-grid"><Field label={t.specialization} marker={t.optional} optional error={validation(errors.specialization, "Periksa kembali spesialisasi Anda.", "Check your specialization.")}><input placeholder="EV, charging, body repair" {...register("specialization")} /></Field><Field label={t.capacity} marker={t.optional} optional error={validation(errors.capacity, "Periksa kembali kapasitas Anda.", "Check your capacity.")}><input placeholder={locale === "id" ? "Contoh: 5 slot / hari" : "Example: 5 slots / day"} {...register("capacity")} /></Field></div>}

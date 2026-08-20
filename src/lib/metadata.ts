@@ -3,12 +3,13 @@ import type { Locale } from "./i18n";
 import { siteConfig } from "./site";
 
 const titles = {
-  home: { id: "Rental Kendaraan & Heavy Equipment", en: "Vehicle & Heavy Equipment Rental" },
+  home: { id: "Rental Mobil & Founding Driver", en: "Car Rental & Founding Driver" },
   rental: { id: "Rental Kendaraan Listrik", en: "Electric Vehicle Rental" },
   business: { id: "Rental EV untuk Bisnis", en: "EV Rental for Business" },
   drivers: { id: "Founding Driver · EV Rental Program", en: "Founding Driver · EV Rental Program" },
   partners: { id: "AutoRev Partner", en: "AutoRev Partner" },
   technology: { id: "RevAuto · Sistem Rental EV", en: "RevAuto · EV Rental System" },
+  equipment: { id: "Armada Proyek & Peralatan", en: "Project Fleet & Equipment" },
   about: { id: "Tentang AutoRev", en: "About AutoRev" },
   contact: { id: "Kontak & Kemitraan", en: "Contact & Partnerships" },
   privacy: { id: "Kebijakan Privasi", en: "Privacy Policy" },
@@ -24,6 +25,7 @@ const pagePaths: Record<PageKey, string> = {
   drivers: "/founding-driver",
   partners: "/partners",
   technology: "/revauto",
+  equipment: "/equipment",
   about: "/about",
   contact: "/contact",
   privacy: "/privacy",
@@ -35,6 +37,9 @@ export function pageMetadata(locale: Locale, page: PageKey, description?: string
   const title = titles[page][locale];
   const canonical = `${siteConfig.url}/${locale}${path}`;
   const resolvedDescription = description || siteConfig.description;
+  const socialImage = page === "equipment"
+    ? { url: "/images/catalog-lowbed-excavator.jpg", width: 1448, height: 1086, alt: "AutoRev project fleet and equipment" }
+    : { url: "/images/autorev-rental-roadtrip-v3.png", width: 1672, height: 941, alt: "AutoRev car rental" };
 
   return {
     title,
@@ -53,13 +58,13 @@ export function pageMetadata(locale: Locale, page: PageKey, description?: string
       siteName: siteConfig.name,
       title: `${title} | AutoRev`,
       description: resolvedDescription,
-      images: [{ url: "/images/catalog-lowbed-excavator.jpg", width: 1536, height: 1147, alt: "AutoRev equipment rental catalog" }],
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | AutoRev`,
       description: resolvedDescription,
-      images: ["/images/catalog-lowbed-excavator.jpg"],
+      images: [socialImage.url],
     },
   };
 }

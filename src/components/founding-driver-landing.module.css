@@ -602,7 +602,7 @@
   top: 27px;
   right: 27px;
   color: #91a1b4;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -899,7 +899,7 @@
 
 .pathChoiceGrid article > span {
   color: #0866ff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: .1em;
@@ -1188,7 +1188,7 @@
   top: 24px;
   right: 24px;
   color: #73859d;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -1588,7 +1588,7 @@
     margin-left: auto;
     color: #8294ab;
     font-family: var(--font-space-grotesk);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: .11em;
   }

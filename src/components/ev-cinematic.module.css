@@ -113,7 +113,7 @@
   right: 26px;
   bottom: 28px;
   color: rgba(255, 255, 255, .58);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: .12em;
 }
@@ -159,7 +159,7 @@
   align-items: center;
   gap: 8px;
   color: #d9fafd;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .12em;
 }
@@ -184,7 +184,7 @@
 
 .telemetry small {
   color: #8798ad;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: .1em;
 }

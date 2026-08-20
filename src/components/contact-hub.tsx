@@ -27,7 +27,7 @@ const signals: Record<string, { id: string[]; en: string[] }> = {
   system: { id: ["Alur kerja saat ini", "Kebutuhan demo", "Diskusi bersama tim"], en: ["Current workflow", "Demo requirements", "Team discussion"] },
 };
 
-export function ContactHub({ locale, initialType = "rental", initialPackage = "", initialExperience = "" }: { locale: Locale; initialType?: LeadType; initialPackage?: string; initialExperience?: string }) {
+export function ContactHub({ locale, initialType = "rental", initialPackage = "", initialExperience = "", initialVehicle = "" }: { locale: Locale; initialType?: LeadType; initialPackage?: string; initialExperience?: string; initialVehicle?: string }) {
   const [active, setActive] = useState<LeadType>(types.some((item) => item.type === initialType) ? initialType : "rental");
   const selected = types.find((item) => item.type === active)!;
   const SelectedIcon = selected.icon;
@@ -44,7 +44,7 @@ export function ContactHub({ locale, initialType = "rental", initialPackage = ""
           <p>{descriptions[active]?.[locale] || (locale === "id" ? "Isi detail singkat agar percakapan pertama kami lebih relevan." : "Share a few details so our first conversation is more relevant.")}</p>
           <ul className="contact-hub__signals">{signals[active][locale].map((signal) => <li key={signal}>{signal}</li>)}</ul>
         </div>
-        <LeadForm key={active} locale={locale} type={active} initialPackage={initialPackage} initialExperience={initialExperience} />
+        <LeadForm key={active} locale={locale} type={active} initialPackage={initialPackage} initialExperience={initialExperience} initialVehicle={active === "rental" || active === "business" ? initialVehicle : ""} />
       </div>
     </div>
   );

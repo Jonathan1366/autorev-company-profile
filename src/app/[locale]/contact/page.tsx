@@ -8,13 +8,14 @@ import { leadTypes, type LeadType } from "@/lib/lead-schema";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
-type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ type?: string; package?: string; experience?: string }> };
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ type?: string; package?: string; experience?: string; vehicle?: string; need?: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> { const { locale } = await params; return isLocale(locale) ? pageMetadata(locale, "contact", locale === "id" ? "Daftar rental EV, Founding Driver, AutoRev Business, atau demo RevAuto." : "Register for EV rental, Founding Driver, AutoRev Business, or a RevAuto demo.") : {}; }
 
 export default async function ContactPage({ params, searchParams }: Props) {
   const [{ locale: raw }, query] = await Promise.all([params, searchParams]); if (!isLocale(raw)) notFound(); const locale = raw as Locale;
   const requestedType = query.type === "early-access" ? "business" : query.type;
   const initialType: LeadType = leadTypes.includes(requestedType as LeadType) ? requestedType as LeadType : "rental";
+  const initialVehicle = typeof query.vehicle === "string" ? query.vehicle : typeof query.need === "string" ? query.need : "";
   const heroCopy: Record<LeadType, { eyebrow: string; title: string; text: string }> = locale === "id" ? {
     rental: { eyebrow: "SEWA EV AUTOREV", title: "Ceritakan perjalanannya. Kami siapkan EV-nya.", text: "Isi tanggal, lokasi, dan kebutuhan Anda. Tim AutoRev akan membantu mengecek pilihan unit yang tersedia." },
     driver: { eyebrow: "FOUNDING DRIVER AUTOREV", title: "Cek kelayakan. Tanpa komitmen di awal.", text: "Isi data awal sekitar tiga menit. Tidak perlu mengunggah KTP, KK, atau SIM pada tahap ini." },
@@ -33,6 +34,6 @@ export default async function ContactPage({ params, searchParams }: Props) {
   const hero = heroCopy[initialType];
   return <>
     <section className="contact-hero"><div className="contact-hero__glow"/><div className="container"><Reveal><span className="eyebrow eyebrow--light"><i/>{hero.eyebrow}</span><h1>{hero.title}</h1><p>{hero.text}</p></Reveal><div className="contact-direct"><a href={`mailto:${siteConfig.email}`}><Mail size={22}/><span><small>{locale === "id" ? "EMAIL RESMI" : "OFFICIAL EMAIL"}</small><strong>{siteConfig.email}</strong></span></a><a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={22}/><span><small>WHATSAPP</small><strong>{siteConfig.phoneDisplay}</strong></span></a><a href={`tel:${siteConfig.phoneTel}`}><Phone size={22}/><span><small>{locale === "id" ? "NOMOR TELEPON" : "PHONE NUMBER"}</small><strong>{siteConfig.phoneDisplay}</strong></span></a></div></div></section>
-    <section className="section section--contact-form"><div className="container"><ContactHub locale={locale} initialType={initialType} initialPackage={query.package} initialExperience={query.experience}/></div></section>
+    <section className="section section--contact-form"><div className="container"><ContactHub locale={locale} initialType={initialType} initialPackage={query.package} initialExperience={query.experience} initialVehicle={initialVehicle}/></div></section>
   </>;
 }
