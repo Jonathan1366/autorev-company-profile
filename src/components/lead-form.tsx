@@ -284,11 +284,19 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
 }
 
 function FormSection({ number, title, text, children }: { number: string; title: string; text: string; children: ReactNode }) {
+  const titleId = `lead-form-section-${number}`;
+
   return (
-    <fieldset className="form-section">
-      <legend><span>{number}</span><span className="form-section__legend-copy"><strong>{title}</strong><small>{text}</small></span></legend>
+    <section className="form-section" aria-labelledby={titleId}>
+      <header className="form-section__header">
+        <span className="form-section__number" aria-hidden="true">{number}</span>
+        <div className="form-section__heading">
+          <h3 id={titleId}>{title}</h3>
+          <p>{text}</p>
+        </div>
+      </header>
       <div className="form-section__body">{children}</div>
-    </fieldset>
+    </section>
   );
 }
 
