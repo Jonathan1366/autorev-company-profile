@@ -205,9 +205,6 @@
 .roadLine i:nth-child(3) { animation-delay: -3.8s; }
 
 .pricing,
-.shared,
-.profiles,
-.pathChoice,
 .platforms,
 .statusSection,
 .operations,
@@ -228,7 +225,6 @@
 }
 
 .sectionHead h2,
-.stickyHead h2,
 .platformCopy h2,
 .statusIntro h2,
 .faqIntro h2,
@@ -503,184 +499,6 @@
   background: #c9cfe0;
 }
 
-.pricingNote {
-  margin-top: 28px;
-  color: #8294ab;
-  font-size: 15px;
-  line-height: 1.65;
-}
-
-.shared {
-  color: #07152e;
-  background: #f7f9fc;
-}
-
-.sharedLayout {
-  display: grid;
-  grid-template-columns: .72fr 1.28fr;
-  align-items: start;
-  gap: clamp(55px, 8vw, 110px);
-}
-
-.stickyHead {
-  position: sticky;
-  top: 116px;
-}
-
-.stickyHead .sectionEyebrow,
-.profiles .sectionEyebrow {
-  color: #0866ff;
-}
-
-.stickyHead h2 {
-  color: #07152e;
-}
-
-.noFees {
-  display: grid;
-  gap: 10px;
-  margin-top: 35px;
-}
-
-.noFees span {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 13px;
-  padding: 14px 16px;
-  border: 1px solid #d8e3ef;
-  color: #133055;
-  background: #fff;
-}
-
-.noFees strong {
-  color: #0b5bc7;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: -.035em;
-}
-
-.noFees i {
-  color: #324967;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-}
-
-.sharedGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid #d5e0ec;
-  border-left: 1px solid #d5e0ec;
-}
-
-.sharedGrid article {
-  position: relative;
-  min-height: 310px;
-  padding: 28px;
-  border-right: 1px solid #d5e0ec;
-  border-bottom: 1px solid #d5e0ec;
-  background: rgba(255, 255, 255, .62);
-  transition: background .25s ease, transform .25s ease;
-}
-
-.sharedGrid article:hover {
-  z-index: 2;
-  background: #fff;
-  transform: translateY(-2px);
-}
-
-.sharedGrid article > span {
-  position: absolute;
-  top: 27px;
-  right: 27px;
-  color: #91a1b4;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.sharedGrid article > svg {
-  width: 32px;
-  height: 32px;
-  color: #0866ff;
-}
-
-.sharedGrid h3 {
-  margin: 84px 0 12px;
-  font-family: var(--font-space-grotesk);
-  font-size: 23px;
-  font-weight: 550;
-  line-height: 1.08;
-  letter-spacing: -.035em;
-}
-
-.sharedGrid p {
-  margin: 0;
-  color: #5f6e82;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.profiles {
-  color: #07152e;
-  background: #f7f9fc;
-}
-
-.profileGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 58px;
-}
-
-.profileGrid article {
-  min-height: 430px;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(30px, 4vw, 50px);
-  border: 1px solid #d8e2ec;
-  background: #fff;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.profileGrid article:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 48px rgba(6, 20, 46, .08);
-}
-
-.profileGrid article > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #0866ff;
-}
-
-.profileGrid article > div span {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .13em;
-}
-
-.profileGrid h3 {
-  max-width: 500px;
-  margin: 90px 0 15px;
-  font-family: var(--font-space-grotesk);
-  font-size: clamp(35px, 3.5vw, 50px);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -.042em;
-}
-
-.profileGrid p {
-  max-width: 540px;
-  margin: 0;
-  color: #5f6e82;
-  font-size: 17px;
-  line-height: 1.65;
-}
-
-.profileGrid a,
 .textLink {
   display: inline-flex;
   align-items: center;
@@ -693,107 +511,8 @@
   font-weight: 600;
 }
 
-.profileGrid a svg,
 .textLink svg {
   width: 18px;
-}
-
-.pathChoice {
-  color: #07152e;
-  background: #fff;
-}
-
-.pathChoiceHead {
-  max-width: 980px;
-}
-
-.pathChoiceHead .sectionEyebrow {
-  color: #0866ff;
-}
-
-.pathChoiceHead h2 {
-  max-width: 950px;
-  margin: 20px 0 0;
-  font-family: var(--font-space-grotesk);
-  font-size: clamp(44px, 5.2vw, 72px);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -.045em;
-  text-wrap: balance;
-}
-
-.pathChoiceGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 58px;
-  border-top: 1px solid #d6e1ec;
-  border-left: 1px solid #d6e1ec;
-}
-
-.pathChoiceGrid article {
-  min-height: 390px;
-  display: flex;
-  flex-direction: column;
-  padding: 29px;
-  border-right: 1px solid #d6e1ec;
-  border-bottom: 1px solid #d6e1ec;
-}
-
-.pathChoiceGrid article > span {
-  color: #0866ff;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: .1em;
-}
-
-.pathChoiceGrid h3 {
-  margin: 112px 0 14px;
-  font-family: var(--font-space-grotesk);
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -.045em;
-}
-
-.pathChoiceGrid p {
-  margin: 0;
-  color: #5f6e82;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.pathChoiceGrid a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 30px;
-  color: #0866ff;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.pathChoiceGrid a svg {
-  width: 18px;
-}
-
-.pathChoiceGrid .pathFeatured {
-  color: #fff;
-  border-color: #07152e;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(124, 184, 198, .09), transparent 35%),
-    #07152e;
-}
-
-.pathFeatured > span,
-.pathFeatured a {
-  color: #a7d0d9;
-}
-
-.pathChoiceGrid .pathFeatured p {
-  color: #aab9cb;
 }
 
 .platforms {
@@ -809,22 +528,6 @@
 
 .platformCopy > p {
   margin-inline: 0;
-}
-
-.platformPills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 32px 0 22px;
-}
-
-.platformPills span {
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, .18);
-  color: #fff;
-  background: rgba(255, 255, 255, .035);
-  font-size: 15px;
-  font-weight: 500;
 }
 
 .platformCopy > small {
@@ -1287,20 +990,14 @@
     margin-left: auto;
   }
 
-  .sharedLayout,
   .platformLayout,
   .statusLayout,
   .faqLayout {
     grid-template-columns: 1fr;
   }
 
-  .stickyHead,
   .faqIntro {
     position: static;
-  }
-
-  .sharedGrid {
-    margin-top: 12px;
   }
 
   .operationGrid {
@@ -1457,21 +1154,9 @@
 
   .planHighlights span { font-size: 14px; line-height: 1.45; }
   .planCard > ul li { font-size: 16px; line-height: 1.55; }
-  .pricingNote { font-size: 16px; }
-
   .sectionHead p,
   .platformCopy > p,
   .finalInner > div > p { font-size: 18px; line-height: 1.65; }
-
-  .sharedGrid,
-  .profileGrid,
-  .pathChoiceGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sharedGrid article {
-    min-height: 270px;
-  }
 
   .operationGrid {
     display: flex;
@@ -1488,14 +1173,6 @@
     min-height: 280px;
     scroll-snap-align: center;
     border-left: 1px solid var(--fd-line);
-  }
-
-  .profileGrid article {
-    min-height: 400px;
-  }
-
-  .profileGrid h3 {
-    margin-top: 72px;
   }
 
   .statusCards article {
@@ -1556,11 +1233,9 @@
   }
 
   .sectionHead h2,
-  .stickyHead h2,
   .platformCopy h2,
   .statusIntro h2,
   .faqIntro h2,
-  .pathChoiceHead h2,
   .finalInner h2 {
     font-size: clamp(43px, 12vw, 50px);
     line-height: 1.03;

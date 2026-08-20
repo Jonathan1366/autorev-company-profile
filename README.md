@@ -20,7 +20,7 @@ Production: [autorev-bisnis.vercel.app](https://autorev-bisnis.vercel.app)
 - Server-rendered metadata, canonical URLs, language alternatives, Open Graph, X card, Organization JSON-LD, sitemap, and robots
 - Reduced-motion support, keyboard states, semantic structure, and mobile navigation
 - Official AutoRev logos supplied by the founder plus an original generated automotive hero
-- Official call/WhatsApp `0813 6740 8145` and email `jonathanfarelemanuel@gmail.com`
+- Official call/WhatsApp `0813 6740 8145` and email `jonathan@autorevmobilitas.com`
 
 ## Technology
 

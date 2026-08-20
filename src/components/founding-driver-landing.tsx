@@ -7,19 +7,15 @@ import {
   ArrowDown,
   ArrowRight,
   BadgeCheck,
-  BatteryCharging,
   CalendarDays,
   CarFront,
   Check,
   Clock3,
   FileCheck2,
-  GraduationCap,
-  HandCoins,
   MapPinned,
   ShieldCheck,
   UserRoundCheck,
   Utensils,
-  WalletCards,
   Wrench,
 } from "lucide-react";
 import {
@@ -32,6 +28,7 @@ import {
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
+import { PlatformLogoGrid } from "./platform-logo-grid";
 import styles from "./founding-driver-landing.module.css";
 
 type Plan = {
@@ -60,16 +57,16 @@ const copy = {
     plans: [
       {
         name: "Founding Regular",
-        badge: "2 HARI LIBUR · BEBAS SETORAN",
+        badge: "1 HARI LIBUR · BEBAS SETORAN",
         price: "Rp300.000",
         description: "Setoran harian lebih rendah dengan seluruh benefit inti program.",
         accent: "cyan",
-        highlights: ["2 hari", "1x / minggu", "5 tahun"],
+        highlights: ["1 hari", "2x / minggu", "5 tahun"],
         benefits: [
           "Program kepemilikan setelah tenor 5 tahun",
           "EV kategori Car Plus",
-          "2 hari libur per bulan — bebas setoran",
-          "Benefit makan 1x per minggu",
+          "1 hari libur per bulan — bebas setoran",
+          "Benefit makan 2x per minggu",
           "Gratis charging sampai 2029",
           "Training dan persiapan akun bila diperlukan",
           "Servis, maintenance, dan asuransi sesuai program",
@@ -80,15 +77,15 @@ const copy = {
       },
       {
         name: "Founding Premium",
-        badge: "3 HARI LIBUR · BEBAS SETORAN",
+        badge: "4 HARI LIBUR · BEBAS SETORAN",
         price: "Rp350.000",
-        description: "Satu hari libur tambahan dan benefit makan lebih sering.",
+        description: "Hari libur lebih banyak dan benefit makan lebih sering.",
         accent: "violet",
-        highlights: ["3 hari", "4x / minggu", "5 tahun"],
+        highlights: ["4 hari", "4x / minggu", "5 tahun"],
         benefits: [
           "Program kepemilikan setelah tenor 5 tahun",
           "EV kategori Car Plus",
-          "3 hari libur per bulan — bebas setoran",
+          "4 hari libur per bulan — bebas setoran",
           "Benefit makan 4x per minggu",
           "Gratis charging sampai 2029",
           "Training dan persiapan akun bila diperlukan",
@@ -99,39 +96,6 @@ const copy = {
         cta: "Cek Kelayakan Premium",
       },
     ] satisfies Plan[],
-    priceNote:
-      "Setoran dibayar paling lambat pukul 22.00 WIB pada hari operasional. Hari libur sesuai paket bebas setoran. Detail jadwal libur, charging, servis, maintenance, dan asuransi mengikuti kontrak serta ketentuan program.",
-    sharedEyebrow: "CAKUPAN PROGRAM",
-    sharedTitle: "Fasilitas di kedua paket.",
-    shared: [
-      ["Pengalihan kepemilikan", "Tuntaskan tenor 5 tahun dan seluruh kewajiban untuk proses pengalihan kepemilikan sesuai kontrak."],
-      ["Biaya awal", "Tidak ada deposit atau uang muka, serta tidak ada pelunasan kepemilikan di akhir tenor."],
-      ["Charging sampai 2029", "Charging gratis tersedia sampai tahun 2029 sesuai ketentuan program."],
-      ["Servis dan perlindungan", "Servis, maintenance, dan asuransi diberikan sesuai cakupan program."],
-      ["Onboarding driver", "Persiapan akun dan training tersedia bagi driver yang memerlukannya."],
-      ["Hari libur tanpa setoran", "Dua atau tiga hari per bulan sesuai paket, tanpa kewajiban setoran pada hari tersebut."],
-    ],
-    profileEyebrow: "PROFIL DRIVER",
-    profileTitle: "Jalur untuk driver baru dan berpengalaman.",
-    beginner: {
-      label: "DRIVER PEMULA",
-      title: "Persiapan untuk driver baru.",
-      text: "Bila diperlukan, AutoRev menyediakan training sekitar satu minggu, termasuk pengenalan EV, aturan operasional, dan persiapan akun.",
-      cta: "Saya Driver Pemula",
-    },
-    experienced: {
-      label: "DRIVER BERPENGALAMAN",
-      title: "Verifikasi untuk akun yang sudah aktif.",
-      text: "Gunakan akun yang sudah ada sepanjang akun dan kendaraan memenuhi ketentuan platform. Proses difokuskan pada verifikasi, onboarding, dan persiapan EV.",
-      cta: "Saya Sudah Berpengalaman",
-    },
-    pathEyebrow: "LAYANAN AUTOREV",
-    pathTitle: "Pilih layanan sesuai kebutuhan.",
-    paths: [
-      ["PROGRAM DRIVER", "Founding Driver", "Untuk driver yang ingin beroperasi dengan EV dan menuntaskan jalur kepemilikan 5 tahun.", "/founding-driver#paket", "Lihat paket driver"],
-      ["UNTUK PERJALANAN", "EV Rental", "Untuk kebutuhan harian, mingguan, atau bulanan—lepas kunci maupun dengan driver.", "/autorev-rental", "Lihat rental perjalanan"],
-      ["UNTUK PERUSAHAAN", "AutoRev Business", "Untuk kebutuhan armada dan operasional bisnis, corporate, atau owner rental.", "/autorev-business", "Lihat solusi bisnis"],
-    ],
     platformEyebrow: "PLATFORM OPERASIONAL",
     platformTitle: "Platform operasional yang dapat digunakan.",
     platformText:
@@ -152,8 +116,7 @@ const copy = {
     operationEyebrow: "KETENTUAN OPERASIONAL",
     operationTitle: "Ketentuan operasional utama.",
     operations: [
-      ["Setoran harian", "Dibayarkan setiap hari operasional paling lambat pukul 22.00 WIB."],
-      ["Hari libur bebas setoran", "Regular mendapat 2 hari dan Premium 3 hari libur per bulan. Tidak ada setoran pada hari libur sesuai paket."],
+      ["Hari libur bebas setoran", "Regular mendapat 1 hari dan Premium 4 hari libur per bulan. Tidak ada setoran pada hari libur sesuai paket."],
       ["Setoran tertunggak", "Apabila setoran tertunggak selama 3 hari, kendaraan dinonaktifkan sementara sampai kewajiban diselesaikan."],
       ["Wilayah operasional", "Kendaraan diprioritaskan beroperasi di Jabodetabek. Perjalanan luar kota memerlukan izin dan konfirmasi."],
       ["Driver terdaftar", "Kendaraan tidak boleh dipindahtangankan atau digunakan orang lain tanpa persetujuan AutoRev."],
@@ -166,18 +129,17 @@ const copy = {
       ["Apakah kendaraan benar-benar menjadi milik saya?", "Program dirancang untuk pengalihan kepemilikan setelah tenor 5 tahun, seluruh kewajiban, verifikasi akhir, dan proses administrasi selesai sesuai kontrak."],
       ["Apakah ada deposit atau uang muka?", "Tidak. Regular dan Premium tidak memerlukan deposit atau uang muka."],
       ["Apakah ada pelunasan di akhir tenor?", "Tidak ada pelunasan kepemilikan atau balloon payment di akhir tenor. Kewajiban program yang masih tertunggak tetap harus diselesaikan sebelum pengalihan kepemilikan."],
-      ["Apakah hari libur tetap harus membayar setoran?", "Tidak. Regular mendapat 2 hari dan Premium 3 hari libur bebas setoran setiap bulan."],
+      ["Apakah hari libur tetap harus membayar setoran?", "Tidak. Regular mendapat 1 hari dan Premium 4 hari libur bebas setoran setiap bulan."],
       ["Saya belum pernah menjadi driver. Apakah bisa mendaftar?", "Bisa. Training sekitar satu minggu tersedia apabila diperlukan, termasuk pengenalan EV dan persiapan akun."],
       ["Apakah akun lama tetap bisa digunakan?", "Bisa, sepanjang akun dan kendaraan memenuhi ketentuan platform terkait."],
       ["Sampai kapan charging gratis?", "Charging gratis tersedia sampai tahun 2029 sesuai ketentuan program. Detail periode dan mekanismenya dijelaskan dalam kontrak."],
-      ["Bagaimana benefit makan diberikan?", "Pada tahap awal, benefit diberikan dalam bentuk uang makan: 1x per minggu untuk Regular dan 4x per minggu untuk Premium. Booth atau kantin direncanakan bertahap."],
+      ["Bagaimana benefit makan diberikan?", "Pada tahap awal, benefit diberikan dalam bentuk uang makan: 2x per minggu untuk Regular dan 4x per minggu untuk Premium. Booth atau kantin direncanakan bertahap."],
       ["Apakah BPJS dan paguyuban sudah tersedia?", "BPJS sedang dipersiapkan bertahap. Paguyuban driver dan family gathering juga masih dalam pengembangan dan belum dianggap benefit aktif sampai dikonfirmasi."],
       ["Apa yang terjadi bila setoran tertunggak?", "Jika setoran tertunggak selama 3 hari, kendaraan dinonaktifkan sementara sampai kewajiban diselesaikan."],
       ["Bolehkah kendaraan dibawa keluar kota atau digunakan orang lain?", "Keluar Jabodetabek memerlukan izin dan konfirmasi. Kendaraan tidak boleh dipindahtangankan atau digunakan orang lain tanpa persetujuan AutoRev."],
       ["Bagaimana jika berhenti sebelum lima tahun?", "Hak, kewajiban, dan konsekuensi penghentian sebelum tenor mengikuti kontrak. Tim akan menjelaskannya sebelum program ditandatangani."],
     ],
     terms: [
-      ["22.00 WIB", "Batas setoran harian"],
       ["3 hari", "Tunggakan sebelum nonaktif sementara"],
       ["Jabodetabek", "Wilayah operasi prioritas"],
       ["Izin wajib", "Untuk penggunaan luar kota"],
@@ -204,16 +166,16 @@ const copy = {
     plans: [
       {
         name: "Founding Regular",
-        badge: "2 DAYS OFF · NO PAYMENT DUE",
+        badge: "1 DAY OFF · NO PAYMENT DUE",
         price: "IDR 300,000",
         description: "A lower daily payment with every core program benefit.",
         accent: "cyan",
-        highlights: ["2 days", "1x / week", "5 years"],
+        highlights: ["1 day", "2x / week", "5 years"],
         benefits: [
           "Ownership path after the five-year term",
           "Car Plus-category EV",
-          "2 days off per month — no payment due",
-          "1 meal benefit per week",
+          "1 day off per month — no payment due",
+          "2 meal benefits per week",
           "Free charging through 2029",
           "Training and account preparation when needed",
           "Service, maintenance, and insurance under the program",
@@ -224,15 +186,15 @@ const copy = {
       },
       {
         name: "Founding Premium",
-        badge: "3 DAYS OFF · NO PAYMENT DUE",
+        badge: "4 DAYS OFF · NO PAYMENT DUE",
         price: "IDR 350,000",
-        description: "One additional day off and more frequent meal benefits.",
+        description: "More days off and more frequent meal benefits.",
         accent: "violet",
-        highlights: ["3 days", "4x / week", "5 years"],
+        highlights: ["4 days", "4x / week", "5 years"],
         benefits: [
           "Ownership path after the five-year term",
           "Car Plus-category EV",
-          "3 days off per month — no payment due",
+          "4 days off per month — no payment due",
           "4 meal benefits per week",
           "Free charging through 2029",
           "Training and account preparation when needed",
@@ -243,39 +205,6 @@ const copy = {
         cta: "Check Premium Eligibility",
       },
     ] satisfies Plan[],
-    priceNote:
-      "Daily program payments are due by 10:00 PM WIB on operating days. No daily payment is due on the plan’s designated days off. Scheduling, charging, service, maintenance, and insurance details are governed by the contract and program terms.",
-    sharedEyebrow: "PROGRAM COVERAGE",
-    sharedTitle: "Included in both plans.",
-    shared: [
-      ["Ownership transfer", "Complete the five-year term and all obligations for ownership transfer under the contract."],
-      ["Upfront cost", "No deposit or down payment and no ownership balloon payment at the end."],
-      ["Charging through 2029", "Free charging is available through 2029 under the program terms."],
-      ["Service and protection", "Service, maintenance, and insurance are provided within the program scope."],
-      ["Driver onboarding", "Account preparation and training are available for drivers who need them."],
-      ["Payment-free days off", "Two or three days each month, based on plan, with no daily payment due."],
-    ],
-    profileEyebrow: "DRIVER PROFILES",
-    profileTitle: "A path for new and experienced drivers.",
-    beginner: {
-      label: "NEW DRIVER",
-      title: "Preparation for new drivers.",
-      text: "When needed, AutoRev provides approximately one week of training covering EV familiarization, operating rules, and account preparation.",
-      cta: "I Am a New Driver",
-    },
-    experienced: {
-      label: "EXPERIENCED DRIVER",
-      title: "Verification for an active account.",
-      text: "Use your existing account as long as the account and vehicle meet the platform rules. We focus on verification, onboarding, and preparing the EV.",
-      cta: "I Am Experienced",
-    },
-    pathEyebrow: "AUTOREV SERVICES",
-    pathTitle: "Choose the service that fits the need.",
-    paths: [
-      ["DRIVER PROGRAM", "Founding Driver", "For drivers who want to operate an EV and complete a five-year ownership path.", "/founding-driver#paket", "View driver plans"],
-      ["FOR TRAVEL", "EV Rental", "For daily, weekly, or monthly travel—self drive or with a driver.", "/autorev-rental", "View travel rental"],
-      ["FOR COMPANIES", "AutoRev Business", "For corporate fleets, business operations, and rental owners.", "/autorev-business", "View business solutions"],
-    ],
     platformEyebrow: "OPERATING PLATFORMS",
     platformTitle: "Compatible operating platforms.",
     platformText:
@@ -296,8 +225,7 @@ const copy = {
     operationEyebrow: "OPERATING TERMS",
     operationTitle: "Core operating terms.",
     operations: [
-      ["Daily program payment", "Due on every operating day by 10:00 PM WIB."],
-      ["Payment-free days off", "Regular includes 2 and Premium 3 days off per month. No daily payment is due on those designated days."],
+      ["Payment-free days off", "Regular includes 1 and Premium 4 days off per month. No daily payment is due on those designated days."],
       ["Overdue payments", "After three overdue days, the vehicle is temporarily disabled until the obligation is settled."],
       ["Operating area", "Jabodetabek is the priority area. Out-of-town travel requires prior approval and confirmation."],
       ["Registered driver only", "The vehicle may not be transferred or used by anyone else without AutoRev approval."],
@@ -310,18 +238,17 @@ const copy = {
       ["Will the EV actually become mine?", "The program is designed for ownership transfer after the five-year term, all obligations, final verification, and administration are completed under the contract."],
       ["Is there a deposit or down payment?", "No. Neither Regular nor Premium requires a security deposit or down payment."],
       ["Is there a final payoff?", "There is no ownership balloon payment at the end. Any outstanding program obligations must still be settled before ownership transfer."],
-      ["Are days off payment-free?", "Yes. Regular includes 2 and Premium 3 payment-free days off each month."],
+      ["Are days off payment-free?", "Yes. Regular includes 1 and Premium 4 payment-free days off each month."],
       ["Can beginners apply?", "Yes. Approximately one week of training is available when needed, including EV familiarization and account preparation."],
       ["Can I use my existing account?", "Yes, as long as the account and vehicle meet the relevant platform requirements."],
       ["How long is free charging available?", "Free charging is available through 2029 under the program terms. Timing and mechanics are explained in the contract."],
-      ["How is the meal benefit provided?", "Initially, the benefit is provided as a meal allowance: once weekly for Regular and four times weekly for Premium. Food booths or canteens are planned in stages."],
+      ["How is the meal benefit provided?", "Initially, the benefit is provided as a meal allowance: twice weekly for Regular and four times weekly for Premium. Food booths or canteens are planned in stages."],
       ["Are BPJS and community benefits active?", "BPJS is being prepared in stages. The driver community and family gatherings are also still being developed and are not active benefits until confirmed."],
       ["What happens if a payment is overdue?", "If payments are overdue for three days, the vehicle is temporarily disabled until the obligation is settled."],
       ["Can I drive out of town or let someone else drive?", "Travel outside Jabodetabek needs prior approval. The vehicle may not be transferred or used by anyone else without AutoRev approval."],
       ["What if I leave before five years?", "Rights, obligations, and consequences of early exit follow the contract. The team will explain them before you sign."],
     ],
     terms: [
-      ["10 PM WIB", "Daily payment deadline"],
       ["3 days", "Overdue before temporary disablement"],
       ["Jabodetabek", "Priority operating area"],
       ["Approval", "Required for out-of-town use"],
@@ -336,9 +263,6 @@ const copy = {
       "The Founding Driver program is subject to participant eligibility, unit availability, operating area, contract, and program terms. Ownership is transferred after the five-year term, all obligations, final verification, and transfer administration are completed. There is no security deposit or down payment and no end-of-term ownership balloon payment; any outstanding contractual obligations must still be settled. Free charging is available through 2029 under the program terms. AutoRev does not guarantee account activation, order volume, or earnings.",
   },
 } as const;
-
-const sharedIcons = [CarFront, WalletCards, BatteryCharging, ShieldCheck, GraduationCap, CalendarDays];
-const platforms = ["Grab", "GoCar", "Maxim", "inDrive", "Lalamove", "Shopee"];
 
 export function FoundingDriverLanding({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -396,84 +320,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             <PlanCard key={plan.name} plan={plan} locale={locale} index={index} />
           ))}
         </div>
-        <p className={`container ${styles.pricingNote}`}>* {t.priceNote}</p>
-      </section>
-
-      <section className={styles.shared}>
-        <div className={`container ${styles.sharedLayout}`}>
-          <RevealBlock className={styles.stickyHead}>
-            <span className={styles.sectionEyebrow}>{t.sharedEyebrow}</span>
-            <h2>{t.sharedTitle}</h2>
-            <div className={styles.noFees}>
-              <span>
-                <strong>{locale === "id" ? "Rp0" : "IDR 0"}</strong>
-                <i>{locale === "id" ? "deposit / DP" : "deposit / down payment"}</i>
-              </span>
-              <span>
-                <strong>{locale === "id" ? "Rp0" : "IDR 0"}</strong>
-                <i>{locale === "id" ? "pelunasan akhir" : "final balloon payment"}</i>
-              </span>
-            </div>
-          </RevealBlock>
-          <div className={styles.sharedGrid}>
-            {t.shared.map(([title, text], index) => {
-              const Icon = sharedIcons[index];
-              return (
-                <motion.article
-                  key={title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: .3 }}
-                  transition={{ delay: (index % 2) * .06, duration: .48 }}
-                >
-                  <span>0{index + 1}</span>
-                  <Icon />
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.profiles}>
-        <div className={`container ${styles.sectionHead}`}>
-          <RevealBlock>
-            <span className={styles.sectionEyebrow}>{t.profileEyebrow}</span>
-            <h2>{t.profileTitle}</h2>
-          </RevealBlock>
-        </div>
-        <div className={`container ${styles.profileGrid}`}>
-          <ProfileCard icon={GraduationCap} profile={t.beginner} locale={locale} value="driver-baru" />
-          <ProfileCard icon={UserRoundCheck} profile={t.experienced} locale={locale} value="driver-berpengalaman" />
-        </div>
-      </section>
-
-      <section className={styles.pathChoice}>
-        <div className={`container ${styles.pathChoiceHead}`}>
-          <RevealBlock>
-            <span className={styles.sectionEyebrow}>{t.pathEyebrow}</span>
-            <h2>{t.pathTitle}</h2>
-          </RevealBlock>
-        </div>
-        <div className={`container ${styles.pathChoiceGrid}`}>
-          {t.paths.map(([label, title, text, href, cta], index) => (
-            <motion.article
-              key={title}
-              className={index === 0 ? styles.pathFeatured : undefined}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: .25 }}
-              transition={{ delay: index * .055, duration: .46 }}
-            >
-              <span>0{index + 1} · {label}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-              <Link href={localizePath(locale, href)}>{cta}<ArrowRight /></Link>
-            </motion.article>
-          ))}
-        </div>
       </section>
 
       <section className={styles.platforms}>
@@ -482,9 +328,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             <span className={styles.sectionEyebrow}>{t.platformEyebrow}</span>
             <h2>{t.platformTitle}</h2>
             <p>{t.platformText}</p>
-            <div className={styles.platformPills}>
-              {platforms.map((platform) => <span key={platform}>{platform}</span>)}
-            </div>
+            <PlatformLogoGrid locale={locale} />
             <small>{t.platformNote}</small>
           </RevealBlock>
           <RevealBlock className={styles.documentCard}>
@@ -535,7 +379,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
         </div>
         <div className={`container ${styles.operationGrid}`}>
           {t.operations.map(([title, text], index) => {
-            const Icon = [HandCoins, CalendarDays, Clock3, MapPinned, UserRoundCheck, Wrench, ShieldCheck][index];
+            const Icon = [CalendarDays, Clock3, MapPinned, UserRoundCheck, Wrench, ShieldCheck][index];
             return (
               <motion.article
                 key={title}
@@ -557,7 +401,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
       <section className={styles.terms}>
         <div className={`container ${styles.termGrid}`}>
           {t.terms.map(([value, label], index) => {
-            const TermIcon = [Clock3, CalendarDays, MapPinned, BadgeCheck][index];
+            const TermIcon = [CalendarDays, MapPinned, BadgeCheck][index];
             return (
               <motion.div
                 key={label}
@@ -671,7 +515,7 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
       <p>{plan.description}</p>
       <div className={styles.price}>
         <strong>{plan.price}</strong>
-        <span>/ {locale === "id" ? "hari" : "day"}*</span>
+        <span>/ {locale === "id" ? "hari" : "day"}</span>
       </div>
       <div className={styles.planHighlights}>
         <div><CalendarDays /><strong>{plan.highlights[0]}</strong><span>{locale === "id" ? "bebas setoran / bulan" : "payment-free / month"}</span></div>
@@ -682,32 +526,6 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
         {plan.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}
       </ul>
       <Link href={`${localizePath(locale, "/contact")}?${query}`} className={styles.planCta}>{plan.cta}<ArrowRight /></Link>
-    </motion.article>
-  );
-}
-
-function ProfileCard({
-  icon: Icon,
-  profile,
-  locale,
-  value,
-}: {
-  icon: typeof GraduationCap;
-  profile: { label: string; title: string; text: string; cta: string };
-  locale: Locale;
-  value: string;
-}) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: .25 }}
-      transition={{ duration: .5 }}
-    >
-      <div><Icon /><span>{profile.label}</span></div>
-      <h3>{profile.title}</h3>
-      <p>{profile.text}</p>
-      <Link href={`${localizePath(locale, "/contact")}?type=driver&experience=${value}`}>{profile.cta}<ArrowRight /></Link>
     </motion.article>
   );
 }

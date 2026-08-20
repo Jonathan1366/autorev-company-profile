@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <title>GoCar by Gojek</title>
+  <g transform="translate(8 8)">
+    <circle cx="32" cy="32" r="25" fill="#00AA13"/>
+    <circle cx="32" cy="32" r="14" fill="none" stroke="#fff" stroke-width="5"/>
+    <circle cx="32" cy="32" r="4.5" fill="#fff"/>
+  </g>
+  <text x="76" y="48" fill="#111820" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="-1.5">GoCar</text>
+  <text x="78" y="65" fill="#66717D" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.7">BY GOJEK</text>
+</svg>
