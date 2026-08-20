@@ -142,7 +142,7 @@
   padding: 0 24px;
   border: 1px solid transparent;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   transition: transform .22s ease, border-color .22s ease, color .22s ease, background .22s ease, box-shadow .22s ease;
 }
@@ -206,8 +206,6 @@
 
 .pricing,
 .shared,
-.compare,
-.steps,
 .profiles,
 .pathChoice,
 .platforms,
@@ -231,7 +229,6 @@
 
 .sectionHead h2,
 .stickyHead h2,
-.compareIntro h2,
 .platformCopy h2,
 .statusIntro h2,
 .faqIntro h2,
@@ -246,7 +243,6 @@
 }
 
 .sectionHead p,
-.compareIntro > p,
 .platformCopy > p,
 .finalInner > div > p {
   max-width: 710px;
@@ -400,7 +396,7 @@
   min-height: 52px;
   margin: 0;
   color: #aab9cc;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.55;
 }
 
@@ -532,13 +528,11 @@
 }
 
 .stickyHead .sectionEyebrow,
-.compare .sectionEyebrow,
 .profiles .sectionEyebrow {
   color: #0866ff;
 }
 
-.stickyHead h2,
-.compareIntro h2 {
+.stickyHead h2 {
   color: #07152e;
 }
 
@@ -628,158 +622,6 @@
   line-height: 1.6;
 }
 
-.compare {
-  color: #07152e;
-  background: #fff;
-}
-
-.compareLayout {
-  display: grid;
-  grid-template-columns: .68fr 1.32fr;
-  align-items: start;
-  gap: clamp(50px, 7vw, 100px);
-}
-
-.compareIntro {
-  position: sticky;
-  top: 116px;
-}
-
-.compareIntro > p {
-  margin-inline: 0;
-  color: #5f6e82;
-}
-
-.tableShell {
-  overflow-x: auto;
-  border: 1px solid #d8e2ed;
-  box-shadow: 0 24px 65px rgba(8, 26, 54, .08);
-}
-
-.comparisonTable {
-  min-width: 650px;
-}
-
-.tableRow {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
-  min-height: 66px;
-  border-bottom: 1px solid #dce5ee;
-}
-
-.tableRow:last-child {
-  border-bottom: 0;
-}
-
-.tableRow > * {
-  display: flex;
-  align-items: center;
-  padding: 14px 18px;
-  border-right: 1px solid #dce5ee;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.tableRow > *:last-child {
-  border-right: 0;
-}
-
-.tableRow > strong:first-child {
-  color: #2d405a;
-}
-
-.tableRow > span {
-  color: #07152e;
-  font-weight: 500;
-}
-
-.tableRow > span:last-child {
-  color: #40537e;
-  background: #f8f9fc;
-}
-
-.tableHead {
-  min-height: 74px;
-  color: #fff;
-  background: #07152e;
-}
-
-.tableHead > strong {
-  color: #fff !important;
-  font-family: var(--font-space-grotesk);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.tableHead > strong:last-child {
-  color: #d9dfef !important;
-  background: #182039;
-}
-
-.steps {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(110, 128, 174, .09), transparent 35%),
-    #050c1b;
-}
-
-.stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 62px;
-  border-top: 1px solid var(--fd-line);
-  border-left: 1px solid var(--fd-line);
-}
-
-.stepsGrid article {
-  min-height: 300px;
-  padding: 25px;
-  border-right: 1px solid var(--fd-line);
-  border-bottom: 1px solid var(--fd-line);
-}
-
-.stepsGrid article:last-child {
-  grid-column: 2 / 4;
-}
-
-.stepsGrid article > span {
-  color: var(--fd-accent);
-  font-family: "Times New Roman", Times, serif;
-  font-size: 30px;
-}
-
-.stepLine {
-  position: relative;
-  height: 1px;
-  margin: 45px 0 40px;
-  background: rgba(255, 255, 255, .15);
-}
-
-.stepLine i {
-  position: absolute;
-  top: -4px;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--fd-accent);
-}
-
-.stepsGrid h3 {
-  margin: 0 0 13px;
-  font-family: var(--font-space-grotesk);
-  font-size: 21px;
-  font-weight: 550;
-  line-height: 1.15;
-  letter-spacing: -.035em;
-}
-
-.stepsGrid p {
-  margin: 0;
-  color: #91a3ba;
-  font-size: 15px;
-  line-height: 1.55;
-}
-
 .profiles {
   color: #07152e;
   background: #f7f9fc;
@@ -847,7 +689,7 @@
   margin-top: auto;
   padding-top: 32px;
   color: #0866ff;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -929,7 +771,7 @@
   margin-top: auto;
   padding-top: 30px;
   color: #0866ff;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -1446,7 +1288,6 @@
   }
 
   .sharedLayout,
-  .compareLayout,
   .platformLayout,
   .statusLayout,
   .faqLayout {
@@ -1454,21 +1295,12 @@
   }
 
   .stickyHead,
-  .compareIntro,
   .faqIntro {
     position: static;
   }
 
   .sharedGrid {
     margin-top: 12px;
-  }
-
-  .stepsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stepsGrid article:last-child {
-    grid-column: auto;
   }
 
   .operationGrid {
@@ -1542,7 +1374,7 @@
   .ghostButton,
   .planCta {
     min-height: 56px;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .heroActions {
@@ -1628,7 +1460,6 @@
   .pricingNote { font-size: 16px; }
 
   .sectionHead p,
-  .compareIntro > p,
   .platformCopy > p,
   .finalInner > div > p { font-size: 18px; line-height: 1.65; }
 
@@ -1640,16 +1471,6 @@
 
   .sharedGrid article {
     min-height: 270px;
-  }
-
-  .stepsGrid {
-    display: flex;
-    width: 100%;
-    padding-inline: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    border-left: 0;
   }
 
   .operationGrid {
@@ -1665,13 +1486,6 @@
   .operationGrid article {
     flex: 0 0 82vw;
     min-height: 280px;
-    scroll-snap-align: center;
-    border-left: 1px solid var(--fd-line);
-  }
-
-  .stepsGrid article {
-    flex: 0 0 82vw;
-    min-height: 290px;
     scroll-snap-align: center;
     border-left: 1px solid var(--fd-line);
   }
@@ -1743,7 +1557,6 @@
 
   .sectionHead h2,
   .stickyHead h2,
-  .compareIntro h2,
   .platformCopy h2,
   .statusIntro h2,
   .faqIntro h2,
