@@ -153,6 +153,49 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
       <div className={styles.heroTicker}><span>AUTOREV EQUIPMENT MARKETPLACE</span><i/><span>VEHICLE → TRUCK → TRAILER → EQUIPMENT → TECHNOLOGY</span><i/><span>PROJECT-BASED SOLUTIONS</span></div>
     </section>
 
+    <section className={styles.mobility} id="mobility">
+      <div className="container">
+        <div className={styles.mobilityHead}>
+          <div>
+            <span>EV MOBILITY · DRIVER &amp; RENTAL</span>
+            <h2>{locale === "id" ? "Dua program mobilitas yang tetap berjalan." : "Two mobility programs that keep moving."}</h2>
+          </div>
+          <p>{locale === "id" ? "Marketplace equipment melengkapi AutoRev, bukan menggantikan layanan EV. Founding Driver dan EV Rental tetap memiliki halaman, alur, serta penawaran masing-masing." : "The equipment marketplace expands AutoRev; it does not replace its EV services. Founding Driver and EV Rental retain their own pages, journeys, and offers."}</p>
+        </div>
+        <div className={styles.mobilityGrid}>
+          <Link className={styles.mobilityCard} href={localizePath(locale, "/founding-driver")}>
+            <div className={styles.mobilityMedia}>
+              <Image src="/images/autorev-founding-driver-v2.png" alt={locale === "id" ? "Program Founding Driver AutoRev" : "AutoRev Founding Driver program"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={88}/>
+              <span>01 · FOUNDING DRIVER</span>
+            </div>
+            <div className={styles.mobilityBody}>
+              <small>{locale === "id" ? "PROGRAM DRIVER EV" : "EV DRIVER PROGRAM"}</small>
+              <h3>Founding Driver</h3>
+              <p>{locale === "id" ? "Jalur bagi driver untuk beroperasi dengan EV dan menuntaskan program kepemilikan sesuai struktur paket." : "A path for drivers to operate an EV and complete the ownership program under its plan structure."}</p>
+              <span>{locale === "id" ? "Lihat program driver" : "Explore the driver program"}<ArrowUpRight size={18}/></span>
+            </div>
+          </Link>
+          <Link className={styles.mobilityCard} href={localizePath(locale, "/autorev-rental")}>
+            <div className={styles.mobilityMedia}>
+              <Image src="/images/autorev-rental-roadtrip-v3.png" alt={locale === "id" ? "Layanan rental kendaraan listrik AutoRev" : "AutoRev electric vehicle rental service"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={88}/>
+              <span>02 · EV RENTAL</span>
+            </div>
+            <div className={styles.mobilityBody}>
+              <small>{locale === "id" ? "LEPAS KUNCI · DENGAN DRIVER" : "SELF DRIVE · WITH DRIVER"}</small>
+              <h3>EV Rental</h3>
+              <p>{locale === "id" ? "Rental kendaraan listrik untuk perjalanan harian, mingguan, atau bulanan—lepas kunci maupun dengan driver." : "Electric vehicle rental for daily, weekly, or monthly journeys—self drive or with a driver."}</p>
+              <span>{locale === "id" ? "Lihat pilihan rental" : "Explore rental options"}<ArrowUpRight size={18}/></span>
+            </div>
+          </Link>
+        </div>
+        <div className={styles.businessBridge}>
+          <div><span>03</span><div><small>B2B EQUIPMENT MARKETPLACE</small><strong>{locale === "id" ? "Butuh aset untuk operasi atau proyek?" : "Need assets for an operation or project?"}</strong></div></div>
+          <p>{locale === "id" ? "Masuk ke katalog truck, trailer, material handling, construction, mining, dan fleet technology." : "Open the truck, trailer, material handling, construction, mining, and fleet technology catalog."}</p>
+          <button onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" })}>{locale === "id" ? "Buka marketplace" : "Open marketplace"}<ArrowRight size={18}/></button>
+        </div>
+      </div>
+    </section>
+
     <section className={styles.gateway} id="solutions">
       <div className="container">
         <div className={styles.sectionHead}>

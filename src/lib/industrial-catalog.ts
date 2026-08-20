@@ -58,29 +58,9 @@ export const industrialCatalog = merged
   .filter((item, index, items) => items.findIndex((candidate) => candidate.number === item.number) === index)
   .sort((a, b) => a.number - b.number);
 
-const imageMap: Record<string, string> = {
-  wingbox: "/images/catalog-wingbox.jpg",
-  "tronton-wingbox": "/images/catalog-wingbox.jpg",
-  "lowbed-lowboy-trailer": "/images/catalog-lowbed-excavator.jpg",
-  "lowbed-prime-mover": "/images/catalog-lowbed-excavator.jpg",
-  "excavator-20t": "/images/catalog-excavator-20t.jpg",
-  "excavator-20-30t": "/images/catalog-excavator-20t.jpg",
-  "dump-truck-on-road": "/images/catalog-dump-truck.jpg",
-  "dump-truck-6x4-8x4": "/images/catalog-dump-truck.jpg",
-  "diesel-forklift": "/images/catalog-forklift.jpg",
-  "mobile-crane-35-50t": "/images/catalog-mobile-crane.jpg",
-  "mobile-crane-10-25t": "/images/catalog-mobile-crane.jpg",
-};
-
 export function catalogImage(item: CatalogItem) {
-  if (imageMap[item.id]) return imageMap[item.id];
-  const haystack = `${item.id} ${item.category} ${item.tags.join(" ")}`.toLowerCase();
-  if (haystack.includes("forklift") || haystack.includes("warehouse") || haystack.includes("pallet")) return "/images/catalog-forklift.jpg";
-  if (haystack.includes("crane") || haystack.includes("lift")) return "/images/catalog-mobile-crane.jpg";
-  if (haystack.includes("excav") || haystack.includes("dozer") || haystack.includes("loader") || haystack.includes("grader")) return "/images/catalog-excavator-20t.jpg";
-  if (haystack.includes("dump") || haystack.includes("haul") || haystack.includes("mining")) return "/images/catalog-dump-truck.jpg";
-  if (haystack.includes("trailer") || haystack.includes("prime") || haystack.includes("lowbed")) return "/images/catalog-lowbed-excavator.jpg";
-  return "/images/catalog-wingbox.jpg";
+  const number = String(item.number).padStart(3, "0");
+  return `/images/equipment-catalog/${number}-${item.id}.jpg`;
 }
 
 export const catalogCount = industrialCatalog.length;
