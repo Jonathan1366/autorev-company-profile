@@ -33,8 +33,8 @@ export function ContactHub({ locale, initialType = "rental", initialPackage = ""
   const SelectedIcon = selected.icon;
   return (
     <div className="contact-hub">
-      <div className="contact-hub__types" role="tablist" aria-label={locale === "id" ? "Pilih kebutuhan" : "Choose a request type"}>
-        {types.map((item) => { const Icon = item.icon; return <button key={item.type} className={active === item.type ? "is-active" : ""} onClick={() => setActive(item.type)} role="tab" aria-selected={active === item.type}><Icon size={20} /><span>{item[locale]}</span></button>; })}
+      <div className="contact-hub__types" role="group" aria-label={locale === "id" ? "Pilih kebutuhan" : "Choose a request type"}>
+        {types.map((item) => { const Icon = item.icon; return <button key={item.type} type="button" className={active === item.type ? "is-active" : ""} onClick={() => setActive(item.type)} aria-pressed={active === item.type}><Icon size={20} /><span>{item[locale]}</span></button>; })}
       </div>
       <div className="contact-hub__body">
         <div className="contact-hub__intro">

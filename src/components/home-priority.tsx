@@ -52,18 +52,18 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
 
 export function HomeDriver({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Mulai Rp300.000 per hari, tenor 5 tahun.", "Tanpa deposit / DP dan tanpa pelunasan akhir.", "2–3 hari libur per bulan, bebas setoran.", "Charging sampai 2029 serta servis dan asuransi sesuai program."]
-    : ["From IDR 300,000 per day over five years.", "No deposit, down payment, or final balloon payment.", "2–3 payment-free days off each month.", "Charging through 2029, plus service and insurance under the program."];
+    ? ["Mulai Rp300.000 per hari, masa program 5 tahun.", "Tanpa deposit / DP dan tanpa pelunasan akhir.", "Pilihan 1 atau 4 hari libur per bulan, bebas setoran.", "Benefit makan 2x atau 4x per minggu sesuai paket."]
+    : ["From IDR 300,000 per day over a five-year program term.", "No deposit, down payment, or final balloon payment.", "Choose 1 or 4 payment-free days off each month.", "Two or four weekly meal benefits, depending on the plan."];
   return (
     <section className="section priority-feature priority-feature--light" id="founding-driver">
       <div className="container priority-feature__grid priority-feature__grid--reverse">
         <ScrollStoryImage className="priority-feature__visual" src="/images/autorev-driver-passenger-v3.png" alt={locale === "id" ? "Mitra driver kendaraan listrik mengantar penumpang" : "An electric vehicle driver partner taking a passenger"}/>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">FOUNDING DRIVER</span>
-          <h2>{locale === "id" ? "EV Rental untuk kerja. Menuju milik." : "EV rental for work. A path to ownership."}</h2>
+          <h2>{locale === "id" ? "EV Rental untuk kerja. Dibuat untuk driver." : "EV rental for work. Built around drivers."}</h2>
           <p>{locale === "id" ? "Operasikan EV kategori Car Plus melalui program 5 tahun. Setelah kewajiban program dan verifikasi selesai, alih kepemilikan diproses sesuai kontrak." : "Operate a Car Plus-category EV through a five-year program. Once program obligations and verification are complete, ownership transfer is processed under the contract."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Lihat Struktur Paket" : "View Plan Structure"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Lihat Paket Founding" : "Explore Founding Plans"}</ButtonLink>
         </Reveal>
       </div>
     </section>

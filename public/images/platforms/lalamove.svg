@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
+  <title>Lalamove</title>
+  <g transform="translate(8 8)">
+    <rect width="64" height="64" rx="17" fill="#FF671D"/>
+    <path d="M14 33 31 17l-2 12h19L31 47l2-12H14Z" fill="#fff"/>
+    <path d="M39 18h12l-8 7Z" fill="#fff" opacity=".88"/>
+  </g>
+  <text x="82" y="50" fill="#FF671D" font-family="Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="-1.6">Lalamove</text>
+</svg>

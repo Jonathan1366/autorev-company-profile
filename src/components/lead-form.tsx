@@ -286,7 +286,7 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
 function FormSection({ number, title, text, children }: { number: string; title: string; text: string; children: ReactNode }) {
   return (
     <fieldset className="form-section">
-      <legend><span>{number}</span><div><strong>{title}</strong><small>{text}</small></div></legend>
+      <legend><span>{number}</span><span className="form-section__legend-copy"><strong>{title}</strong><small>{text}</small></span></legend>
       <div className="form-section__body">{children}</div>
     </fieldset>
   );
