@@ -17,6 +17,8 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="footer-links">
           <div>
             <h3>{locale === "id" ? "Solusi" : "Solutions"}</h3>
+            <Link href={localizePath(locale, "/founding-driver")}>Founding Driver</Link>
+            <Link href={localizePath(locale, "/autorev-rental")}>EV Rental</Link>
             <Link href={`${localizePath(locale)}#catalog`}>{locale === "id" ? "E-Catalog Equipment" : "Equipment E-Catalog"}</Link>
             <Link href={`${localizePath(locale)}#project-solutions`}>{locale === "id" ? "Solusi Proyek" : "Project Solutions"}</Link>
             <Link href={`${localizePath(locale)}#technology`}>Fleet Technology</Link>

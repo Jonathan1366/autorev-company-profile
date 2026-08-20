@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -14,6 +14,7 @@ export function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const solutionsPanel = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const alternate = alternateLocale(locale);
@@ -28,8 +29,9 @@ export function Navbar({ locale }: { locale: Locale }) {
   ];
 
   const links = [
+    { href: localizePath(locale, "/founding-driver"), label: "Founding Driver" },
+    { href: localizePath(locale, "/autorev-rental"), label: "EV Rental" },
     { href: `${home}#catalog`, label: locale === "id" ? "Katalog Equipment" : "Equipment Catalog" },
-    { href: `${home}#project-solutions`, label: locale === "id" ? "Solusi Proyek" : "Project Solutions" },
     { href: `${home}#technology`, label: "Fleet Technology" },
     { href: localizePath(locale, "/about"), label: locale === "id" ? "Tentang AutoRev" : "About AutoRev" },
   ];
@@ -54,14 +56,21 @@ export function Navbar({ locale }: { locale: Locale }) {
     return () => window.removeEventListener("keydown", closeMenu);
   }, []);
 
-  return <header className={`site-header ${scrolled || open || solutionsOpen ? "site-header--solid" : ""}`} onMouseLeave={() => setSolutionsOpen(false)}>
+  const openSolutionsFromKeyboard = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (!["ArrowDown", "Enter", " "].includes(event.key)) return;
+    event.preventDefault();
+    setSolutionsOpen(true);
+    requestAnimationFrame(() => solutionsPanel.current?.querySelector<HTMLAnchorElement>("a")?.focus());
+  };
+
+  return <header className={`site-header ${scrolled || open || solutionsOpen ? "site-header--solid" : ""}`} onMouseLeave={() => setSolutionsOpen(false)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setSolutionsOpen(false); }}>
     <div className="nav-shell">
       <BrandLogo locale={locale} inverse/>
       <nav className="desktop-nav" aria-label={locale === "id" ? "Navigasi utama" : "Main navigation"}>
-        <button className={solutionsOpen ? "is-active" : ""} onMouseEnter={() => setSolutionsOpen(true)} onClick={() => setSolutionsOpen((value) => !value)} aria-expanded={solutionsOpen} aria-controls="solutions-navigation">{locale === "id" ? "Solusi" : "Solutions"}<ChevronDown size={14}/></button>
+        <button className={solutionsOpen ? "is-active" : ""} onMouseEnter={() => setSolutionsOpen(true)} onClick={() => setSolutionsOpen((value) => !value)} onKeyDown={openSolutionsFromKeyboard} aria-expanded={solutionsOpen} aria-controls="solutions-navigation">{locale === "id" ? "Solusi" : "Solutions"}<ChevronDown size={14}/></button>
         <Link href={`${home}#catalog`}>E-Catalog</Link>
-        <Link href={`${home}#project-solutions`}>{locale === "id" ? "Solusi Proyek" : "Project Solutions"}</Link>
-        <Link href={`${home}#technology`}>Technology</Link>
+        <Link href={localizePath(locale, "/founding-driver")}>Founding Driver</Link>
+        <Link href={localizePath(locale, "/autorev-rental")}>EV Rental</Link>
         <Link href={localizePath(locale, "/about")}>{locale === "id" ? "Tentang" : "About"}</Link>
       </nav>
       <div className="nav-actions">
@@ -72,7 +81,7 @@ export function Navbar({ locale }: { locale: Locale }) {
     </div>
 
     <AnimatePresence initial={false}>
-      {solutionsOpen && <motion.div id="solutions-navigation" className={styles.mega} initial={reduceMotion ? false : { opacity: 0, y: -8, scale: .99 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: .99 }} transition={{ duration: .2 }} onMouseEnter={() => setSolutionsOpen(true)}>
+      {solutionsOpen && <motion.div ref={solutionsPanel} id="solutions-navigation" className={styles.mega} initial={reduceMotion ? false : { opacity: 0, y: -8, scale: .99 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: .99 }} transition={{ duration: .2 }} onMouseEnter={() => setSolutionsOpen(true)}>
         <div className={styles.intro}><span>AUTOREV SOLUTION LINES</span><h2>{locale === "id" ? "Satu pintu untuk aset operasional." : "One gateway for operating assets."}</h2><p>{locale === "id" ? "Pilih lini KBLI atau mulai langsung dari unit yang Anda perlukan." : "Choose a KBLI line or start with the equipment you need."}</p><Link href={`${home}#solutions`} onClick={() => setSolutionsOpen(false)}>{locale === "id" ? "Lihat semua solusi" : "See all solutions"}<ArrowRight size={17}/></Link></div>
         <div className={styles.grid}>{solutions.map((item) => { const Icon = item.icon; return <Link key={item.code} href={item.href} onClick={() => setSolutionsOpen(false)}><span><Icon size={21}/></span><div><small>{item.code}</small><strong>{item.title}</strong><p>{item.text}</p></div><ArrowUpRight size={18}/></Link>; })}</div>
       </motion.div>}
