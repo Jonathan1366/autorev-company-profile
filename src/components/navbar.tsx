@@ -23,8 +23,8 @@ export function Navbar({ locale }: { locale: Locale }) {
 
   const moreLinks = [
     {
-      overline: locale === "id" ? "CERITA AUTOREV" : "OUR STORY",
-      title: locale === "id" ? "Tentang AutoRev" : "About AutoRev",
+      overline: locale === "id" ? "PERUSAHAAN MOBILITAS" : "MOBILITY COMPANY",
+      title: "AutoRev Mobilitas Indonesia",
       text: locale === "id" ? "Arah, nilai, dan perjalanan kami membangun mobilitas yang lebih mudah." : "Our direction, values, and journey toward easier mobility.",
       icon: Building2,
       href: localizePath(locale, "/about"),
@@ -37,8 +37,8 @@ export function Navbar({ locale }: { locale: Locale }) {
       href: localizePath(locale, "/equipment"),
     },
     {
-      overline: locale === "id" ? "TEKNOLOGI ARMADA" : "FLEET TECHNOLOGY",
-      title: "RevAuto",
+      overline: "FLEET MANAGEMENT SYSTEM",
+      title: "RevAuto Fleet System",
       text: locale === "id" ? "Sistem fleet management untuk operasi kendaraan yang lebih terhubung." : "Fleet management for more connected vehicle operations.",
       icon: Gauge,
       href: localizePath(locale, "/revauto"),
@@ -50,7 +50,7 @@ export function Navbar({ locale }: { locale: Locale }) {
     { href: `${home}#vehicle-catalog`, label: locale === "id" ? "Katalog Mobil" : "Vehicle Catalog" },
     { href: localizePath(locale, "/autorev-rental"), label: locale === "id" ? "Rental Mobil" : "Car Rental" },
     { href: localizePath(locale, "/autorev-business"), label: locale === "id" ? "Corporate Rental" : "Corporate Rental" },
-    { href: localizePath(locale, "/about"), label: locale === "id" ? "Tentang AutoRev" : "About AutoRev" },
+    { href: localizePath(locale, "/about"), label: "AutoRev Mobilitas Indonesia" },
     { href: localizePath(locale, "/equipment"), label: locale === "id" ? "Armada & Peralatan" : "Fleet & Equipment" },
     { href: localizePath(locale, "/revauto"), label: "RevAuto" },
   ];
@@ -101,7 +101,7 @@ export function Navbar({ locale }: { locale: Locale }) {
 
     <AnimatePresence initial={false}>
       {moreOpen && <motion.div ref={morePanel} id="more-navigation" className={styles.mega} initial={reduceMotion ? false : { opacity: 0, y: -8, scale: .99 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: .99 }} transition={{ duration: .24, ease: [0.22, 1, 0.36, 1] }} onMouseEnter={() => setMoreOpen(true)}>
-        <div className={styles.intro}><span>AUTOREV MOBILITY</span><h2>{locale === "id" ? "Lebih dari perjalanan." : "Beyond the journey."}</h2><p>{locale === "id" ? "Kenali AutoRev, temukan dukungan operasional, lalu kelola armada melalui teknologi yang terus berkembang." : "Meet AutoRev, find operational support, then manage your fleet through evolving technology."}</p><Link href={localizePath(locale, "/about")} onClick={() => setMoreOpen(false)}>{locale === "id" ? "Kenali AutoRev" : "Discover AutoRev"}<ArrowRight size={17}/></Link></div>
+        <div className={styles.intro}><span>AUTOREV MOBILITAS INDONESIA</span><h2>{locale === "id" ? "Lebih dari perjalanan." : "Beyond the journey."}</h2><p>{locale === "id" ? "Kenali AutoRev, temukan dukungan operasional, lalu kelola armada melalui teknologi yang terus berkembang." : "Meet AutoRev, find operational support, then manage your fleet through evolving technology."}</p><Link href={localizePath(locale, "/about")} onClick={() => setMoreOpen(false)}>{locale === "id" ? "Tentang perusahaan" : "About the company"}<ArrowRight size={18}/></Link></div>
         <div className={styles.grid}>{moreLinks.map((item) => { const Icon = item.icon; return <Link key={item.href} href={item.href} onClick={() => setMoreOpen(false)}><span><Icon size={23}/></span><div><small>{item.overline}</small><strong>{item.title}</strong><p>{item.text}</p></div><ArrowUpRight size={18}/></Link>; })}</div>
       </motion.div>}
     </AnimatePresence>

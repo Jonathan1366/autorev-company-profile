@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { Compass, Flag, HeartHandshake, Map, MoveRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
-import { Roadmap } from "@/components/roadmap";
 import { FinalCTA } from "@/components/final-cta";
 import { Reveal } from "@/components/reveal";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -26,7 +25,6 @@ export default async function AboutPage({ params }: Props) {
     <section className="section section--soft"><div className="container vision-grid"><Reveal className="vision-card vision-card--primary"><Compass/><span>VISION</span><h2>{locale === "id" ? "Membuat kendaraan listrik lebih mudah diakses dan dioperasikan." : "Make electric vehicles easier to access and operate."}</h2><p>{locale === "id" ? "Dimulai dari rental nyata. Diperkuat oleh RevAuto." : "Grounded in real rental. Strengthened by RevAuto."}</p></Reveal><Reveal className="vision-card"><Map/><span>ARAH JANGKA PANJANG</span><h3>{locale === "id" ? "Dari Indonesia menuju Asia Tenggara." : "From Indonesia toward Southeast Asia."}</h3><p>{locale === "id" ? "Membangun layanan dan sistem operasi rental EV yang dapat tumbuh bersama partner." : "Building EV rental services and operating systems that can grow with partners."}</p></Reveal></div></section>
     <section className="section"><div className="container mission-layout"><SectionHeading eyebrow="MISSION" title={locale === "id" ? "Enam arah yang memandu kami." : "Six directions that guide us."}/><div className="mission-list">{missions.map((mission,index)=><Reveal key={mission} className="mission-item" delay={(index%2)*.04}><span>{String(index+1).padStart(2,"0")}</span><p>{mission}</p><MoveRight size={18}/></Reveal>)}</div></div></section>
     <section className="section section--founder"><div className="container founder-note"><div><Flag size={26}/><span>FOUNDER STORY</span></div><blockquote>“{locale === "id" ? "AutoRev lahir dari kebutuhan nyata untuk melihat unit, merencanakan maintenance, mengatur vendor, dan memahami biaya downtime." : "AutoRev grew from a real need to see vehicles, plan maintenance, coordinate vendors, and understand downtime costs."}”</blockquote><p>{locale === "id" ? "Cerita ini menunjukkan arah pengembangan AutoRev." : "This story reflects the direction of AutoRev."}</p></div></section>
-    <section className="section section--roadmap"><div className="container"><SectionHeading eyebrow="Roadmap · Vision" title={locale === "id" ? "Ambisi besar, dijalankan bertahap." : "A large ambition, executed in stages."}/><Roadmap locale={locale}/></div></section>
     <section className="section"><div className="container human-band"><HeartHandshake/><h2>{locale === "id" ? "Indonesia. Realistis. Human-centered." : "Indonesian. Realistic. Human-centered."}</h2><p>{locale === "id" ? "Teknologi hanya berguna ketika membuat pekerjaan orang lebih jelas dan kendaraan kembali produktif." : "Technology is only useful when it makes people’s work clearer and vehicles productive again."}</p></div></section>
     <FinalCTA locale={locale} variant="about"/>
   </>;

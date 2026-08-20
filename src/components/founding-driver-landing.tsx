@@ -32,7 +32,6 @@ import {
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
-import { OwnershipJourney } from "./ownership-journey";
 import styles from "./founding-driver-landing.module.css";
 
 type Plan = {
@@ -102,23 +101,6 @@ const copy = {
     ] satisfies Plan[],
     priceNote:
       "Setoran dibayar paling lambat pukul 22.00 WIB pada hari operasional. Hari libur sesuai paket bebas setoran. Detail jadwal libur, charging, servis, maintenance, dan asuransi mengikuti kontrak serta ketentuan program.",
-    compareEyebrow: "PERBANDINGAN PAKET",
-    compareTitle: "Detail Regular dan Premium.",
-    compareText:
-      "Perbedaan utama berada pada setoran harian, jumlah hari libur, dan benefit makan. Jalur kepemilikan serta benefit kendaraan utama berlaku pada kedua paket.",
-    compareHead: ["Detail", "Founding Regular", "Founding Premium"],
-    compareRows: [
-      ["Setoran harian", "Rp300.000", "Rp350.000"],
-      ["Tenor program", "5 tahun", "5 tahun"],
-      ["Hari libur bebas setoran", "2 hari / bulan", "3 hari / bulan"],
-      ["Benefit makan", "1x / minggu", "4x / minggu"],
-      ["Deposit / uang muka", "Tidak ada", "Tidak ada"],
-      ["Pelunasan akhir", "Tidak ada", "Tidak ada"],
-      ["Charging", "Sampai 2029", "Sampai 2029"],
-      ["Kendaraan", "EV Car Plus", "EV Car Plus"],
-      ["Training", "Bila diperlukan", "Bila diperlukan"],
-      ["Servis & asuransi", "Sesuai program", "Sesuai program"],
-    ],
     sharedEyebrow: "CAKUPAN PROGRAM",
     sharedTitle: "Fasilitas di kedua paket.",
     shared: [
@@ -128,17 +110,6 @@ const copy = {
       ["Servis dan perlindungan", "Servis, maintenance, dan asuransi diberikan sesuai cakupan program."],
       ["Onboarding driver", "Persiapan akun dan training tersedia bagi driver yang memerlukannya."],
       ["Hari libur tanpa setoran", "Dua atau tiga hari per bulan sesuai paket, tanpa kewajiban setoran pada hari tersebut."],
-    ],
-    stepsEyebrow: "ALUR PROGRAM",
-    stepsTitle: "Dari pendaftaran hingga pengalihan kepemilikan.",
-    steps: [
-      ["Pilih paket dan cek kelayakan", "Pilih Regular, Premium, atau konsultasikan kebutuhan Anda terlebih dahulu."],
-      ["Siapkan dokumen", "KTP, Kartu Keluarga, dan SIM A aktif sebagai dokumen awal AutoRev."],
-      ["Pelajari program dan kontrak", "Tim menjelaskan setoran, benefit, ketentuan operasional, serta proses kepemilikan."],
-      ["Persiapan akun dan training", "Driver pemula mendapat pendampingan bila diperlukan; akun lama diperiksa kesesuaiannya."],
-      ["Persiapan kendaraan", "EV kategori Car Plus disiapkan sebelum onboarding dan serah terima."],
-      ["Beroperasi dan tuntaskan program", "Gunakan kendaraan sesuai ketentuan dan selesaikan kewajiban selama tenor lima tahun."],
-      ["Verifikasi dan alih kepemilikan", "Setelah tenor dan kewajiban selesai, administrasi kepemilikan diproses sesuai kontrak."],
     ],
     profileEyebrow: "PROFIL DRIVER",
     profileTitle: "Jalur untuk driver baru dan berpengalaman.",
@@ -198,7 +169,6 @@ const copy = {
       ["Apakah hari libur tetap harus membayar setoran?", "Tidak. Regular mendapat 2 hari dan Premium 3 hari libur bebas setoran setiap bulan."],
       ["Saya belum pernah menjadi driver. Apakah bisa mendaftar?", "Bisa. Training sekitar satu minggu tersedia apabila diperlukan, termasuk pengenalan EV dan persiapan akun."],
       ["Apakah akun lama tetap bisa digunakan?", "Bisa, sepanjang akun dan kendaraan memenuhi ketentuan platform terkait."],
-      ["Apakah saya pasti mendapat order atau penghasilan?", "Tidak. Aktivasi, order, wilayah, jam operasi, dan penghasilan mengikuti aktivitas driver, kondisi pasar, serta kebijakan masing-masing platform."],
       ["Sampai kapan charging gratis?", "Charging gratis tersedia sampai tahun 2029 sesuai ketentuan program. Detail periode dan mekanismenya dijelaskan dalam kontrak."],
       ["Bagaimana benefit makan diberikan?", "Pada tahap awal, benefit diberikan dalam bentuk uang makan: 1x per minggu untuk Regular dan 4x per minggu untuk Premium. Booth atau kantin direncanakan bertahap."],
       ["Apakah BPJS dan paguyuban sudah tersedia?", "BPJS sedang dipersiapkan bertahap. Paguyuban driver dan family gathering juga masih dalam pengembangan dan belum dianggap benefit aktif sampai dikonfirmasi."],
@@ -275,23 +245,6 @@ const copy = {
     ] satisfies Plan[],
     priceNote:
       "Daily program payments are due by 10:00 PM WIB on operating days. No daily payment is due on the plan’s designated days off. Scheduling, charging, service, maintenance, and insurance details are governed by the contract and program terms.",
-    compareEyebrow: "PLAN COMPARISON",
-    compareTitle: "Regular and Premium in detail.",
-    compareText:
-      "The main differences are the daily payment, number of days off, and meal benefits. The ownership path and core vehicle benefits apply to both plans.",
-    compareHead: ["Detail", "Founding Regular", "Founding Premium"],
-    compareRows: [
-      ["Daily payment", "IDR 300,000", "IDR 350,000"],
-      ["Program term", "5 years", "5 years"],
-      ["Payment-free days off", "2 days / month", "3 days / month"],
-      ["Meal benefit", "1x / week", "4x / week"],
-      ["Deposit / down payment", "None", "None"],
-      ["Final balloon payment", "None", "None"],
-      ["Charging", "Through 2029", "Through 2029"],
-      ["Vehicle", "Car Plus EV", "Car Plus EV"],
-      ["Training", "When needed", "When needed"],
-      ["Service & insurance", "Under program terms", "Under program terms"],
-    ],
     sharedEyebrow: "PROGRAM COVERAGE",
     sharedTitle: "Included in both plans.",
     shared: [
@@ -301,17 +254,6 @@ const copy = {
       ["Service and protection", "Service, maintenance, and insurance are provided within the program scope."],
       ["Driver onboarding", "Account preparation and training are available for drivers who need them."],
       ["Payment-free days off", "Two or three days each month, based on plan, with no daily payment due."],
-    ],
-    stepsEyebrow: "PROGRAM FLOW",
-    stepsTitle: "From application to ownership transfer.",
-    steps: [
-      ["Choose a plan and check eligibility", "Choose Regular, Premium, or discuss your needs first."],
-      ["Prepare your documents", "Indonesian ID card, Family Card, and a valid Class A licence as initial AutoRev documents."],
-      ["Review the program and contract", "The team explains payments, benefits, operating rules, and ownership transfer."],
-      ["Account preparation and training", "New drivers get help when needed; existing accounts are checked for eligibility."],
-      ["Vehicle preparation", "A Car Plus-category EV is prepared before onboarding and handover."],
-      ["Operate and complete the program", "Use the vehicle under the rules and complete all obligations over five years."],
-      ["Final verification and ownership transfer", "Once complete, the ownership administration proceeds under the contract."],
     ],
     profileEyebrow: "DRIVER PROFILES",
     profileTitle: "A path for new and experienced drivers.",
@@ -371,7 +313,6 @@ const copy = {
       ["Are days off payment-free?", "Yes. Regular includes 2 and Premium 3 payment-free days off each month."],
       ["Can beginners apply?", "Yes. Approximately one week of training is available when needed, including EV familiarization and account preparation."],
       ["Can I use my existing account?", "Yes, as long as the account and vehicle meet the relevant platform requirements."],
-      ["Are orders or earnings guaranteed?", "No. Activation, orders, area, hours, and earnings depend on driver activity, market conditions, and each platform’s policies."],
       ["How long is free charging available?", "Free charging is available through 2029 under the program terms. Timing and mechanics are explained in the contract."],
       ["How is the meal benefit provided?", "Initially, the benefit is provided as a meal allowance: once weekly for Regular and four times weekly for Premium. Food booths or canteens are planned in stages."],
       ["Are BPJS and community benefits active?", "BPJS is being prepared in stages. The driver community and family gatherings are also still being developed and are not active benefits until confirmed."],
@@ -493,57 +434,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <OwnershipJourney locale={locale} />
-
-      <section className={styles.compare}>
-        <div className={`container ${styles.compareLayout}`}>
-          <RevealBlock className={styles.compareIntro}>
-            <span className={styles.sectionEyebrow}>{t.compareEyebrow}</span>
-            <h2>{t.compareTitle}</h2>
-            <p>{t.compareText}</p>
-          </RevealBlock>
-          <RevealBlock className={styles.tableShell}>
-            <div className={styles.comparisonTable} role="table" aria-label={t.compareEyebrow}>
-              <div className={`${styles.tableRow} ${styles.tableHead}`} role="row">
-                {t.compareHead.map((cell) => <strong key={cell} role="columnheader">{cell}</strong>)}
-              </div>
-              {t.compareRows.map((row) => (
-                <div className={styles.tableRow} role="row" key={row[0]}>
-                  <strong role="rowheader">{row[0]}</strong>
-                  <span role="cell">{row[1]}</span>
-                  <span role="cell">{row[2]}</span>
-                </div>
-              ))}
-            </div>
-          </RevealBlock>
-        </div>
-      </section>
-
-      <section className={styles.steps}>
-        <div className={`container ${styles.sectionHead}`}>
-          <RevealBlock>
-            <span className={styles.sectionEyebrow}>{t.stepsEyebrow}</span>
-            <h2>{t.stepsTitle}</h2>
-          </RevealBlock>
-        </div>
-        <div className={`container ${styles.stepsGrid}`}>
-          {t.steps.map(([title, text], index) => (
-            <motion.article
-              key={title}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: .25 }}
-              transition={{ delay: (index % 3) * .055, duration: .5 }}
-            >
-              <span>0{index + 1}</span>
-              <div className={styles.stepLine}><i /></div>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </motion.article>
-          ))}
         </div>
       </section>
 
@@ -704,7 +594,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
                 transition={{ delay: (index % 4) * .035, duration: .35 }}
               >
                 <summary>
-                  <span>0{index + 1}</span>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{question}</strong>
                   <i aria-hidden="true"><span /><span /></i>
                 </summary>
@@ -786,7 +676,7 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
       <div className={styles.planHighlights}>
         <div><CalendarDays /><strong>{plan.highlights[0]}</strong><span>{locale === "id" ? "bebas setoran / bulan" : "payment-free / month"}</span></div>
         <div><Utensils /><strong>{plan.highlights[1]}</strong><span>{locale === "id" ? "benefit makan" : "meal benefit"}</span></div>
-        <div><CarFront /><strong>{plan.highlights[2]}</strong><span>{locale === "id" ? "menuju kepemilikan" : "path to ownership"}</span></div>
+        <div><CarFront /><strong>{plan.highlights[2]}</strong><span>{locale === "id" ? "masa program" : "program term"}</span></div>
       </div>
       <ul>
         {plan.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}
