@@ -1,282 +1,287 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BatteryCharging, FileCheck2, Gauge, ShieldCheck } from "lucide-react";
+import { useEffect, useRef } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
+import {
+  ArrowUpRight,
+  BatteryCharging,
+  FileCheck2,
+  Gauge,
+  KeyRound,
+  ShieldCheck,
+} from "lucide-react";
 import { useReducedMotion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import styles from "./ownership-journey.module.css";
 
 const content = {
   id: {
-    eyebrow: "ALUR PROGRAM · 5 TAHUN",
-    title: ["Dari rental,", "menuju hak milik."],
+    eyebrow: "JALUR PROGRAM LIMA TAHUN",
+    title: ["Dari hari pertama", "hingga proses alih milik."],
     intro:
-      "Satu alur yang jelas sejak kendaraan diterima hingga proses pengalihan kepemilikan—sesuai kontrak dan setelah seluruh kewajiban program diselesaikan.",
-    motionLabel: "SCROLL UNTUK MELAJU",
-    routeLabel: "JABODETABEK · EV ON ROUTE",
-    steps: [
+      "Empat fase yang perlu dituntaskan. Pengalihan kepemilikan diproses setelah tenor, seluruh kewajiban, verifikasi, dan administrasi selesai sesuai kontrak.",
+    scrollLabel: "JALUR PROGRAM",
+    chapters: [
       {
-        number: "01",
-        label: "MULAI",
-        title: "Pilih paket dan siapkan akun.",
-        text: "Pilih Regular atau Premium, selesaikan pemeriksaan dokumen, lalu ikuti training apabila diperlukan.",
-        meta: "VERIFIKASI · ONBOARDING",
+        number: "00",
+        period: "PERSIAPAN",
+        status: "TAHAP AWAL",
+        title: "Siapkan diri dan kendaraan.",
+        text: "Pilih Regular atau Premium, selesaikan pemeriksaan dokumen, lalu ikuti persiapan akun dan training apabila diperlukan.",
+        meta: "Dokumen · Akun · Training",
+        value: "Rp0",
+        valueLabel: "deposit / DP",
         icon: FileCheck2,
       },
       {
-        number: "02",
-        label: "BEROPERASI",
-        title: "Jalankan EV dengan ritme Anda.",
-        text: "Gunakan EV Car Plus sesuai ketentuan program, dengan hari libur bebas setoran dan charging gratis sampai 2029.",
-        meta: "OPERASIONAL · SUPPORT",
+        number: "01",
+        period: "MULAI BEROPERASI",
+        status: "TAHUN 01",
+        title: "Mulai bekerja dengan EV Car Plus.",
+        text: "Operasikan kendaraan sesuai ketentuan program dan gunakan aplikasi transportasi atau pengantaran yang memenuhi kebijakan masing-masing platform.",
+        meta: "EV Car Plus · Multi-platform",
+        value: "EV",
+        valueLabel: "kategori Car Plus",
         icon: Gauge,
       },
       {
-        number: "03",
-        label: "MENUJU MILIK",
-        title: "Tuntaskan tenor dan kewajiban.",
-        text: "Setelah tenor lima tahun dan seluruh kewajiban terpenuhi, proses pengalihan kepemilikan dilakukan sesuai kontrak.",
-        meta: "5 TAHUN · SESUAI KONTRAK",
-        icon: ShieldCheck,
+        number: "02—04",
+        period: "TENOR BERJALAN",
+        status: "TAHUN 02—04",
+        title: "Jaga ritme kerja dan kondisi unit.",
+        text: "Charging gratis sampai 2029 serta servis, perawatan, dan asuransi tersedia sesuai ketentuan program.",
+        meta: "Charging · Perawatan · Perlindungan",
+        value: "2029",
+        valueLabel: "charging gratis",
+        icon: BatteryCharging,
+      },
+      {
+        number: "05",
+        period: "PROGRAM TUNTAS",
+        status: "TAHUN 05",
+        title: "Tuntaskan kewajiban. Proses alih milik.",
+        text: "Setelah tenor lima tahun, seluruh kewajiban, verifikasi akhir, dan administrasi selesai, pengalihan kepemilikan diproses sesuai kontrak.",
+        meta: "Tenor tuntas · Sesuai kontrak",
+        value: "5",
+        valueLabel: "tahun program",
+        icon: KeyRound,
       },
     ],
-    facts: [
-      ["Rp0", "deposit / DP"],
-      ["2–3 hari", "libur bebas setoran"],
-      ["2029", "charging gratis"],
-    ],
+    finalKicker: "SETELAH TENOR DAN KEWAJIBAN TUNTAS",
+    finalWords: ["MENUJU", "MILIK"],
     cta: "Lihat paket lengkap",
+    legal: "Alih kepemilikan tidak otomatis: mengikuti kontrak, kelayakan, dan penyelesaian seluruh kewajiban program.",
   },
   en: {
-    eyebrow: "PROGRAM ROUTE · 5 YEARS",
-    title: ["From rental,", "toward ownership."],
+    eyebrow: "THE FIVE-YEAR PROGRAM PATH",
+    title: ["From the first day", "to ownership transfer."],
     intro:
-      "One clear route from vehicle handover to ownership transfer—under the contract and after every program obligation is completed.",
-    motionLabel: "SCROLL TO DRIVE",
-    routeLabel: "GREATER JAKARTA · EV ON ROUTE",
-    steps: [
+      "Four phases to complete. Ownership transfer is processed after the term, every obligation, verification, and administration are completed under the contract.",
+    scrollLabel: "PROGRAM PATH",
+    chapters: [
       {
-        number: "01",
-        label: "START",
-        title: "Choose a plan and prepare your account.",
-        text: "Choose Regular or Premium, complete document checks, then attend training when needed.",
-        meta: "VERIFICATION · ONBOARDING",
+        number: "00",
+        period: "PREPARATION",
+        status: "INITIAL STAGE",
+        title: "Prepare yourself and the vehicle.",
+        text: "Choose Regular or Premium, complete document checks, then prepare your account and attend training when needed.",
+        meta: "Documents · Account · Training",
+        value: "IDR 0",
+        valueLabel: "deposit / down payment",
         icon: FileCheck2,
       },
       {
-        number: "02",
-        label: "OPERATE",
-        title: "Run the EV around your rhythm.",
-        text: "Use a Car Plus EV under the program terms, with payment-free days off and free charging through 2029.",
-        meta: "OPERATIONS · SUPPORT",
+        number: "01",
+        period: "START OPERATING",
+        status: "YEAR 01",
+        title: "Start working with a Car Plus EV.",
+        text: "Operate under the program terms and use transport or delivery apps that meet each platform's policies.",
+        meta: "Car Plus EV · Multi-platform",
+        value: "EV",
+        valueLabel: "Car Plus category",
         icon: Gauge,
       },
       {
-        number: "03",
-        label: "TOWARD OWNERSHIP",
-        title: "Complete the term and obligations.",
-        text: "After the five-year term and all obligations are fulfilled, ownership transfer is processed under the contract.",
-        meta: "5 YEARS · UNDER CONTRACT",
-        icon: ShieldCheck,
+        number: "02—04",
+        period: "TERM IN PROGRESS",
+        status: "YEARS 02—04",
+        title: "Maintain your work rhythm and the vehicle.",
+        text: "Free charging through 2029, plus service, maintenance, and insurance, are available under the program terms.",
+        meta: "Charging · Maintenance · Protection",
+        value: "2029",
+        valueLabel: "free charging",
+        icon: BatteryCharging,
+      },
+      {
+        number: "05",
+        period: "PROGRAM COMPLETE",
+        status: "YEAR 05",
+        title: "Complete the obligations. Process the transfer.",
+        text: "After the five-year term, every obligation, final verification, and administration are complete, ownership transfer is processed under the contract.",
+        meta: "Term complete · Under contract",
+        value: "5",
+        valueLabel: "year program",
+        icon: KeyRound,
       },
     ],
-    facts: [
-      ["IDR 0", "deposit / down payment"],
-      ["2–3 days", "payment-free days off"],
-      ["2029", "free charging"],
-    ],
+    finalKicker: "AFTER THE TERM AND OBLIGATIONS ARE COMPLETE",
+    finalWords: ["TOWARD", "OWNERSHIP"],
     cta: "View full plans",
+    legal: "Ownership transfer is not automatic: it follows the contract, eligibility, and completion of every program obligation.",
   },
 } as const;
 
 export function OwnershipJourney({ locale }: { locale: Locale }) {
   const sectionRef = useRef<HTMLElement>(null);
-  const routeRef = useRef<SVGPathElement>(null);
-  const progressRef = useRef<SVGPathElement>(null);
-  const vehicleRef = useRef<SVGGElement>(null);
+  const sceneRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const vehicleRef = useRef<HTMLDivElement>(null);
+  const roadRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const finalRef = useRef<HTMLDivElement>(null);
+  const sunriseRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const t = content[locale];
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || window.matchMedia("(max-width: 760px)").matches || !sectionRef.current) return;
 
-    let cancelled = false;
-    let revertMedia: (() => void) | undefined;
+    const section = sectionRef.current;
+    if (!sceneRef.current || !headerRef.current || !vehicleRef.current) return;
 
-    void (async () => {
-      const [{ gsap }, { ScrollTrigger }, { MotionPathPlugin }] = await Promise.all([
-        import("gsap"),
-        import("gsap/ScrollTrigger"),
-        import("gsap/MotionPathPlugin"),
-      ]);
+    gsap.registerPlugin(ScrollTrigger);
+    section.dataset.driveReady = "true";
+    const context = gsap.context(() => {
+        const panels = gsap.utils.toArray<HTMLElement>("[data-drive-panel]");
+        const markers = gsap.utils.toArray<HTMLElement>("[data-drive-marker]");
 
-      if (cancelled || !sectionRef.current || !routeRef.current || !progressRef.current || !vehicleRef.current) return;
-
-      gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
-      const media = gsap.matchMedia();
-      revertMedia = () => media.revert();
-
-      media.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
-        const root = sectionRef.current;
-        const route = routeRef.current;
-        const progress = progressRef.current;
-        const vehicle = vehicleRef.current;
-        if (!root || !route || !progress || !vehicle) return;
-
-        const panels = Array.from(root.querySelectorAll<HTMLElement>("[data-journey-panel]"));
-        const milestones = Array.from(root.querySelectorAll<SVGGElement>("[data-journey-node]"));
-
-        gsap.set(panels, { autoAlpha: 0, y: 22 });
+        gsap.set(panels, { autoAlpha: 0, y: 30 });
         gsap.set(panels[0], { autoAlpha: 1, y: 0 });
-        gsap.set(milestones, { opacity: .36 });
-        gsap.set(milestones[0], { opacity: 1 });
-        gsap.set(progress, { strokeDashoffset: 1 });
+        gsap.set(markers, { opacity: .32, scale: .9 });
+        gsap.set(markers[0], { opacity: 1, scale: 1 });
+        gsap.set(finalRef.current, { autoAlpha: 0, y: 65, scale: .88 });
 
         const timeline = gsap.timeline({
           defaults: { ease: "power2.out" },
           scrollTrigger: {
-            trigger: root,
+            trigger: section,
             start: "top top",
             end: "bottom bottom",
-            scrub: .65,
+            scrub: .72,
             invalidateOnRefresh: true,
           },
         });
 
         timeline
-          .to(progress, { strokeDashoffset: 0, duration: 3, ease: "none" }, 0)
-          .to(vehicle, {
-            motionPath: { path: route, align: route, alignOrigin: [.5, .5], autoRotate: true },
-            duration: 3,
-            ease: "none",
-          }, 0)
-          .to(milestones[0], { opacity: 1, duration: .2 }, .12)
-          .to(panels[0], { autoAlpha: 0, y: -18, duration: .22 }, .76)
-          .to(panels[1], { autoAlpha: 1, y: 0, duration: .28 }, .88)
-          .to(milestones[1], { opacity: 1, duration: .24 }, 1.08)
-          .to(panels[1], { autoAlpha: 0, y: -18, duration: .22 }, 1.78)
-          .to(panels[2], { autoAlpha: 1, y: 0, duration: .28 }, 1.9)
-          .to(milestones[2], { opacity: 1, duration: .24 }, 2.12);
+          .fromTo(vehicleRef.current, { xPercent: -18, yPercent: 12, scale: .76, rotate: -1.5 }, { xPercent: 2, yPercent: 0, scale: 1.02, rotate: 0, duration: 3.6, ease: "none" }, 0)
+          .to(sceneRef.current, { "--story-energy": 1, "--story-exposure": 1, duration: 3.6, ease: "none" }, 0)
+          .to(progressRef.current, { scaleX: 1, duration: 3.45, ease: "none" }, 0)
+          .to(roadRef.current, { "--road-shift": 1, duration: 3.6, ease: "none" }, 0)
+          .to(headerRef.current, { autoAlpha: 0, y: -42, duration: .36 }, .34)
+          .to(panels[0], { autoAlpha: 0, y: -22, duration: .22 }, .72)
+          .to(panels[1], { autoAlpha: 1, y: 0, duration: .28 }, .86)
+          .to(markers[1], { opacity: 1, scale: 1, duration: .2 }, .9)
+          .to(panels[1], { autoAlpha: 0, y: -22, duration: .22 }, 1.55)
+          .to(panels[2], { autoAlpha: 1, y: 0, duration: .28 }, 1.68)
+          .to(markers[2], { opacity: 1, scale: 1, duration: .2 }, 1.72)
+          .to(sunriseRef.current, { opacity: 1, scale: 1.08, duration: .85 }, 1.9)
+          .to(panels[2], { autoAlpha: 0, y: -22, duration: .22 }, 2.42)
+          .to(panels[3], { autoAlpha: 1, y: 0, duration: .3 }, 2.56)
+          .to(markers[3], { opacity: 1, scale: 1, duration: .2 }, 2.62)
+          .to(finalRef.current, { autoAlpha: 1, y: 0, scale: 1, duration: .62 }, 2.62)
+          .to(vehicleRef.current, { xPercent: 8, scale: 1.07, duration: .72 }, 2.72);
+    }, section);
 
-        return () => timeline.kill();
-      });
-    })();
+    const refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
 
     return () => {
-      cancelled = true;
-      revertMedia?.();
+      window.cancelAnimationFrame(refreshFrame);
+      delete section.dataset.driveReady;
+      context.revert();
     };
   }, [reduceMotion]);
 
+  function handlePointerMove(event: ReactPointerEvent<HTMLDivElement>) {
+    if (reduceMotion || event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX / bounds.width - .5;
+    const y = event.clientY / bounds.height - .5;
+    event.currentTarget.style.setProperty("--pointer-x", `${x * 18}px`);
+    event.currentTarget.style.setProperty("--pointer-y", `${y * 12}px`);
+  }
+
+  function resetPointer(event: ReactPointerEvent<HTMLDivElement>) {
+    event.currentTarget.style.setProperty("--pointer-x", "0px");
+    event.currentTarget.style.setProperty("--pointer-y", "0px");
+  }
+
   return (
     <section className={styles.journey} id="ownership-journey" ref={sectionRef} aria-labelledby="ownership-journey-title">
-      <div className={styles.scene}>
-        <div className={styles.ambient} aria-hidden="true" />
-        <div className={`container ${styles.header}`}>
-          <div>
-            <span className={styles.eyebrow}>{t.eyebrow}</span>
-            <h2 id="ownership-journey-title">
-              {t.title[0]} <em>{t.title[1]}</em>
-            </h2>
-          </div>
+      <div className={styles.scene} ref={sceneRef} onPointerMove={handlePointerMove} onPointerLeave={resetPointer}>
+        <div className={styles.sky} aria-hidden="true">
+          <div className={styles.aurora} />
+          <div className={styles.sunrise} ref={sunriseRef} />
+          <div className={styles.horizon} />
+        </div>
+
+        <div className={`container ${styles.header}`} ref={headerRef}>
+          <span className={styles.eyebrow}>{t.eyebrow}</span>
+          <h2 id="ownership-journey-title">
+            {t.title.map((line, index) => <span key={line} className={index === 2 ? styles.serifLine : undefined}>{line}</span>)}
+          </h2>
           <p>{t.intro}</p>
         </div>
 
-        <div className={`container ${styles.route}`} aria-hidden="true">
-          <div className={styles.routeStatus}>
-            <span><i />{t.routeLabel}</span>
-            <small>{t.motionLabel}</small>
-          </div>
-          <svg viewBox="-50 0 1200 340" role="presentation" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="ownership-route-gradient" x1="0" x2="1">
-                <stop offset="0" stopColor="#10d9e8" />
-                <stop offset=".52" stopColor="#3e8dff" />
-                <stop offset="1" stopColor="#b8c5ff" />
-              </linearGradient>
-              <linearGradient id="ownership-ev-paint" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="#f8fbff" />
-                <stop offset=".26" stopColor="#b7d6ff" />
-                <stop offset=".58" stopColor="#2b78ff" />
-                <stop offset=".82" stopColor="#0b3a8a" />
-                <stop offset="1" stopColor="#d8e9ff" />
-              </linearGradient>
-              <linearGradient id="ownership-ev-glass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="#3f74a8" />
-                <stop offset=".45" stopColor="#06182f" />
-                <stop offset="1" stopColor="#0e315c" />
-              </linearGradient>
-              <filter id="ownership-car-glow" x="-220%" y="-220%" width="440%" height="440%">
-                <feGaussianBlur stdDeviation="5" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-            <path className={styles.routeShadow} d="M70 246 C205 52 365 52 489 188 S760 333 1030 92" />
-            <path ref={routeRef} className={styles.routeBase} d="M70 246 C205 52 365 52 489 188 S760 333 1030 92" />
-            <path className={styles.routeCharge} pathLength="1" d="M70 246 C205 52 365 52 489 188 S760 333 1030 92" />
-            <path ref={progressRef} className={styles.routeProgress} pathLength="1" d="M70 246 C205 52 365 52 489 188 S760 333 1030 92" />
-
-            <g className={styles.milestone} data-journey-node transform="translate(70 246)">
-              <circle r="24" /><circle className={styles.milestoneCore} r="6" /><text y="47">01</text>
-            </g>
-            <g className={styles.milestone} data-journey-node transform="translate(520 215)">
-              <circle r="24" /><circle className={styles.milestoneCore} r="6" /><text y="47">02</text>
-            </g>
-            <g className={styles.milestone} data-journey-node transform="translate(1030 92)">
-              <circle r="24" /><circle className={styles.milestoneCore} r="6" /><text y="47">03</text>
-            </g>
-
-            <g ref={vehicleRef} className={styles.vehicle} transform="translate(70 246)">
-              <g className={styles.vehicleAura}>
-                <ellipse rx="62" ry="38" />
-                <ellipse rx="52" ry="30" />
-              </g>
-              <g className={styles.vehicleTrails} aria-hidden="true">
-                <path d="M-82-13H-49" />
-                <path d="M-92 0H-51" />
-                <path d="M-78 13H-48" />
-              </g>
-              <ellipse className={styles.vehicleShadow} cx="-2" cy="8" rx="49" ry="20" />
-              <g className={styles.vehicleWheels}>
-                <rect x="-31" y="-24" width="17" height="7" rx="3" />
-                <rect x="20" y="-24" width="17" height="7" rx="3" />
-                <rect x="-31" y="17" width="17" height="7" rx="3" />
-                <rect x="20" y="17" width="17" height="7" rx="3" />
-              </g>
-              <path className={styles.vehicleBody} d="M-43-14C-34-23 20-24 36-16 44-12 48-6 49 0 48 7 44 12 36 16 20 24-34 23-43 14-49 8-49-8-43-14Z" />
-              <path className={styles.vehicleCabin} d="M-21-15C-8-20 14-19 29-12L34-2 33 10C16 19-8 19-21 15-26 7-26-7-21-15Z" />
-              <path className={styles.vehicleGlass} d="M-15-13C-4-16 12-16 23-11L27-3 26 9C13 14-4 15-15 12-19 5-19-6-15-13Z" />
-              <path className={styles.vehicleRoofLine} d="M-8-12C2-14 12-13 19-10M-8 12C2 14 12 13 19 10" />
-              <path className={styles.vehicleFrontLight} filter="url(#ownership-car-glow)" d="M37-11C44-7 47-3 47 0S44 8 37 11" />
-              <path className={styles.vehicleRearLight} d="M-41-10C-45-6-47-3-47 0S-45 6-41 10" />
-              <circle className={styles.vehicleChargePort} cx="-30" cy="0" r="4" />
-              <text className={styles.vehicleLabel} x="5" y="4">EV</text>
-            </g>
-          </svg>
+        <div className={styles.finalWord} ref={finalRef} aria-hidden="true">
+          <small>{t.finalKicker}</small>
+          <span>{t.finalWords[0]}</span>
+          <strong>{t.finalWords[1]}</strong>
         </div>
 
-        <div className={`container ${styles.lower}`}>
-          <div className={styles.facts}>
-            {t.facts.map(([value, label]) => (
-              <div key={label}><strong>{value}</strong><span>{label}</span></div>
-            ))}
+        <div className={styles.vehicleRig} ref={vehicleRef} aria-hidden="true">
+          <div className={styles.vehicleParallax}>
+            <div className={styles.vehicleShadow} />
+            <Image
+              className={styles.vehicleImage}
+              src="/images/autorev-ev-cinematic-cutout.png"
+              alt=""
+              width={1759}
+              height={894}
+              sizes="(max-width: 700px) 145vw, 76vw"
+              quality={92}
+            />
           </div>
+        </div>
 
+        <div className={styles.road} ref={roadRef} aria-hidden="true">
+          <div className={styles.roadPlane}>
+            <i /><i /><i /><i />
+          </div>
+          <div className={styles.roadGlow} />
+        </div>
+
+        <div className={`container ${styles.storyLayer}`}>
           <div className={styles.panelStack}>
-            {t.steps.map((step, index) => {
-              const Icon = step.icon;
+            {t.chapters.map((chapter, index) => {
+              const Icon = chapter.icon;
               return (
-                <article className={styles.panel} data-journey-panel key={step.number}>
-                  <div className={styles.panelTop}>
-                    <span>{step.number} / 03 · {step.label}</span>
+                <article className={styles.panel} data-drive-panel key={chapter.number}>
+                  <div className={styles.panelHead}>
+                    <span>{chapter.period} · {chapter.status}</span>
                     <Icon aria-hidden="true" />
                   </div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                  <small>{step.meta}</small>
-                  {index === 2 && (
+                  <h3>{chapter.title}</h3>
+                  <p>{chapter.text}</p>
+                  <div className={styles.panelFoot}>
+                    <small>{chapter.meta}</small>
+                    <div><strong>{chapter.value}</strong><span>{chapter.valueLabel}</span></div>
+                  </div>
+                  {index === t.chapters.length - 1 && (
                     <Link href={localizePath(locale, "/founding-driver#paket")}>
                       {t.cta}<ArrowUpRight aria-hidden="true" />
                     </Link>
@@ -287,9 +292,20 @@ export function OwnershipJourney({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className={styles.energyMark} aria-hidden="true">
-          <BatteryCharging />
-          <span>EV</span>
+        <div className={`container ${styles.timeline}`}>
+          <div className={styles.timelineTop}>
+            <span>{t.scrollLabel}</span>
+            <span>00 / 05</span>
+          </div>
+          <div className={styles.timelineTrack}>
+            <div className={styles.timelineProgress} ref={progressRef} />
+            {t.chapters.map((chapter) => (
+              <div className={styles.marker} data-drive-marker key={chapter.number}>
+                <i /><span>{chapter.number}</span>
+              </div>
+            ))}
+          </div>
+          <p className={styles.legal}><ShieldCheck aria-hidden="true" />{t.legal}</p>
         </div>
       </div>
     </section>

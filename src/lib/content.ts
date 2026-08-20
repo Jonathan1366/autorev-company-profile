@@ -13,9 +13,9 @@ export const copy = {
       foundingProgram: "Program founding partner",
     },
     home: {
-      eyebrow: "AutoRev · EV Rental",
-      title: "EV Rental.",
-      subtitle: "EV untuk perjalanan, kerja, dan bisnis.",
+      eyebrow: "Founding Driver AutoRev · Jabodetabek",
+      title: "EV untuk kerja. Menuju milik.",
+      subtitle: "Operasikan EV Car Plus melalui program lima tahun, mulai Rp300.000 per hari operasional.",
       ecosystemTitle: "Satu ekosistem. Setiap perjalanan kendaraan.",
       ecosystemText:
         "Dari kendaraan dipesan hingga kembali produktif, AutoRev menyatukan customer, fleet owner, teknisi, bengkel, towing, dan supplier dalam alur yang lebih transparan.",
@@ -52,9 +52,9 @@ export const copy = {
       foundingProgram: "Founding partner program",
     },
     home: {
-      eyebrow: "AutoRev · EV Rental",
-      title: "EV Rental.",
-      subtitle: "EVs for journeys, work, and business.",
+      eyebrow: "AutoRev Founding Driver · Greater Jakarta",
+      title: "An EV for work. A path to ownership.",
+      subtitle: "Operate a Car Plus EV through a five-year program, from IDR 300,000 per operating day.",
       ecosystemTitle: "One ecosystem. Every vehicle journey.",
       ecosystemText:
         "From booking to productive return, AutoRev connects customers, fleet owners, technicians, workshops, towing, and suppliers through a more transparent workflow.",

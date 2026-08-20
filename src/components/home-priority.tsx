@@ -12,18 +12,18 @@ function FeaturePoints({ points }: { points: string[] }) {
 
 export function HomeRental({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Lepas kunci untuk bebas menentukan perjalanan.", "Dengan driver untuk perjalanan tanpa repot.", "Harian, mingguan, atau bulanan.", "100% kendaraan listrik."]
-    : ["Self drive for complete freedom.", "With a driver for effortless travel.", "Daily, weekly, or monthly.", "100% electric vehicles."];
+    ? ["Lepas kunci untuk mengatur rute sendiri.", "Dengan driver untuk perjalanan yang lebih santai.", "Tersedia untuk kebutuhan harian hingga bulanan.", "Beroperasi di wilayah Jabodetabek."]
+    : ["Self drive and set your own route.", "Travel with a driver for a more relaxed journey.", "Available for daily through monthly needs.", "Operating across Greater Jakarta."];
   return (
     <section className="section priority-feature priority-feature--light" id="rental">
       <div className="container priority-feature__grid">
         <ScrollStoryImage className="priority-feature__visual" src="/images/autorev-rental-roadtrip-v3.png" alt={locale === "id" ? "Rombongan memulai perjalanan dengan kendaraan listrik" : "Friends beginning a journey in an electric vehicle"}/>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow">AUTOREV EV RENTAL</span>
-          <h2>{locale === "id" ? "EV untuk setiap perjalanan." : "An EV for every journey."}</h2>
-          <p>{locale === "id" ? "Lepas kunci atau dengan driver, dengan durasi yang mengikuti kebutuhan Anda." : "Self drive or with a driver, for a duration that fits your needs."}</p>
+          <h2>{locale === "id" ? "Sewa EV sesuai perjalanan Anda." : "Rent an EV for your journey."}</h2>
+          <p>{locale === "id" ? "Beritahu tanggal, lokasi, dan durasi. Tim kami akan membantu mencocokkan kebutuhan Anda dengan unit yang tersedia." : "Share the date, location, and duration. Our team will help match your needs with an available vehicle."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/autorev-rental")} variant="primary">{locale === "id" ? "Lihat Pilihan Rental" : "View Rental Options"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/autorev-rental")} variant="primary">{locale === "id" ? "Cek Pilihan Rental" : "Explore Rental Options"}</ButtonLink>
         </Reveal>
       </div>
     </section>
@@ -40,8 +40,8 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
         <Reveal className="priority-feature__visual"><Image src="/images/autorev-corporate-ev-v2.png" alt={locale === "id" ? "Armada kendaraan listrik untuk operasional perusahaan" : "Electric vehicles ready for company operations"} fill sizes="(max-width: 900px) 100vw, 55vw" quality={92}/></Reveal>
         <Reveal className="priority-feature__copy" delay={.08}>
           <span className="eyebrow eyebrow--light">{locale === "id" ? "UNTUK PERUSAHAAN" : "FOR COMPANIES"}</span>
-          <h2>{locale === "id" ? "Armada EV. Siap beroperasi." : "An EV fleet. Ready to operate."}</h2>
-          <p>{locale === "id" ? "Pilihan kendaraan dan dukungan operasional untuk corporate serta owner rental." : "Vehicles and operational support for companies and rental owners."}</p>
+          <h2>{locale === "id" ? "Armada EV yang siap bekerja." : "An EV fleet ready to work."}</h2>
+          <p>{locale === "id" ? "Ceritakan jumlah unit, durasi, dan kebutuhan penggunaan. Kami membantu menyiapkan pembahasan armada yang relevan." : "Share the fleet size, duration, and usage needs. We’ll help prepare a relevant fleet discussion."}</p>
           <FeaturePoints points={points}/>
           <ButtonLink href={localizePath(locale,"/autorev-business")} variant="light">{locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}</ButtonLink>
         </Reveal>

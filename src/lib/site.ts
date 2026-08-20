@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "AutoRev Mobilitas Indonesia",
   shortName: "AutoRev",
-  tagline: "EV Rental. Built to Move.",
+  tagline: "Mobility, Equipment & Technology.",
   description:
-    "AutoRev menyediakan EV rental untuk perjalanan, program Founding Driver mulai Rp300.000 per hari, dan armada EV untuk kebutuhan bisnis. Alih kepemilikan Founding Driver diproses setelah program 5 tahun sesuai kontrak.",
+    "AutoRev menyediakan solusi rental dan project-based sourcing untuk kendaraan, truck, trailer, construction equipment, mining equipment, material handling, serta fleet technology.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://autorev-mobilitas-indonesia.vercel.app",
   email: "jonathanfarelemanuel@gmail.com",
   phoneDisplay: "0813 6740 8145",
@@ -16,9 +16,9 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { href: "/founding-driver", label: { id: "Program Driver", en: "Driver Program" } },
-  { href: "/autorev-rental", label: { id: "Rental Perjalanan", en: "Travel Rental" } },
-  { href: "/autorev-business", label: { id: "Bisnis EV", en: "EV Business" } },
-  { href: "/revauto", label: { id: "RevAuto", en: "RevAuto" } },
+  { href: "/#catalog", label: { id: "E-Catalog", en: "E-Catalog" } },
+  { href: "/#project-solutions", label: { id: "Solusi Proyek", en: "Project Solutions" } },
+  { href: "/#technology", label: { id: "Fleet Technology", en: "Fleet Technology" } },
+  { href: "/contact?type=business", label: { id: "Minta Penawaran", en: "Request a Quote" } },
   { href: "/about", label: { id: "Tentang", en: "About" } },
 ] as const;
