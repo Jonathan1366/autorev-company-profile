@@ -152,9 +152,9 @@ export function MobilityHome({ locale }: { locale: Locale }) {
 
   const t = locale === "id" ? {
     heroEyebrow: "FOUNDING DRIVER · RENTAL MOBIL",
-    heroA: "Mobil untuk kerja.",
-    heroB: "Langkah menuju milik.",
-    heroText: "Mulai perjalanan bersama EV Car Plus melalui program Founding Driver AutoRev—dengan alur yang jelas, dukungan operasional, dan tujuan kepemilikan sesuai kontrak.",
+    heroA: "Untuk setiap perjalanan.",
+    heroB: "Ada AutoRev.",
+    heroText: "Untuk kerja dan perjalanan sehari-hari, AutoRev menghadirkan rental mobil yang mudah, jelas, dan didukung tim yang siap membantu.",
     heroPrimary: "Lihat Founding Driver",
     heroSecondary: "Rental untuk Perusahaan",
     search: "Cari Limo Green, MPV, mobil listrik...",
@@ -184,9 +184,9 @@ export function MobilityHome({ locale }: { locale: Locale }) {
     faqTitle: "Pertanyaan sebelum mulai.",
   } : {
     heroEyebrow: "FOUNDING DRIVER · CAR RENTAL",
-    heroA: "A car for work.",
-    heroB: "A path to ownership.",
-    heroText: "Start moving with a Car Plus EV through the AutoRev Founding Driver program—with a clear journey, operational support, and an ownership path under the contract.",
+    heroA: "Wherever you’re going.",
+    heroB: "Go with AutoRev.",
+    heroText: "From workdays to everyday journeys, AutoRev makes car rental simple, clear, and backed by a team ready to help.",
     heroPrimary: "Explore Founding Driver",
     heroSecondary: "Corporate Car Rental",
     search: "Search Limo Green, MPVs, electric cars...",
@@ -217,11 +217,11 @@ export function MobilityHome({ locale }: { locale: Locale }) {
   };
 
   const pathways = locale === "id" ? [
-    { number: "01", eyebrow: "PROGRAM UTAMA", title: "Founding Driver", text: "Gunakan EV untuk bekerja hari ini dan jalani program menuju milik sesuai kontrak.", cta: "Lihat program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
+    { number: "01", eyebrow: "PROGRAM UTAMA", title: "Founding Driver", text: "EV untuk bekerja, dukungan operasional yang jelas, dan tim yang siap membantu sepanjang program.", cta: "Lihat program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
     { number: "02", eyebrow: "PERSONAL", title: "Rental Mobil", text: "Harian, mingguan, atau bulanan untuk perjalanan personal dan keluarga.", cta: "Lihat rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
     { number: "03", eyebrow: "PERUSAHAAN", title: "Corporate Rental", text: "Armada untuk perjalanan dinas, shuttle, dan operasional perusahaan.", cta: "Konsultasi armada", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
   ] : [
-    { number: "01", eyebrow: "MAIN PROGRAM", title: "Founding Driver", text: "Use an EV for work today and follow a contract-based path to ownership.", cta: "Explore the program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
+    { number: "01", eyebrow: "MAIN PROGRAM", title: "Founding Driver", text: "An EV for work, clear operational support, and a team ready to help throughout the program.", cta: "Explore the program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
     { number: "02", eyebrow: "PERSONAL", title: "Car Rental", text: "Daily, weekly, or monthly mobility for personal and family journeys.", cta: "Explore rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
     { number: "03", eyebrow: "COMPANIES", title: "Corporate Rental", text: "Fleet options for business travel, shuttles, and daily operations.", cta: "Discuss your fleet", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
   ];
@@ -273,7 +273,7 @@ export function MobilityHome({ locale }: { locale: Locale }) {
         </div>
         <div className={styles.heroFacts} role="list" aria-label={locale === "id" ? "Ringkasan Founding Driver" : "Founding Driver summary"}>
           <div role="listitem"><small>01</small><strong>{locale === "id" ? "Mulai Rp300 ribu/hari" : "From IDR 300K/day"}</strong><span>{locale === "id" ? "sesuai paket program" : "under the program plan"}</span></div>
-          <div role="listitem"><small>02</small><strong>{locale === "id" ? "Program 5 tahun" : "Five-year program"}</strong><span>{locale === "id" ? "alur menuju milik" : "path toward ownership"}</span></div>
+          <div role="listitem"><small>02</small><strong>{locale === "id" ? "Program 5 tahun" : "Five-year program"}</strong><span>{locale === "id" ? "dengan dukungan AutoRev" : "with AutoRev support"}</span></div>
           <div role="listitem"><small>03</small><strong>EV Car Plus</strong><span>{locale === "id" ? "untuk operasional driver" : "for driver operations"}</span></div>
         </div>
       </motion.div>
@@ -284,7 +284,7 @@ export function MobilityHome({ locale }: { locale: Locale }) {
       <div className={styles.heroIndex} aria-hidden="true">
         <span>FOUNDING DRIVER</span><i/>
         <span>{locale === "id" ? "EV UNTUK KERJA" : "AN EV FOR WORK"}</span><i/>
-        <span>{locale === "id" ? "MENUJU MILIK" : "A PATH TO OWNERSHIP"}</span>
+        <span>{locale === "id" ? "DUKUNGAN SETIAP HARI" : "SUPPORT WHEN YOU NEED IT"}</span>
       </div>
     </section>
 
