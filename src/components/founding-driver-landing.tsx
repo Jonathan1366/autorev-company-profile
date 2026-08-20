@@ -32,7 +32,6 @@ import {
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
-import { EVCinematic } from "./ev-cinematic";
 import { OwnershipJourney } from "./ownership-journey";
 import styles from "./founding-driver-landing.module.css";
 
@@ -448,6 +447,9 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             <p>{t.priceText}</p>
           </RevealBlock>
         </div>
+        <div className={`container ${styles.pricingMobileCue}`} aria-hidden="true">
+          <span>01</span><i /><span>02</span><small>{locale === "id" ? "GESER PAKET" : "SWIPE PLANS"}</small>
+        </div>
         <div className={`container ${styles.pricingRail}`} aria-label={t.priceTitle}>
           {t.plans.map((plan, index) => (
             <PlanCard key={plan.name} plan={plan} locale={locale} index={index} />
@@ -495,8 +497,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
       </section>
 
       <OwnershipJourney locale={locale} />
-
-      <EVCinematic locale={locale} scene="driver" />
 
       <section className={styles.compare}>
         <div className={`container ${styles.compareLayout}`}>
@@ -740,8 +740,8 @@ function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: 
   const glowY = useMotionValue(0);
   const normalizedX = useMotionValue(0);
   const normalizedY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(normalizedY, [-.5, .5], [.8, -.8]), { stiffness: 250, damping: 28 });
-  const rotateY = useSpring(useTransform(normalizedX, [-.5, .5], [-.8, .8]), { stiffness: 250, damping: 28 });
+  const rotateX = useSpring(useTransform(normalizedY, [-.5, .5], [1.6, -1.6]), { stiffness: 250, damping: 28 });
+  const rotateY = useSpring(useTransform(normalizedX, [-.5, .5], [-1.6, 1.6]), { stiffness: 250, damping: 28 });
 
   function handlePointerMove(event: ReactPointerEvent<HTMLElement>) {
     if (reduceMotion || event.pointerType === "touch") return;

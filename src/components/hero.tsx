@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useRef } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { Locale } from "@/lib/i18n";
 import { getCopy } from "@/lib/content";
 import { localizePath } from "@/lib/i18n";
@@ -11,93 +11,76 @@ import { ButtonLink } from "./button-link";
 
 export function Hero({ locale }: { locale: Locale }) {
   const ref = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [allowVideo, setAllowVideo] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
   const reduceMotion = useReducedMotion();
-  const heroInView = useInView(ref, { amount: .05 });
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 1.09]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 75]);
-  const copyY = useTransform(scrollYProgress, [0, .72], [0, reduceMotion ? 0 : -45]);
-  const copyOpacity = useTransform(scrollYProgress, [0, .68], [1, reduceMotion ? 1 : .12]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.02, reduceMotion ? 1.02 : 1.06]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 28]);
+  const vehicleX = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 36]);
+  const vehicleY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 24]);
+  const vehicleScale = useTransform(scrollYProgress, [0, 1], [.97, reduceMotion ? .97 : 1.02]);
+  const copyY = useTransform(scrollYProgress, [0, .72], [0, reduceMotion ? 0 : -24]);
+  const copyOpacity = useTransform(scrollYProgress, [0, .68], [1, reduceMotion ? 1 : .46]);
   const { home } = getCopy(locale);
-  const titleLines = ["EV Rental."];
 
-  useEffect(() => {
-    const connection = (navigator as Navigator & {
-      connection?: { saveData?: boolean; effectiveType?: string };
-    }).connection;
-    const constrained = connection?.saveData || connection?.effectiveType === "slow-2g" || connection?.effectiveType === "2g";
-    const desktop = window.matchMedia("(min-width: 768px)").matches;
-    const timer = window.setTimeout(() => setAllowVideo(Boolean(!reduceMotion && !constrained && desktop)), 420);
-    return () => window.clearTimeout(timer);
-  }, [reduceMotion]);
+  function handlePointerMove(event: ReactPointerEvent<HTMLElement>) {
+    if (reduceMotion || event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX / bounds.width - .5;
+    const y = event.clientY / bounds.height - .5;
+    event.currentTarget.style.setProperty("--hero-pointer-x", `${x * 8}px`);
+    event.currentTarget.style.setProperty("--hero-pointer-y", `${y * 6}px`);
+  }
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !allowVideo) return;
-
-    const syncPlayback = () => {
-      if (heroInView && !document.hidden) {
-        void video.play().catch(() => setVideoReady(false));
-      } else {
-        video.pause();
-      }
-    };
-
-    syncPlayback();
-    document.addEventListener("visibilitychange", syncPlayback);
-    return () => document.removeEventListener("visibilitychange", syncPlayback);
-  }, [allowVideo, heroInView]);
+  function resetPointer(event: ReactPointerEvent<HTMLElement>) {
+    event.currentTarget.style.setProperty("--hero-pointer-x", "0px");
+    event.currentTarget.style.setProperty("--hero-pointer-y", "0px");
+  }
 
   return (
-    <section className="hero" id="top" ref={ref}>
-      <motion.div className="hero__media" style={{ scale: imageScale, y: imageY }}>
-        <Image src="/images/autorev-kia-ev6-real.jpg" alt={locale === "id" ? "Kendaraan listrik melaju di jalan terbuka" : "An electric vehicle driving on the open road"} fill priority fetchPriority="high" sizes="100vw" quality={92} className="hero__image" />
-        {allowVideo && (
-          <video
-            ref={videoRef}
-            className={`hero__video ${videoReady ? "hero__video--ready" : ""}`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            poster="/images/autorev-kia-ev6-real.jpg"
-            onCanPlay={() => setVideoReady(true)}
-            onError={() => setAllowVideo(false)}
-            aria-hidden="true"
-          >
-            <source src="/videos/autorev-highway-mountain.mp4" type="video/mp4" />
-          </video>
-        )}
+    <section className="hero hero--electric-road" id="top" ref={ref} onPointerMove={handlePointerMove} onPointerLeave={resetPointer}>
+      <motion.div className="hero__media" style={{ scale: backgroundScale, y: backgroundY }} aria-hidden="true">
+        <Image src="/images/autorev-electric-road-bg.jpg" alt="" fill priority fetchPriority="high" sizes="100vw" quality={90} className="hero__image" />
       </motion.div>
+
+      <motion.div className="hero__vehicle-rig" style={{ x: vehicleX, y: vehicleY, scale: vehicleScale }} aria-hidden="true">
+        <div className="hero__vehicle-parallax">
+          <div className="hero__vehicle-shadow"/>
+          <Image
+            className="hero__vehicle"
+            src="/images/autorev-ev-cinematic-cutout.png"
+            alt=""
+            width={1759}
+            height={894}
+            loading="eager"
+            fetchPriority="high"
+            sizes="(max-width: 620px) 145vw, 70vw"
+            quality={92}
+          />
+        </div>
+      </motion.div>
+
       <div className="hero__wash" />
-      <div className="hero__grid" aria-hidden="true" />
+
       <div className="container hero__content">
         <motion.div className="hero__copy" style={{ y: copyY, opacity: copyOpacity }} initial={false}>
           <span className="eyebrow eyebrow--light"><i />{home.eyebrow}</span>
-          <h1>
-            {titleLines.map((line) => (
-              <span className="hero__title-line" key={line}>
-                <span>{line}</span>
-              </span>
-            ))}
+          <h1 aria-label={home.title}>
+            <span className="hero__title-line"><span>{locale === "id" ? "EV untuk kerja." : "An EV for work."}</span></span>
+            <span className="hero__title-line hero__title-line--ownership"><span>{locale === "id" ? "Menuju " : "A path to "}<em>{locale === "id" ? "milik." : "ownership."}</em></span></span>
           </h1>
           <p>{home.subtitle}</p>
           <div className="hero__actions">
-            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Lihat Paket Driver" : "View Driver Plans"}</ButtonLink>
-            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan Awal" : "Check Initial Eligibility"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Bandingkan Paket" : "Compare Plans"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan" : "Check Eligibility"}</ButtonLink>
           </div>
+          <div className="hero__proof" aria-label={locale === "id" ? "Ringkasan program" : "Program summary"}>
+            <span><strong>{locale === "id" ? "Rp0" : "IDR 0"}</strong><small>{locale === "id" ? "deposit atau DP" : "deposit or down payment"}</small></span>
+            <span><strong>5 {locale === "id" ? "tahun" : "years"}</strong><small>{locale === "id" ? "tenor program" : "program term"}</small></span>
+            <span><strong>2029</strong><small>{locale === "id" ? "charging gratis*" : "free charging*"}</small></span>
+          </div>
+          <small className="hero__legal">{locale === "id" ? "*Benefit dan proses alih kepemilikan mengikuti kontrak serta ketentuan program." : "*Benefits and ownership transfer are subject to the contract and program terms."}</small>
         </motion.div>
       </div>
-      <div className="hero__telemetry" aria-hidden="true">
-        <div className="hero__telemetry-head"><span><i />AUTOREV EV</span><small>JABODETABEK</small></div>
-        <div className="hero__telemetry-route"><motion.i animate={reduceMotion ? undefined : { x: [0, 78, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }} /><span>ON ROUTE</span></div>
-        <strong>01</strong>
-      </div>
-      <a className="hero__scroll" href="#services" aria-label={locale === "id" ? "Lihat layanan" : "Explore services"}><span>{locale === "id" ? "JELAJAHI" : "EXPLORE"}</span><ChevronDown size={17} /></a>
     </section>
   );
 }

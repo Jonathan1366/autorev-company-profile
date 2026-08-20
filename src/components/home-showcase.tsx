@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowRight, Bot, Building2, CarFront, Check, Headphones, MapPin,
+  ArrowRight, Bot, CarFront, Check, Headphones, MapPin,
   Gauge, PackageSearch, Route, Sparkles, Store, Truck, Wrench,
 } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
@@ -21,21 +20,16 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
-  const trackSpotlight = (event: ReactPointerEvent<HTMLElement>) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty("--spot-x", `${event.clientX - bounds.left}px`);
-    event.currentTarget.style.setProperty("--spot-y", `${event.clientY - bounds.top}px`);
-  };
   const cards = locale === "id" ? [
-    { label: "FOUNDING DRIVER · MULAI RP300.000/HARI", title: "EV Rental. Menuju Milik.", text: "Program EV Car Plus selama 5 tahun, dengan alih kepemilikan sesuai kontrak.", cta: "Lihat Struktur Paket", href: "/founding-driver#paket", icon: Gauge },
-    { label: "UNTUK CUSTOMER", title: "AutoRev EV Rental", text: "Lepas kunci atau dengan driver, untuk kebutuhan harian hingga bulanan.", cta: "Lihat Pilihan Rental", href: "/autorev-rental", icon: CarFront },
-    { label: "UNTUK BISNIS", title: "AutoRev Business", text: "Armada EV dan dukungan operasional untuk corporate serta owner rental.", cta: "Lihat Solusi Bisnis", href: "/autorev-business", icon: Building2 },
+    { label: "UNTUK DRIVER", title: "Kerja dengan EV. Menuju milik.", text: "Pilih Regular atau Premium, operasikan EV Car Plus, dan tuntaskan program lima tahun sesuai kontrak.", cta: "Bandingkan Regular & Premium", href: "/founding-driver#paket", image: "/images/autorev-driver-passenger-v3.png" },
+    { label: "UNTUK PERJALANAN", title: "Sewa EV dengan cara Anda.", text: "Lepas kunci atau dengan driver, untuk kebutuhan harian, mingguan, hingga bulanan.", cta: "Cek Pilihan Rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png" },
+    { label: "UNTUK BISNIS", title: "Armada EV yang siap bekerja.", text: "Pilihan unit dan dukungan operasional untuk perusahaan serta pemilik bisnis rental.", cta: "Konsultasikan Armada", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
-    { label: "FOUNDING DRIVER · FROM IDR 300,000/DAY", title: "EV Rental. Path to Ownership.", text: "A five-year Car Plus EV program with ownership transfer under the contract.", cta: "View Plan Structure", href: "/founding-driver#paket", icon: Gauge },
-    { label: "FOR CUSTOMERS", title: "AutoRev EV Rental", text: "Self drive or with a driver, from daily to monthly needs.", cta: "View Rental Options", href: "/autorev-rental", icon: CarFront },
-    { label: "FOR BUSINESS", title: "AutoRev Business", text: "EV fleets and operational support for companies and rental owners.", cta: "View Business Solutions", href: "/autorev-business", icon: Building2 },
+    { label: "FOR DRIVERS", title: "Work with an EV. Build toward ownership.", text: "Choose Regular or Premium, operate a Car Plus EV, and complete the five-year program under the contract.", cta: "Compare Regular & Premium", href: "/founding-driver#paket", image: "/images/autorev-driver-passenger-v3.png" },
+    { label: "FOR JOURNEYS", title: "Rent an EV your way.", text: "Self drive or with a driver, for daily, weekly, or monthly needs.", cta: "Explore Rental Options", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png" },
+    { label: "FOR BUSINESS", title: "An EV fleet ready to work.", text: "Vehicle options and operational support for companies and rental business owners.", cta: "Discuss Your Fleet", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png" },
   ];
-  return <div className="service-gateway">{cards.map((card,index)=>{const Icon=card.icon;return <motion.article className={gatewayStyles.card} onPointerMove={trackSpotlight} key={card.title} initial={reduce?false:{opacity:0,y:28}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{delay:index*.08,duration:.58}}><span className={gatewayStyles.spotlight} aria-hidden="true"/><div className="service-gateway__top"><span>0{index+1}</span><Icon size={36} strokeWidth={1.6}/></div><small>{card.label}</small><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></motion.article>})}</div>;
+  return <div className="service-gateway">{cards.map((card,index)=><motion.article className={gatewayStyles.card} key={card.title} initial={reduce?false:{opacity:0,y:22}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.2}} transition={{delay:index*.07,duration:.55,ease:[.22,1,.36,1]}}><div className={gatewayStyles.media}><Image src={card.image} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" quality={88}/><span>{card.label}</span></div><div className={gatewayStyles.body}><h3>{card.title}</h3><p>{card.text}</p><Link href={localizePath(locale,card.href)}>{card.cta}<ArrowRight size={18}/></Link></div></motion.article>)}</div>;
 }
 
 export function EcosystemStory({ locale }: { locale: Locale }) {

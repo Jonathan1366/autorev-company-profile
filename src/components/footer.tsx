@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
-import { navigation, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 import { BrandLogo } from "./brand-logo";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -11,13 +11,16 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="container footer-top">
         <div className="footer-intro">
           <BrandLogo locale={locale} inverse />
-          <p>{locale === "id" ? "EV rental untuk perjalanan, operasional driver, dan kebutuhan bisnis." : "EV rental for journeys, driver operations, and business needs."}</p>
-          <span>{locale === "id" ? "Rental · Founding Driver · Business" : "Rental · Founding Driver · Business"}</span>
+          <p>{locale === "id" ? "Rental kendaraan, truck, trailer, heavy equipment, dan fleet technology untuk kebutuhan B2B." : "B2B vehicle, truck, trailer, heavy equipment, and fleet technology solutions."}</p>
+          <span>Mobility · Equipment · Technology</span>
         </div>
         <div className="footer-links">
           <div>
-            <h3>{locale === "id" ? "Layanan" : "Explore"}</h3>
-            {navigation.slice(0, 5).map((item) => <Link key={item.href} href={localizePath(locale, item.href)}>{item.label[locale]}</Link>)}
+            <h3>{locale === "id" ? "Solusi" : "Solutions"}</h3>
+            <Link href={`${localizePath(locale)}#catalog`}>{locale === "id" ? "E-Catalog Equipment" : "Equipment E-Catalog"}</Link>
+            <Link href={`${localizePath(locale)}#project-solutions`}>{locale === "id" ? "Solusi Proyek" : "Project Solutions"}</Link>
+            <Link href={`${localizePath(locale)}#technology`}>Fleet Technology</Link>
+            <Link href={localizePath(locale, "/contact?type=business")}>{locale === "id" ? "Minta Penawaran" : "Request a Quote"}</Link>
           </div>
           <div>
             <h3>{locale === "id" ? "Perusahaan" : "Company"}</h3>
@@ -37,7 +40,7 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} AutoRev Mobilitas Indonesia.</span>
-        <span>{locale === "id" ? "EV Rental. Dibangun untuk bergerak." : "EV Rental. Built to move."}</span>
+        <span>{locale === "id" ? "Mobility, Equipment & Technology." : "Mobility, Equipment & Technology."}</span>
       </div>
     </footer>
   );

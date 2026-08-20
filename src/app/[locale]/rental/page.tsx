@@ -26,10 +26,10 @@ export default async function RentalPage({ params }: Props) {
       locale={locale}
       eyebrow="AUTOREV EV RENTAL"
       status="Jabodetabek"
-      title={locale === "id" ? "Rental EV, sesuai cara Anda." : "EV rental, your way."}
-      text={locale === "id" ? "Lepas kunci atau dengan driver. Harian, mingguan, atau bulanan." : "Self drive or with a driver. Daily, weekly, or monthly."}
+      title={locale === "id" ? "Sewa EV sesuai perjalanan Anda." : "Rent an EV for your journey."}
+      text={locale === "id" ? "Lepas kunci untuk lebih bebas. Dengan driver untuk lebih santai. Tersedia harian, mingguan, dan bulanan di Jabodetabek." : "Self drive for more freedom. With a driver for a more relaxed journey. Available daily, weekly, and monthly across Greater Jakarta."}
       primaryHref="/contact?type=rental"
-      primaryLabel={locale === "id" ? "Sewa EV" : "Rent an EV"}
+      primaryLabel={locale === "id" ? "Cek Ketersediaan EV" : "Check EV Availability"}
       secondaryLabel={locale === "id" ? "Pilih Cara Sewa" : "Choose How to Rent"}
     ><RentalHeroVisual locale={locale}/></PageHero>
 
@@ -37,18 +37,18 @@ export default async function RentalPage({ params }: Props) {
       <div className="container">
         <SectionHeading
           eyebrow={locale === "id" ? "CARA RENTAL" : "RENTAL OPTIONS"}
-          title={locale === "id" ? "Satu EV. Tiga cara." : "One EV. Three ways."}
-          text={locale === "id" ? "Pilih pengalaman yang paling sesuai." : "Choose the experience that fits."}
+          title={locale === "id" ? "Pilih cara yang paling nyaman." : "Choose the most comfortable option."}
+          text={locale === "id" ? "Beritahu tanggal, lokasi, dan durasi. Tim AutoRev akan membantu mencocokkan kebutuhan Anda dengan unit yang tersedia." : "Share the date, location, and duration. The AutoRev team will help match your needs with an available vehicle."}
         />
         <div className="rental-modes">
-          <article><KeyRound size={34}/><small>01</small><h2>{locale === "id" ? "Lepas Kunci" : "Self Drive"}</h2><p>{locale === "id" ? "EV untuk perjalanan personal Anda." : "An EV for your personal journey."}</p></article>
-          <article><UserRound size={34}/><small>02</small><h2>{locale === "id" ? "Dengan Driver" : "With Driver"}</h2><p>{locale === "id" ? "Duduk nyaman. Kami yang mengemudi." : "Sit back. We take the wheel."}</p></article>
-          <article><CalendarDays size={34}/><small>03</small><h2>{locale === "id" ? "Rental Bulanan" : "Monthly Rental"}</h2><p>{locale === "id" ? "Untuk kebutuhan rutin yang lebih panjang." : "For longer, recurring needs."}</p></article>
+          <article><KeyRound size={34}/><small>01</small><h2>{locale === "id" ? "Lepas Kunci" : "Self Drive"}</h2><p>{locale === "id" ? "Jadwal dan rute sepenuhnya Anda atur." : "Set your own schedule and route."}</p></article>
+          <article><UserRound size={34}/><small>02</small><h2>{locale === "id" ? "Dengan Driver" : "With Driver"}</h2><p>{locale === "id" ? "Untuk perjalanan kerja, keluarga, atau tamu tanpa perlu mengemudi." : "For work, family, or guest travel without having to drive."}</p></article>
+          <article><CalendarDays size={34}/><small>03</small><h2>{locale === "id" ? "Rental Bulanan" : "Monthly Rental"}</h2><p>{locale === "id" ? "Masa sewa lebih panjang untuk kebutuhan rutin." : "A longer rental period for recurring needs."}</p></article>
         </div>
-        <ButtonLink href={locale === "id" ? "/id/contact?type=rental" : "/en/contact?type=rental"} variant="primary">{locale === "id" ? "Mulai Sewa" : "Start Your Rental"}</ButtonLink>
+        <ButtonLink href={locale === "id" ? "/id/contact?type=rental" : "/en/contact?type=rental"} variant="primary">{locale === "id" ? "Cek Ketersediaan EV" : "Check EV Availability"}</ButtonLink>
       </div>
     </section>
 
-    <FinalCTA locale={locale}/>
+    <FinalCTA locale={locale} variant="rental"/>
   </>;
 }

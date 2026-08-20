@@ -28,6 +28,6 @@ export default async function AboutPage({ params }: Props) {
     <section className="section section--founder"><div className="container founder-note"><div><Flag size={26}/><span>FOUNDER STORY</span></div><blockquote>“{locale === "id" ? "AutoRev lahir dari kebutuhan nyata untuk melihat unit, merencanakan maintenance, mengatur vendor, dan memahami biaya downtime." : "AutoRev grew from a real need to see vehicles, plan maintenance, coordinate vendors, and understand downtime costs."}”</blockquote><p>{locale === "id" ? "Cerita ini menunjukkan arah pengembangan AutoRev." : "This story reflects the direction of AutoRev."}</p></div></section>
     <section className="section section--roadmap"><div className="container"><SectionHeading eyebrow="Roadmap · Vision" title={locale === "id" ? "Ambisi besar, dijalankan bertahap." : "A large ambition, executed in stages."}/><Roadmap locale={locale}/></div></section>
     <section className="section"><div className="container human-band"><HeartHandshake/><h2>{locale === "id" ? "Indonesia. Realistis. Human-centered." : "Indonesian. Realistic. Human-centered."}</h2><p>{locale === "id" ? "Teknologi hanya berguna ketika membuat pekerjaan orang lebih jelas dan kendaraan kembali produktif." : "Technology is only useful when it makes people’s work clearer and vehicles productive again."}</p></div></section>
-    <FinalCTA locale={locale}/>
+    <FinalCTA locale={locale} variant="about"/>
   </>;
 }

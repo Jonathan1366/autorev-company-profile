@@ -3,7 +3,7 @@ import type { Locale } from "./i18n";
 import { siteConfig } from "./site";
 
 const titles = {
-  home: { id: "EV Rental & Founding Driver", en: "EV Rental & Founding Driver" },
+  home: { id: "Rental Kendaraan & Heavy Equipment", en: "Vehicle & Heavy Equipment Rental" },
   rental: { id: "Rental Kendaraan Listrik", en: "Electric Vehicle Rental" },
   business: { id: "Rental EV untuk Bisnis", en: "EV Rental for Business" },
   drivers: { id: "Founding Driver · EV Rental Program", en: "Founding Driver · EV Rental Program" },
@@ -53,13 +53,13 @@ export function pageMetadata(locale: Locale, page: PageKey, description?: string
       siteName: siteConfig.name,
       title: `${title} | AutoRev`,
       description: resolvedDescription,
-      images: [{ url: "/images/autorev-fleet-city.png", width: 1536, height: 1024, alt: "AutoRev vehicle fleet" }],
+      images: [{ url: "/images/catalog-lowbed-excavator.jpg", width: 1536, height: 1147, alt: "AutoRev equipment rental catalog" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | AutoRev`,
       description: resolvedDescription,
-      images: ["/images/autorev-fleet-city.png"],
+      images: ["/images/catalog-lowbed-excavator.jpg"],
     },
   };
 }

@@ -62,6 +62,6 @@ export default async function TechnologyPage({ params }: Props) {
       </div>
     </section>
 
-    <FinalCTA locale={locale}/>
+    <FinalCTA locale={locale} variant="system"/>
   </>;
 }
