@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "AutoRev Mobilitas Indonesia",
   shortName: "AutoRev",
-  tagline: "Mobility, Equipment & Technology.",
+  tagline: "Rental Mobil & Fleet Technology.",
   description:
-    "AutoRev menyediakan solusi rental dan project-based sourcing untuk kendaraan, truck, trailer, construction equipment, mining equipment, material handling, serta fleet technology.",
+    "AutoRev menyediakan rental mobil untuk perjalanan pribadi, program Founding Driver, kebutuhan corporate, serta teknologi fleet management.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://autorev-mobilitas-indonesia.vercel.app",
   email: "jonathanfarelemanuel@gmail.com",
   phoneDisplay: "0813 6740 8145",
@@ -16,9 +16,10 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { href: "/#catalog", label: { id: "E-Catalog", en: "E-Catalog" } },
-  { href: "/#project-solutions", label: { id: "Solusi Proyek", en: "Project Solutions" } },
-  { href: "/#technology", label: { id: "Fleet Technology", en: "Fleet Technology" } },
+  { href: "/founding-driver", label: { id: "Founding Driver", en: "Founding Driver" } },
+  { href: "/#vehicle-catalog", label: { id: "Katalog Mobil", en: "Vehicle Catalog" } },
+  { href: "/autorev-rental", label: { id: "Rental Mobil", en: "Car Rental" } },
+  { href: "/autorev-business", label: { id: "Corporate Rental", en: "Corporate Rental" } },
   { href: "/contact?type=business", label: { id: "Minta Penawaran", en: "Request a Quote" } },
   { href: "/about", label: { id: "Tentang", en: "About" } },
 ] as const;

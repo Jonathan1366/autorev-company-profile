@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, ChevronDown, Construction, Gauge, Menu, Tractor, Truck, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Boxes, Building2, ChevronDown, Gauge, Menu, X } from "lucide-react";
 import { BrandLogo } from "./brand-logo";
 import styles from "./navbar.module.css";
 import { alternateLocale, localizePath, type Locale } from "@/lib/i18n";
@@ -12,28 +12,47 @@ import { siteConfig } from "@/lib/site";
 
 export function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const solutionsPanel = useRef<HTMLDivElement>(null);
+  const morePanel = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const alternate = alternateLocale(locale);
   const routeWithoutLocale = pathname.replace(/^\/(id|en)/, "") || "";
   const home = localizePath(locale);
 
-  const solutions = [
-    { code: "KBLI 77100", title: "Vehicle & Transportation", text: locale === "id" ? "Corporate fleet, truck, trailer, dan project transport." : "Corporate fleets, trucks, trailers, and project transport.", icon: Truck, href: `${home}#catalog` },
-    { code: "KBLI 77393", title: "Construction Equipment", text: locale === "id" ? "Earthmoving, lifting, road, dan material handling." : "Earthmoving, lifting, road, and material handling.", icon: Construction, href: `${home}#catalog` },
-    { code: "KBLI 77395", title: "Mining & Quarry", text: locale === "id" ? "Production, hauling, processing, dan site support." : "Production, hauling, processing, and site support.", icon: Tractor, href: `${home}#catalog` },
-    { code: "KBLI 58290", title: "Fleet Technology", text: locale === "id" ? "Monitoring, maintenance, utilization, IoT, dan AI." : "Monitoring, maintenance, utilization, IoT, and AI.", icon: Gauge, href: `${home}#technology` },
+  const moreLinks = [
+    {
+      overline: locale === "id" ? "CERITA AUTOREV" : "OUR STORY",
+      title: locale === "id" ? "Tentang AutoRev" : "About AutoRev",
+      text: locale === "id" ? "Arah, nilai, dan perjalanan kami membangun mobilitas yang lebih mudah." : "Our direction, values, and journey toward easier mobility.",
+      icon: Building2,
+      href: localizePath(locale, "/about"),
+    },
+    {
+      overline: locale === "id" ? "KEBUTUHAN PROYEK" : "PROJECT SUPPORT",
+      title: locale === "id" ? "Armada & Peralatan" : "Fleet & Equipment",
+      text: locale === "id" ? "Solusi tambahan untuk transportasi proyek, logistik, dan peralatan operasional." : "Additional solutions for project transport, logistics, and operating equipment.",
+      icon: Boxes,
+      href: localizePath(locale, "/equipment"),
+    },
+    {
+      overline: locale === "id" ? "TEKNOLOGI ARMADA" : "FLEET TECHNOLOGY",
+      title: "RevAuto",
+      text: locale === "id" ? "Sistem fleet management untuk operasi kendaraan yang lebih terhubung." : "Fleet management for more connected vehicle operations.",
+      icon: Gauge,
+      href: localizePath(locale, "/revauto"),
+    },
   ];
 
   const links = [
     { href: localizePath(locale, "/founding-driver"), label: "Founding Driver" },
-    { href: localizePath(locale, "/autorev-rental"), label: "EV Rental" },
-    { href: `${home}#catalog`, label: locale === "id" ? "Katalog Equipment" : "Equipment Catalog" },
-    { href: `${home}#technology`, label: "Fleet Technology" },
+    { href: `${home}#vehicle-catalog`, label: locale === "id" ? "Katalog Mobil" : "Vehicle Catalog" },
+    { href: localizePath(locale, "/autorev-rental"), label: locale === "id" ? "Rental Mobil" : "Car Rental" },
+    { href: localizePath(locale, "/autorev-business"), label: locale === "id" ? "Corporate Rental" : "Corporate Rental" },
     { href: localizePath(locale, "/about"), label: locale === "id" ? "Tentang AutoRev" : "About AutoRev" },
+    { href: localizePath(locale, "/equipment"), label: locale === "id" ? "Armada & Peralatan" : "Fleet & Equipment" },
+    { href: localizePath(locale, "/revauto"), label: "RevAuto" },
   ];
 
   useEffect(() => {
@@ -50,28 +69,28 @@ export function Navbar({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     const closeMenu = (event: KeyboardEvent) => {
-      if (event.key === "Escape") { setOpen(false); setSolutionsOpen(false); }
+      if (event.key === "Escape") { setOpen(false); setMoreOpen(false); }
     };
     window.addEventListener("keydown", closeMenu);
     return () => window.removeEventListener("keydown", closeMenu);
   }, []);
 
-  const openSolutionsFromKeyboard = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+  const openMoreFromKeyboard = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (!["ArrowDown", "Enter", " "].includes(event.key)) return;
     event.preventDefault();
-    setSolutionsOpen(true);
-    requestAnimationFrame(() => solutionsPanel.current?.querySelector<HTMLAnchorElement>("a")?.focus());
+    setMoreOpen(true);
+    requestAnimationFrame(() => morePanel.current?.querySelector<HTMLAnchorElement>("a")?.focus());
   };
 
-  return <header className={`site-header ${scrolled || open || solutionsOpen ? "site-header--solid" : ""}`} onMouseLeave={() => setSolutionsOpen(false)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setSolutionsOpen(false); }}>
+  return <header className={`${styles.header} site-header ${scrolled || open || moreOpen ? "site-header--solid" : ""}`} onMouseLeave={() => setMoreOpen(false)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setMoreOpen(false); }}>
     <div className="nav-shell">
       <BrandLogo locale={locale} inverse/>
       <nav className="desktop-nav" aria-label={locale === "id" ? "Navigasi utama" : "Main navigation"}>
-        <button className={solutionsOpen ? "is-active" : ""} onMouseEnter={() => setSolutionsOpen(true)} onClick={() => setSolutionsOpen((value) => !value)} onKeyDown={openSolutionsFromKeyboard} aria-expanded={solutionsOpen} aria-controls="solutions-navigation">{locale === "id" ? "Solusi" : "Solutions"}<ChevronDown size={14}/></button>
-        <Link href={`${home}#catalog`}>E-Catalog</Link>
         <Link href={localizePath(locale, "/founding-driver")}>Founding Driver</Link>
-        <Link href={localizePath(locale, "/autorev-rental")}>EV Rental</Link>
-        <Link href={localizePath(locale, "/about")}>{locale === "id" ? "Tentang" : "About"}</Link>
+        <Link href={`${home}#vehicle-catalog`}>{locale === "id" ? "Katalog Mobil" : "Vehicle Catalog"}</Link>
+        <Link href={localizePath(locale, "/autorev-rental")}>{locale === "id" ? "Rental Mobil" : "Car Rental"}</Link>
+        <Link href={localizePath(locale, "/autorev-business")}>Corporate</Link>
+        <button className={moreOpen ? "is-active" : ""} onMouseEnter={() => setMoreOpen(true)} onClick={() => setMoreOpen((value) => !value)} onKeyDown={openMoreFromKeyboard} aria-expanded={moreOpen} aria-controls="more-navigation">{locale === "id" ? "Lainnya" : "More"}<ChevronDown size={14}/></button>
       </nav>
       <div className="nav-actions">
         <Link className="language-switch" href={localizePath(alternate, routeWithoutLocale)} hrefLang={alternate}>{alternate.toUpperCase()}</Link>
@@ -81,9 +100,9 @@ export function Navbar({ locale }: { locale: Locale }) {
     </div>
 
     <AnimatePresence initial={false}>
-      {solutionsOpen && <motion.div ref={solutionsPanel} id="solutions-navigation" className={styles.mega} initial={reduceMotion ? false : { opacity: 0, y: -8, scale: .99 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: .99 }} transition={{ duration: .2 }} onMouseEnter={() => setSolutionsOpen(true)}>
-        <div className={styles.intro}><span>AUTOREV SOLUTION LINES</span><h2>{locale === "id" ? "Satu pintu untuk aset operasional." : "One gateway for operating assets."}</h2><p>{locale === "id" ? "Pilih lini KBLI atau mulai langsung dari unit yang Anda perlukan." : "Choose a KBLI line or start with the equipment you need."}</p><Link href={`${home}#solutions`} onClick={() => setSolutionsOpen(false)}>{locale === "id" ? "Lihat semua solusi" : "See all solutions"}<ArrowRight size={17}/></Link></div>
-        <div className={styles.grid}>{solutions.map((item) => { const Icon = item.icon; return <Link key={item.code} href={item.href} onClick={() => setSolutionsOpen(false)}><span><Icon size={21}/></span><div><small>{item.code}</small><strong>{item.title}</strong><p>{item.text}</p></div><ArrowUpRight size={18}/></Link>; })}</div>
+      {moreOpen && <motion.div ref={morePanel} id="more-navigation" className={styles.mega} initial={reduceMotion ? false : { opacity: 0, y: -8, scale: .99 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: .99 }} transition={{ duration: .24, ease: [0.22, 1, 0.36, 1] }} onMouseEnter={() => setMoreOpen(true)}>
+        <div className={styles.intro}><span>AUTOREV MOBILITY</span><h2>{locale === "id" ? "Lebih dari perjalanan." : "Beyond the journey."}</h2><p>{locale === "id" ? "Kenali AutoRev, temukan dukungan operasional, lalu kelola armada melalui teknologi yang terus berkembang." : "Meet AutoRev, find operational support, then manage your fleet through evolving technology."}</p><Link href={localizePath(locale, "/about")} onClick={() => setMoreOpen(false)}>{locale === "id" ? "Kenali AutoRev" : "Discover AutoRev"}<ArrowRight size={17}/></Link></div>
+        <div className={styles.grid}>{moreLinks.map((item) => { const Icon = item.icon; return <Link key={item.href} href={item.href} onClick={() => setMoreOpen(false)}><span><Icon size={23}/></span><div><small>{item.overline}</small><strong>{item.title}</strong><p>{item.text}</p></div><ArrowUpRight size={18}/></Link>; })}</div>
       </motion.div>}
     </AnimatePresence>
 

@@ -1,7 +1,13 @@
 "use client";
 
 import { MotionConfig } from "framer-motion";
+import { RouteTransition } from "@/components/route-transition";
 
 export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+  return (
+    <MotionConfig reducedMotion="user" transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+      {children}
+      <RouteTransition />
+    </MotionConfig>
+  );
 }

@@ -1,0 +1,251 @@
+export type VehicleCategory = "ev" | "family" | "corporate" | "city" | "group";
+
+export type VehicleCatalogItem = {
+  id: string;
+  brand: string;
+  model: string;
+  image: string;
+  powertrain: { id: string; en: string };
+  seats: string;
+  categories: VehicleCategory[];
+  description: { id: string; en: string };
+  useCase: { id: string; en: string };
+  status: "coming" | "request";
+  officialUrl: string;
+};
+
+export const vehicleCatalog: VehicleCatalogItem[] = [
+  {
+    id: "vinfast-limo-green",
+    brand: "VinFast",
+    model: "Limo Green",
+    image: "/images/vehicle-catalog/vinfast-limo-green.jpg",
+    powertrain: { id: "Listrik", en: "Electric" },
+    seats: "7",
+    categories: ["ev", "family", "corporate"],
+    description: {
+      id: "MPV listrik 7 kursi untuk perjalanan yang lebih produktif.",
+      en: "A seven-seat electric MPV for more productive journeys.",
+    },
+    useCase: { id: "Founding Driver · Corporate", en: "Founding Driver · Corporate" },
+    status: "coming",
+    officialUrl: "https://vinfastauto.id/id/limo-green",
+  },
+  {
+    id: "byd-m6",
+    brand: "BYD",
+    model: "M6",
+    image: "/images/vehicle-catalog/byd-m6.jpg",
+    powertrain: { id: "Listrik", en: "Electric" },
+    seats: "6–7",
+    categories: ["ev", "family", "corporate"],
+    description: {
+      id: "Ruang lega dan mobilitas listrik untuk keluarga maupun tim.",
+      en: "Generous space and electric mobility for families or teams.",
+    },
+    useCase: { id: "Keluarga · Corporate", en: "Family · Corporate" },
+    status: "request",
+    officialUrl: "https://www.byd.com/id/car/m6",
+  },
+  {
+    id: "hyundai-ioniq-5",
+    brand: "Hyundai",
+    model: "IONIQ 5",
+    image: "/images/vehicle-catalog/hyundai-ioniq-5.jpg",
+    powertrain: { id: "Listrik", en: "Electric" },
+    seats: "5",
+    categories: ["ev", "corporate"],
+    description: {
+      id: "Pengalaman EV premium untuk perjalanan bisnis yang berkesan.",
+      en: "A premium EV experience for memorable business journeys.",
+    },
+    useCase: { id: "Executive · Corporate", en: "Executive · Corporate" },
+    status: "request",
+    officialUrl: "https://www.hyundai.com/id/id/find-a-car/ioniq5/highlights",
+  },
+  {
+    id: "hyundai-kona-electric",
+    brand: "Hyundai",
+    model: "KONA Electric",
+    image: "/images/vehicle-catalog/hyundai-kona-electric.jpg",
+    powertrain: { id: "Listrik", en: "Electric" },
+    seats: "5",
+    categories: ["ev", "city", "corporate"],
+    description: {
+      id: "SUV listrik lincah untuk agenda kota yang dinamis.",
+      en: "An agile electric SUV for dynamic city agendas.",
+    },
+    useCase: { id: "Urban · Corporate", en: "Urban · Corporate" },
+    status: "request",
+    officialUrl: "https://www.hyundai.com/id/id/find-a-car/all-new-kona-electric/highlights",
+  },
+  {
+    id: "wuling-air-ev",
+    brand: "Wuling",
+    model: "New Air ev",
+    image: "/images/vehicle-catalog/wuling-air-ev.jpg",
+    powertrain: { id: "Listrik", en: "Electric" },
+    seats: "4",
+    categories: ["ev", "city"],
+    description: {
+      id: "Ringkas, praktis, dan siap menemani mobilitas urban.",
+      en: "Compact, practical, and made for urban mobility.",
+    },
+    useCase: { id: "Personal · Perkotaan", en: "Personal · City" },
+    status: "request",
+    officialUrl: "https://wuling.id/id/air-ev",
+  },
+  {
+    id: "toyota-avanza",
+    brand: "Toyota",
+    model: "All New Avanza",
+    image: "/images/vehicle-catalog/toyota-avanza.jpg",
+    powertrain: { id: "Bensin", en: "Petrol" },
+    seats: "7",
+    categories: ["family", "city"],
+    description: {
+      id: "MPV serbaguna untuk perjalanan harian dan keluarga.",
+      en: "A versatile MPV for everyday and family journeys.",
+    },
+    useCase: { id: "Personal · Keluarga", en: "Personal · Family" },
+    status: "request",
+    officialUrl: "https://www.toyota.astra.co.id/shopping-tools/financial-simulation?model=AVANZA",
+  },
+  {
+    id: "toyota-innova-zenix",
+    brand: "Toyota",
+    model: "Kijang Innova Zenix",
+    image: "/images/vehicle-catalog/toyota-innova-zenix.jpg",
+    powertrain: { id: "Bensin / Hybrid", en: "Petrol / Hybrid" },
+    seats: "7",
+    categories: ["family", "corporate"],
+    description: {
+      id: "Kenyamanan berkelas untuk perjalanan bisnis dan antar-kota.",
+      en: "Refined comfort for business and intercity travel.",
+    },
+    useCase: { id: "Airport · Executive", en: "Airport · Executive" },
+    status: "request",
+    officialUrl: "https://pressroom.toyota.astra.co.id/daftar-improvement-pada-new-kijang-innova-zenix-gasoline-dan-hybrid-bikin-perjalanan-makin-nyaman",
+  },
+  {
+    id: "mitsubishi-xpander",
+    brand: "Mitsubishi",
+    model: "New Xpander",
+    image: "/images/vehicle-catalog/mitsubishi-xpander.jpg",
+    powertrain: { id: "Bensin", en: "Petrol" },
+    seats: "7",
+    categories: ["family", "city"],
+    description: {
+      id: "Kabin lega untuk perjalanan keluarga yang lebih nyaman.",
+      en: "A spacious cabin for more comfortable family journeys.",
+    },
+    useCase: { id: "Personal · Keluarga", en: "Personal · Family" },
+    status: "request",
+    officialUrl: "https://www.mitsubishi-motors.co.id/our-cars/new-xpander?product_id=2",
+  },
+  {
+    id: "hyundai-stargazer-cartenz",
+    brand: "Hyundai",
+    model: "STARGAZER Cartenz",
+    image: "/images/vehicle-catalog/hyundai-stargazer-cartenz.jpg",
+    powertrain: { id: "Bensin", en: "Petrol" },
+    seats: "7",
+    categories: ["family", "city", "corporate"],
+    description: {
+      id: "MPV modern untuk rutinitas kota hingga perjalanan bersama.",
+      en: "A modern MPV for city routines and shared journeys.",
+    },
+    useCase: { id: "Keluarga · Corporate", en: "Family · Corporate" },
+    status: "request",
+    officialUrl: "https://www.hyundai.com/id/id/find-a-car/stargazer-cartenz/highlights",
+  },
+  {
+    id: "suzuki-xl7-hybrid",
+    brand: "Suzuki",
+    model: "New XL7 Hybrid",
+    image: "/images/vehicle-catalog/suzuki-xl7-hybrid.jpg",
+    powertrain: { id: "Mild Hybrid", en: "Mild Hybrid" },
+    seats: "7",
+    categories: ["family", "city"],
+    description: {
+      id: "Karakter SUV dengan fleksibilitas untuk keluarga aktif.",
+      en: "SUV character with flexibility for active families.",
+    },
+    useCase: { id: "Keluarga · Antar-kota", en: "Family · Intercity" },
+    status: "request",
+    officialUrl: "https://www.suzuki.co.id/news/resmi-rilis-suzuki-new-xl7-hybrid-alpha-kuro-hadir-sebagai-varian-tertinggi",
+  },
+  {
+    id: "toyota-fortuner",
+    brand: "Toyota",
+    model: "New Fortuner",
+    image: "/images/vehicle-catalog/toyota-fortuner.jpg",
+    powertrain: { id: "Bensin / Diesel", en: "Petrol / Diesel" },
+    seats: "7",
+    categories: ["corporate", "family"],
+    description: {
+      id: "SUV berkarakter untuk perjalanan eksekutif dan lintas kota.",
+      en: "A characterful SUV for executive and intercity travel.",
+    },
+    useCase: { id: "Executive · Antar-kota", en: "Executive · Intercity" },
+    status: "request",
+    officialUrl: "https://www.toyota.astra.co.id/shopping-tools/build-your-vehicle?model=FORTUNER",
+  },
+  {
+    id: "honda-accord-rs-ehev",
+    brand: "Honda",
+    model: "Accord RS e:HEV",
+    image: "/images/vehicle-catalog/honda-accord-rs-ehev.jpg",
+    powertrain: { id: "Hybrid", en: "Hybrid" },
+    seats: "5",
+    categories: ["corporate"],
+    description: {
+      id: "Sedan hybrid premium untuk kebutuhan representatif.",
+      en: "A premium hybrid sedan for executive representation.",
+    },
+    useCase: { id: "Executive · VIP", en: "Executive · VIP" },
+    status: "request",
+    officialUrl: "https://www.honda-indonesia.com/accord/variant",
+  },
+  {
+    id: "honda-brio",
+    brand: "Honda",
+    model: "Brio",
+    image: "/images/vehicle-catalog/honda-brio.jpg",
+    powertrain: { id: "Bensin", en: "Petrol" },
+    seats: "5",
+    categories: ["city"],
+    description: {
+      id: "City car gesit untuk aktivitas harian di perkotaan.",
+      en: "An agile city car for everyday urban activities.",
+    },
+    useCase: { id: "Personal · Perkotaan", en: "Personal · City" },
+    status: "request",
+    officialUrl: "https://www.honda-indonesia.com/brio?variant=379",
+  },
+  {
+    id: "toyota-hiace-premio",
+    brand: "Toyota",
+    model: "HiAce Premio",
+    image: "/images/vehicle-catalog/toyota-hiace-premio.jpg",
+    powertrain: { id: "Diesel", en: "Diesel" },
+    seats: "Group",
+    categories: ["group", "corporate"],
+    description: {
+      id: "Kapasitas grup dengan kenyamanan untuk shuttle dan perjalanan tim.",
+      en: "Group capacity with comfort for shuttles and team travel.",
+    },
+    useCase: { id: "Shuttle · Perjalanan tim", en: "Shuttle · Team travel" },
+    status: "request",
+    officialUrl: "https://www.toyota.astra.co.id/press-room/press-release/all-new-hiace-premio-toyota-lengkapi-line-up-hiace-untuk-segmen-premium-transformasi-menuju-human-transport-yang-lebih-nyaman",
+  },
+];
+
+export const vehicleCategoryLabels: Record<"all" | VehicleCategory, { id: string; en: string }> = {
+  all: { id: "Semua", en: "All" },
+  ev: { id: "Mobil Listrik", en: "Electric" },
+  family: { id: "MPV & Keluarga", en: "MPV & Family" },
+  corporate: { id: "Corporate", en: "Corporate" },
+  city: { id: "Mobil Kota", en: "City Cars" },
+  group: { id: "Transport Grup", en: "Group Transport" },
+};

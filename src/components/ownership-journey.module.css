@@ -195,7 +195,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .12em;
 }
@@ -212,7 +212,7 @@
 .topHud small {
   justify-self: end;
   color: #798ca4;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: .09em;
 }
 
@@ -463,7 +463,7 @@
 }
 
 .panelHead span {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .12em;
 }
@@ -505,7 +505,7 @@
 .panelFoot > small {
   max-width: 190px;
   color: #71839a;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .1em;
 }
@@ -527,7 +527,7 @@
 
 .panelFoot span {
   color: #8192a8;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .panel > a {
@@ -580,7 +580,7 @@
 .callout small {
   margin-top: 5px;
   color: #8193a9;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
 }
 
@@ -614,7 +614,7 @@
   display: block;
   margin-bottom: 12px;
   color: #81ebf2;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .14em;
 }
@@ -654,7 +654,7 @@
   justify-content: space-between;
   margin-bottom: 10px;
   color: #75889f;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: .13em;
 }
@@ -708,7 +708,7 @@
   max-width: 610px;
   margin: 7px 0 0 auto;
   color: #607288;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.35;
   text-align: right;
 }
@@ -808,7 +808,7 @@
   .topHud small,
   .topHud b { display: none; }
 
-  .topHud span { font-size: 9px; }
+  .topHud span { font-size: 12px; }
 
   .vehicleRig {
     right: -34vw;
@@ -855,7 +855,7 @@
   }
 
   .panelHead span {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .panel h3 {
@@ -875,7 +875,7 @@
 
   .panelFoot > small { display: none; }
   .panelFoot strong { font-size: 27px; }
-  .panelFoot span { font-size: 11px; }
+  .panelFoot span { font-size: 12px; }
   .panel > a { min-height: 42px; margin-top: 8px; font-size: 15px; }
 
   .timeline {
@@ -894,7 +894,7 @@
   }
 
   .callout span { font-size: 22px; }
-  .callout small { font-size: 9px; }
+  .callout small { font-size: 12px; }
   .callout1 { top: 44%; left: 15px; }
   .callout2 { top: 35%; left: auto; right: 15px; }
   .callout3 { top: 51%; left: 15px; }
@@ -907,7 +907,7 @@
 
   .finalWord small {
     max-width: 80vw;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.4;
   }
 

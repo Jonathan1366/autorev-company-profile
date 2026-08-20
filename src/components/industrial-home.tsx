@@ -12,7 +12,7 @@ import {
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
 import {
-  catalogCount, catalogImage, industrialCatalog, type CatalogItem,
+  catalogImage, industrialCatalog, type CatalogItem,
 } from "@/lib/industrial-catalog";
 import styles from "./industrial-home.module.css";
 
@@ -106,7 +106,7 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
     titleA: "Armada dan alat",
     titleB: "untuk pekerjaan nyata.",
     heroText: "Dari kendaraan operasional dan truck, sampai heavy equipment, mining support, dan teknologi fleet—disusun sesuai lokasi, kapasitas, durasi, dan target operasi Anda.",
-    browse: "Jelajahi 104 unit",
+    browse: "Jelajahi katalog",
     project: "Susun kebutuhan proyek",
     searchPlaceholder: "Cari wingbox, excavator, crane, forklift...",
     find: "Cari unit",
@@ -115,7 +115,7 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
     titleA: "Fleet and equipment",
     titleB: "built for real work.",
     heroText: "From operational vehicles and trucks to heavy equipment, mining support, and fleet technology—configured around your location, capacity, duration, and operating target.",
-    browse: "Explore 104 units",
+    browse: "Explore the catalog",
     project: "Build a project request",
     searchPlaceholder: "Search wingbox, excavator, crane, forklift...",
     find: "Find equipment",
@@ -139,9 +139,9 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
         </motion.div>
 
         <motion.div className={styles.heroStats} initial={reduce ? false : { opacity: 0, x: 25 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .7, delay: .4 }}>
-          <div><span>01</span><strong>{catalogCount}+</strong><small>{locale === "id" ? "jenis unit & alat" : "equipment types"}</small></div>
-          <div><span>02</span><strong>4 KBLI</strong><small>{locale === "id" ? "satu ekosistem B2B" : "one B2B ecosystem"}</small></div>
-          <div><span>03</span><strong>R2R</strong><small>{locale === "id" ? "rental & sourcing fleksibel" : "flexible rental & sourcing"}</small></div>
+          <div><span>01</span><strong>PROJECT FLEET</strong><small>{locale === "id" ? "transportasi & logistik" : "transport & logistics"}</small></div>
+          <div><span>02</span><strong>EQUIPMENT</strong><small>{locale === "id" ? "konstruksi & material handling" : "construction & material handling"}</small></div>
+          <div><span>03</span><strong>REVAUTO</strong><small>{locale === "id" ? "teknologi operasional" : "operating technology"}</small></div>
         </motion.div>
 
         <motion.form className={styles.heroSearch} onSubmit={(event) => { event.preventDefault(); scrollToCatalog(); }} initial={reduce ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65, delay: .55 }}>
@@ -153,49 +153,6 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
       <div className={styles.heroTicker}><span>AUTOREV EQUIPMENT MARKETPLACE</span><i/><span>VEHICLE → TRUCK → TRAILER → EQUIPMENT → TECHNOLOGY</span><i/><span>PROJECT-BASED SOLUTIONS</span></div>
     </section>
 
-    <section className={styles.mobility} id="mobility">
-      <div className="container">
-        <div className={styles.mobilityHead}>
-          <div>
-            <span>EV MOBILITY · DRIVER &amp; RENTAL</span>
-            <h2>{locale === "id" ? "Dua program mobilitas yang tetap berjalan." : "Two mobility programs that keep moving."}</h2>
-          </div>
-          <p>{locale === "id" ? "Marketplace equipment melengkapi AutoRev, bukan menggantikan layanan EV. Founding Driver dan EV Rental tetap memiliki halaman, alur, serta penawaran masing-masing." : "The equipment marketplace expands AutoRev; it does not replace its EV services. Founding Driver and EV Rental retain their own pages, journeys, and offers."}</p>
-        </div>
-        <div className={styles.mobilityGrid}>
-          <Link className={styles.mobilityCard} href={localizePath(locale, "/founding-driver")}>
-            <div className={styles.mobilityMedia}>
-              <Image src="/images/autorev-founding-driver-v2.png" alt={locale === "id" ? "Program Founding Driver AutoRev" : "AutoRev Founding Driver program"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={88}/>
-              <span>01 · FOUNDING DRIVER</span>
-            </div>
-            <div className={styles.mobilityBody}>
-              <small>{locale === "id" ? "PROGRAM DRIVER EV" : "EV DRIVER PROGRAM"}</small>
-              <h3>Founding Driver</h3>
-              <p>{locale === "id" ? "Jalur bagi driver untuk beroperasi dengan EV dan menuntaskan program kepemilikan sesuai struktur paket." : "A path for drivers to operate an EV and complete the ownership program under its plan structure."}</p>
-              <span>{locale === "id" ? "Lihat program driver" : "Explore the driver program"}<ArrowUpRight size={18}/></span>
-            </div>
-          </Link>
-          <Link className={styles.mobilityCard} href={localizePath(locale, "/autorev-rental")}>
-            <div className={styles.mobilityMedia}>
-              <Image src="/images/autorev-rental-roadtrip-v3.png" alt={locale === "id" ? "Layanan rental kendaraan listrik AutoRev" : "AutoRev electric vehicle rental service"} fill sizes="(max-width: 760px) 100vw, 50vw" quality={88}/>
-              <span>02 · EV RENTAL</span>
-            </div>
-            <div className={styles.mobilityBody}>
-              <small>{locale === "id" ? "LEPAS KUNCI · DENGAN DRIVER" : "SELF DRIVE · WITH DRIVER"}</small>
-              <h3>EV Rental</h3>
-              <p>{locale === "id" ? "Rental kendaraan listrik untuk perjalanan harian, mingguan, atau bulanan—lepas kunci maupun dengan driver." : "Electric vehicle rental for daily, weekly, or monthly journeys—self drive or with a driver."}</p>
-              <span>{locale === "id" ? "Lihat pilihan rental" : "Explore rental options"}<ArrowUpRight size={18}/></span>
-            </div>
-          </Link>
-        </div>
-        <div className={styles.businessBridge}>
-          <div><span>03</span><div><small>B2B EQUIPMENT MARKETPLACE</small><strong>{locale === "id" ? "Butuh aset untuk operasi atau proyek?" : "Need assets for an operation or project?"}</strong></div></div>
-          <p>{locale === "id" ? "Masuk ke katalog truck, trailer, material handling, construction, mining, dan fleet technology." : "Open the truck, trailer, material handling, construction, mining, and fleet technology catalog."}</p>
-          <button onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" })}>{locale === "id" ? "Buka marketplace" : "Open marketplace"}<ArrowRight size={18}/></button>
-        </div>
-      </div>
-    </section>
-
     <section className={styles.gateway} id="solutions">
       <div className="container">
         <div className={styles.sectionHead}>
@@ -204,13 +161,13 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
         </div>
         <div className={styles.gatewayGrid}>
           {[
-            { code: "KBLI 77100", icon: Truck, title: locale === "id" ? "Vehicle & Transportation" : "Vehicle & Transportation", text: locale === "id" ? "Corporate vehicle, box truck, wingbox, prime mover, trailer, lowbed." : "Corporate vehicles, box trucks, wingbox, prime movers, trailers, and lowbeds.", line: "77100" as Line, tone: "blue" },
-            { code: "KBLI 77393", icon: Construction, title: locale === "id" ? "Construction Equipment" : "Construction Equipment", text: locale === "id" ? "Excavator, dozer, loader, grader, crane, access equipment." : "Excavators, dozers, loaders, graders, cranes, and access equipment.", line: "77393" as Line, tone: "yellow" },
-            { code: "KBLI 77395", icon: Tractor, title: locale === "id" ? "Mining & Quarry" : "Mining & Quarry", text: locale === "id" ? "Production, hauling, road support, processing, dan site utility." : "Production, hauling, road support, processing, and site utility.", line: "77395" as Line, tone: "black" },
-            { code: "KBLI 58290", icon: Gauge, title: "Fleet Technology", text: locale === "id" ? "Monitoring, maintenance, utilization, work order, GPS, IoT, dan analytics." : "Monitoring, maintenance, utilization, work orders, GPS, IoT, and analytics.", line: "all" as Line, tone: "tech" },
+            { code: "ARMADA TRANSPORT", icon: Truck, title: locale === "id" ? "Vehicle & Transportation" : "Vehicle & Transportation", text: locale === "id" ? "Corporate vehicle, box truck, wingbox, prime mover, trailer, lowbed." : "Corporate vehicles, box trucks, wingbox, prime movers, trailers, and lowbeds.", line: "77100" as Line, tone: "blue" },
+            { code: "CONSTRUCTION SUPPORT", icon: Construction, title: locale === "id" ? "Construction Equipment" : "Construction Equipment", text: locale === "id" ? "Excavator, dozer, loader, grader, crane, access equipment." : "Excavators, dozers, loaders, graders, cranes, and access equipment.", line: "77393" as Line, tone: "yellow" },
+            { code: "SITE & PRODUCTION", icon: Tractor, title: locale === "id" ? "Mining & Quarry" : "Mining & Quarry", text: locale === "id" ? "Production, hauling, road support, processing, dan site utility." : "Production, hauling, road support, processing, and site utility.", line: "77395" as Line, tone: "black" },
+            { code: "CONNECTED OPERATIONS", icon: Gauge, title: "Fleet Technology", text: locale === "id" ? "Monitoring, maintenance, utilization, work order, GPS, IoT, dan analytics." : "Monitoring, maintenance, utilization, work orders, GPS, IoT, and analytics.", line: "all" as Line, tone: "tech" },
           ].map((item, index) => {
             const Icon = item.icon;
-            return <motion.button key={item.code} className={`${styles.gatewayCard} ${styles[`tone_${item.tone}`]}`} onClick={() => { if (item.code === "KBLI 58290") document.getElementById("technology")?.scrollIntoView({ behavior: "smooth" }); else { updateLine(item.line); scrollToCatalog(); } }} initial={reduce ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ delay: index * .07 }}>
+            return <motion.button key={item.code} className={`${styles.gatewayCard} ${styles[`tone_${item.tone}`]}`} onClick={() => { if (item.code === "CONNECTED OPERATIONS") document.getElementById("technology")?.scrollIntoView({ behavior: "smooth" }); else { updateLine(item.line); scrollToCatalog(); } }} initial={reduce ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ delay: index * .07 }}>
               <div><span>{item.code}</span><Icon size={28}/></div>
               <h3>{item.title}</h3><p>{item.text}</p>
               <span className={styles.gatewayLink}>{locale === "id" ? "Buka lini" : "Open line"}<ArrowUpRight size={17}/></span>
@@ -233,7 +190,7 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
               <span>{priorityLabel(item.priority, locale)}</span><i><ArrowUpRight size={18}/></i>
             </button>
             <div className={styles.featuredBody}>
-              <span>#{String(item.number).padStart(3, "0")} · KBLI {item.kbli}</span>
+              <span>{priorityLabel(item.priority, locale)} · {item.category}</span>
               <h3>{item.name[locale]}</h3>
               <p>{item.summary[locale]}</p>
               <div><small>{locale === "id" ? "Basis rental" : "Rental basis"}</small><strong>{item.rental}</strong></div>
@@ -253,22 +210,22 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
           <label><Search size={19}/><input value={query} onChange={(event) => updateQuery(event.target.value)} placeholder={copy.searchPlaceholder}/>{query && <button onClick={() => updateQuery("")} aria-label={locale === "id" ? "Hapus pencarian" : "Clear search"}><X size={16}/></button>}</label>
           <div>{(Object.keys(lineLabels) as Line[]).map((key) => <button key={key} className={line === key ? styles.activeFilter : ""} onClick={() => updateLine(key)}>{lineLabels[key][locale]}</button>)}</div>
         </div>
-        <div className={styles.resultMeta}><span><strong>{results.length}</strong> {locale === "id" ? "unit ditemukan" : "units found"}</span><span>{locale === "id" ? "Klik kartu untuk spesifikasi & RFQ" : "Open a card for specifications & RFQ"}</span></div>
+        <div className={styles.resultMeta}><span>{locale === "id" ? "Hasil sesuai pencarian dan kategori Anda" : "Results matching your search and category"}</span><span>{locale === "id" ? "Klik kartu untuk spesifikasi & RFQ" : "Open a card for specifications & RFQ"}</span></div>
         {results.length ? <div className={styles.catalogGrid}>
           {results.slice(0, visible).map((item) => <article className={styles.catalogCard} key={`${item.kbli}-${item.id}`}>
             <button className={styles.catalogImage} onClick={() => setSelected(item)}>
               <Image src={catalogImage(item)} alt={item.name[locale]} fill sizes="(max-width: 620px) 100vw, (max-width: 1000px) 50vw, 25vw" quality={75}/>
-              <span>#{String(item.number).padStart(3, "0")}</span>
+              <span>{priorityLabel(item.priority, locale)}</span>
             </button>
             <div className={styles.catalogBody}>
-              <span>KBLI {item.kbli} · {priorityLabel(item.priority, locale)}</span>
+              <span>{item.category} · {priorityLabel(item.priority, locale)}</span>
               <h3>{item.name[locale]}</h3><p>{item.summary[locale]}</p>
               <div className={styles.tags}>{item.useCases.slice(0, 2).map((useCase) => <small key={useCase}>{useCase}</small>)}</div>
               <button onClick={() => setSelected(item)}>{locale === "id" ? "Lihat detail" : "View details"}<ChevronRight size={16}/></button>
             </div>
           </article>)}
         </div> : <div className={styles.empty}><Search size={32}/><h3>{locale === "id" ? "Unit belum ditemukan." : "No equipment found."}</h3><p>{locale === "id" ? "Coba nama lain atau buka semua kategori." : "Try another term or open all categories."}</p><button onClick={() => { updateQuery(""); updateLine("all"); }}>{locale === "id" ? "Reset katalog" : "Reset catalog"}</button></div>}
-        {visible < results.length && <button className={styles.loadMore} onClick={() => setVisible((count) => count + 12)}>{locale === "id" ? "Tampilkan lebih banyak" : "Show more"}<span>{visible} / {results.length}</span></button>}
+        {visible < results.length && <button className={styles.loadMore} onClick={() => setVisible((count) => count + 12)}>{locale === "id" ? "Tampilkan lebih banyak" : "Show more"}<span>{locale === "id" ? "MUAT BERIKUTNYA" : "LOAD NEXT"}</span></button>}
       </div>
     </section>
 
@@ -297,7 +254,7 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
     <section className={styles.technology} id="technology">
       <div className={`container ${styles.technologyGrid}`}>
         <div className={styles.techCopy}>
-          <span>KBLI 58290 · SOFTWARE & FLEET TECHNOLOGY</span>
+          <span>REVAUTO · SOFTWARE & FLEET TECHNOLOGY</span>
           <h2>{locale === "id" ? "Setiap aset. Satu pandangan operasional." : "Every asset. One operational view."}</h2>
           <p>{locale === "id" ? "RevAuto dirancang untuk berkembang dari fleet management menjadi equipment intelligence—menghubungkan kendaraan, heavy equipment, maintenance, utilization, dan kontrak." : "RevAuto is designed to grow from fleet management into equipment intelligence—connecting vehicles, heavy equipment, maintenance, utilization, and contracts."}</p>
           <div>{["GPS & IoT monitoring", "Preventive maintenance", "Hour-meter & utilization", "Work order & breakdown", "Driver & operator", "Fleet analytics"].map((point) => <span key={point}><CircleDot size={14}/>{point}</span>)}</div>
@@ -348,8 +305,8 @@ export function IndustrialHome({ locale }: { locale: Locale }) {
       {selected && <motion.div className={styles.modalBackdrop} role="presentation" onMouseDown={(event) => event.currentTarget === event.target && setSelected(null)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <motion.div className={styles.modal} role="dialog" aria-modal="true" aria-label={selected.name[locale]} initial={reduce ? false : { opacity: 0, y: 30, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: .985 }}>
           <button className={styles.modalClose} onClick={() => setSelected(null)} aria-label={locale === "id" ? "Tutup detail" : "Close details"}><X size={20}/></button>
-          <div className={styles.modalImage}><Image src={catalogImage(selected)} alt={selected.name[locale]} fill sizes="(max-width: 800px) 100vw, 48vw" quality={90}/><span>#{String(selected.number).padStart(3, "0")}</span></div>
-          <div className={styles.modalBody}><span>KBLI {selected.kbli} · {selected.category}</span><h2>{selected.name[locale]}</h2><p>{selected.summary[locale]}</p><div className={styles.modalSpecs}><div><small>{locale === "id" ? "Basis rental" : "Rental basis"}</small><strong>{selected.rental}</strong></div><div><small>{locale === "id" ? "Model penyediaan" : "Supply model"}</small><strong>{priorityLabel(selected.priority, locale)}</strong></div></div><small>{locale === "id" ? "Biasanya digunakan untuk" : "Common applications"}</small><ul>{selected.useCases.map((useCase) => <li key={useCase}><Check size={15}/>{useCase}</li>)}</ul><div className={styles.modalNote}><Sparkles size={17}/><p>{locale === "id" ? "Kapasitas, brand, model, tahun, attachment, operator, mobilisasi, dan lokasi akan disesuaikan dalam RFQ." : "Capacity, brand, model, year, attachments, operator, mobilization, and location are configured during RFQ."}</p></div><Link href={`${localizePath(locale, "/contact?type=business")}&need=${encodeURIComponent(selected.name.id)}`}>{locale === "id" ? "Minta penawaran unit ini" : "Request this equipment"}<ArrowUpRight size={18}/></Link></div>
+          <div className={styles.modalImage}><Image src={catalogImage(selected)} alt={selected.name[locale]} fill sizes="(max-width: 800px) 100vw, 48vw" quality={90}/><span>{priorityLabel(selected.priority, locale)}</span></div>
+          <div className={styles.modalBody}><span>{selected.category}</span><h2>{selected.name[locale]}</h2><p>{selected.summary[locale]}</p><div className={styles.modalSpecs}><div><small>{locale === "id" ? "Basis rental" : "Rental basis"}</small><strong>{selected.rental}</strong></div><div><small>{locale === "id" ? "Model penyediaan" : "Supply model"}</small><strong>{priorityLabel(selected.priority, locale)}</strong></div></div><small>{locale === "id" ? "Biasanya digunakan untuk" : "Common applications"}</small><ul>{selected.useCases.map((useCase) => <li key={useCase}><Check size={15}/>{useCase}</li>)}</ul><div className={styles.modalNote}><Sparkles size={17}/><p>{locale === "id" ? "Kapasitas, brand, model, tahun, attachment, operator, mobilisasi, dan lokasi akan disesuaikan dalam RFQ." : "Capacity, brand, model, year, attachments, operator, mobilization, and location are configured during RFQ."}</p></div><Link href={`${localizePath(locale, "/contact?type=business")}&need=${encodeURIComponent(selected.name.id)}`}>{locale === "id" ? "Minta penawaran unit ini" : "Request this equipment"}<ArrowUpRight size={18}/></Link></div>
         </motion.div>
       </motion.div>}
     </AnimatePresence>

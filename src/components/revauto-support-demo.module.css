@@ -28,7 +28,7 @@
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 999px;
   color: #9eacbf;
-  font-size: 11px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 800;
   letter-spacing: .1em;
@@ -90,7 +90,7 @@
 .toolbar > div strong { font-size: 17px; }
 .toolbar nav { display: flex; align-items: center; gap: 28px; color: #72849d; font-size: 13px; }
 .toolbar nav b { color: #fff; }
-.toolbar > small { justify-self: end; color: #10d9e8; font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+.toolbar > small { justify-self: end; color: #10d9e8; font-size: 12px; font-weight: 800; letter-spacing: .1em; }
 
 .workspace {
   display: grid;
@@ -176,7 +176,7 @@
 .incident > span,
 .workshop > span { display: grid; place-items: center; width: 42px; height: 42px; color: #10d9e8; background: rgba(8, 102, 255, .18); }
 .incident small,
-.workshop small { color: #10d9e8; font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+.workshop small { color: #10d9e8; font-size: 12px; font-weight: 800; letter-spacing: .1em; }
 .incident strong,
 .workshop strong { display: block; margin-top: 5px; font-size: 15px; }
 .incident p,
@@ -192,12 +192,12 @@
 
 .sideTitle { display: flex; align-items: center; gap: 13px; padding-bottom: 27px; border-bottom: 1px solid rgba(255, 255, 255, .13); }
 .sideTitle > span { display: grid; place-items: center; width: 44px; height: 44px; color: #10d9e8; background: #0d2a50; }
-.sideTitle small { display: block; color: #72849d; font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+.sideTitle small { display: block; color: #72849d; font-size: 12px; font-weight: 800; letter-spacing: .1em; }
 .sideTitle strong { display: block; margin-top: 4px; font-size: 18px; }
 
 .steps { margin-top: 12px; }
 .steps > div { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; min-height: 105px; padding: 22px 0; border-bottom: 1px solid rgba(255, 255, 255, .11); }
-.steps > div > span { color: #10d9e8; font-size: 11px; font-weight: 800; }
+.steps > div > span { color: #10d9e8; font-size: 12px; font-weight: 800; }
 .steps strong { font-size: 14px; }
 .steps p { margin: 6px 0 0; color: #8fa0b8; font-size: 12px; line-height: 1.45; }
 .steps svg { position: absolute; right: 0; bottom: -9px; color: #10d9e8; transform: rotate(90deg); }

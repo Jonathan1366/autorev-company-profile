@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { IndustrialHome } from "@/components/industrial-home";
+import { MobilityHome } from "@/components/mobility-home";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return pageMetadata(locale, "home", locale === "id"
-    ? "Marketplace rental B2B AutoRev untuk kendaraan, truck, trailer, alat konstruksi, equipment tambang, material handling, dan fleet technology."
-    : "AutoRev B2B rental marketplace for vehicles, trucks, trailers, construction equipment, mining equipment, material handling, and fleet technology.");
+    ? "Rental mobil AutoRev untuk Founding Driver, perjalanan personal, dan kebutuhan perusahaan, dengan pilihan kendaraan listrik maupun konvensional."
+    : "AutoRev car rental for Founding Drivers, personal journeys, and company mobility, with electric and conventional vehicle choices.");
 }
 
 export default async function HomePage({ params }: Props) {
@@ -19,5 +19,5 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(rawLocale)) notFound();
   const locale = rawLocale as Locale;
 
-  return <IndustrialHome locale={locale}/>;
+  return <MobilityHome locale={locale}/>;
 }
