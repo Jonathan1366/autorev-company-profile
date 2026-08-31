@@ -197,7 +197,6 @@
 
 .platforms,
 .statusSection,
-.operations,
 .faq {
   padding: clamp(96px, 10vw, 150px) 0;
 }
@@ -434,102 +433,6 @@
   box-shadow: 0 0 0 5px rgba(127, 138, 174, .1);
 }
 
-.operations {
-  background:
-    radial-gradient(circle at 0% 100%, rgba(124, 184, 198, .07), transparent 32%),
-    #040b19;
-}
-
-.operationGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 58px;
-  border-top: 1px solid var(--fd-line);
-  border-left: 1px solid var(--fd-line);
-}
-
-.operationGrid article {
-  position: relative;
-  min-height: 285px;
-  padding: 25px;
-  border-right: 1px solid var(--fd-line);
-  border-bottom: 1px solid var(--fd-line);
-}
-
-.operationGrid article:last-child {
-  grid-column: 2 / 4;
-}
-
-.operationGrid article > span {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  color: #73859d;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.operationGrid article > svg {
-  width: 29px;
-  height: 29px;
-  color: var(--fd-accent);
-}
-
-.operationGrid h3 {
-  margin: 85px 0 12px;
-  font-family: var(--font-space-grotesk);
-  font-size: 21px;
-  font-weight: 550;
-  line-height: 1.15;
-  letter-spacing: -.035em;
-}
-
-.operationGrid p {
-  margin: 0;
-  color: #91a3ba;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.terms {
-  padding: 0;
-  color: #fff;
-  background: #06142e;
-}
-
-.termGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-left: 1px solid rgba(255, 255, 255, .13);
-}
-
-.termGrid > div {
-  min-height: 210px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 27px;
-  border-right: 1px solid rgba(255, 255, 255, .13);
-}
-
-.termGrid svg {
-  width: 25px;
-  color: var(--fd-accent);
-}
-
-.termGrid strong {
-  margin: 34px 0 4px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 35px;
-  font-weight: 400;
-}
-
-.termGrid span {
-  color: #91a2b9;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
 .faq {
   color: #07152e;
   background: #f7f9fc;
@@ -718,22 +621,10 @@
     position: static;
   }
 
-  .operationGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .operationGrid article:last-child {
-    grid-column: auto;
-  }
-
   .statusCards article {
     grid-template-columns: .6fr 1.4fr;
   }
 
-  .termGrid {
-    grid-template-columns: repeat(2, 1fr);
-    border-bottom: 1px solid rgba(255, 255, 255, .13);
-  }
 }
 
 @media (max-width: 760px) {
@@ -804,39 +695,9 @@
   .platformCopy > p,
   .finalInner > div > p { font-size: 18px; line-height: 1.65; }
 
-  .operationGrid {
-    display: flex;
-    width: 100%;
-    padding-inline: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    border-left: 0;
-  }
-
-  .operationGrid article {
-    flex: 0 0 82vw;
-    min-height: 280px;
-    scroll-snap-align: center;
-    border-left: 1px solid var(--fd-line);
-  }
-
   .statusCards article {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-
-  .termGrid {
-    width: 100%;
-  }
-
-  .termGrid > div {
-    min-height: 185px;
-    padding: 22px;
-  }
-
-  .termGrid strong {
-    font-size: 29px;
   }
 
   .faqList summary {
@@ -885,18 +746,6 @@
   .finalInner h2 {
     font-size: clamp(43px, 12vw, 50px);
     line-height: 1.03;
-  }
-
-  .termGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .termGrid > div {
-    min-height: 150px;
-  }
-
-  .termGrid strong {
-    margin-top: 24px;
   }
 
   .documentCard {

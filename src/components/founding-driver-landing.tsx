@@ -5,15 +5,9 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  BadgeCheck,
-  CalendarDays,
   Check,
-  Clock3,
   FileCheck2,
-  MapPinned,
   ShieldCheck,
-  UserRoundCheck,
-  Wrench,
 } from "lucide-react";
 import {
   motion,
@@ -50,16 +44,6 @@ const copy = {
       ["SESUAI VERIFIKASI / KETENTUAN", "Aktivasi akun, kategori layanan platform, cakupan servis, maintenance, asuransi, serta penggunaan charging."],
       ["DIKEMBANGKAN BERTAHAP", "BPJS, booth atau kantin, paguyuban driver, dan family gathering. Belum dianggap benefit aktif sebelum dikonfirmasi."],
     ],
-    operationEyebrow: "KETENTUAN OPERASIONAL",
-    operationTitle: "Ketentuan operasional utama.",
-    operations: [
-      ["Hari libur bebas setoran", "Regular mendapat 1 hari dan Premium 4 hari libur per bulan. Tidak ada setoran pada hari libur sesuai paket."],
-      ["Setoran tertunggak", "Apabila setoran tertunggak selama 3 hari, kendaraan dinonaktifkan sementara sampai kewajiban diselesaikan."],
-      ["Wilayah operasional", "Kendaraan diprioritaskan beroperasi di Jabodetabek. Perjalanan luar kota memerlukan izin dan konfirmasi."],
-      ["Driver terdaftar", "Kendaraan tidak boleh dipindahtangankan atau digunakan orang lain tanpa persetujuan AutoRev."],
-      ["Perawatan kendaraan", "Driver wajib menjaga kondisi, kebersihan, dan keamanan kendaraan."],
-      ["Insiden atau kecelakaan", "Kerusakan, insiden, atau kecelakaan wajib segera dilaporkan kepada tim AutoRev."],
-    ],
     faqEyebrow: "INFORMASI PROGRAM",
     faqTitle: "Hal yang perlu dipahami sebelum mendaftar.",
     faqs: [
@@ -75,11 +59,6 @@ const copy = {
       ["Apa yang terjadi bila setoran tertunggak?", "Jika setoran tertunggak selama 3 hari, kendaraan dinonaktifkan sementara sampai kewajiban diselesaikan."],
       ["Bolehkah kendaraan dibawa keluar kota atau digunakan orang lain?", "Keluar Jabodetabek memerlukan izin dan konfirmasi. Kendaraan tidak boleh dipindahtangankan atau digunakan orang lain tanpa persetujuan AutoRev."],
       ["Bagaimana jika berhenti sebelum lima tahun?", "Hak, kewajiban, dan konsekuensi penghentian sebelum tenor mengikuti kontrak. Tim akan menjelaskannya sebelum program ditandatangani."],
-    ],
-    terms: [
-      ["3 hari", "Tunggakan sebelum nonaktif sementara"],
-      ["Jabodetabek", "Wilayah operasi prioritas"],
-      ["Izin wajib", "Untuk penggunaan luar kota"],
     ],
     finalEyebrow: "FOUNDING DRIVER AUTOREV",
     finalTitle: "Pelajari programnya. Mulai saat Anda siap.",
@@ -114,16 +93,6 @@ const copy = {
       ["SUBJECT TO VERIFICATION / TERMS", "Account activation, platform categories, service, maintenance, insurance scope, and charging usage."],
       ["BEING DEVELOPED", "BPJS, food booths or canteens, driver community, and family gatherings. These are not active benefits until confirmed."],
     ],
-    operationEyebrow: "OPERATING TERMS",
-    operationTitle: "Core operating terms.",
-    operations: [
-      ["Payment-free days off", "Regular includes 1 and Premium 4 days off per month. No daily payment is due on those designated days."],
-      ["Overdue payments", "After three overdue days, the vehicle is temporarily disabled until the obligation is settled."],
-      ["Operating area", "Jabodetabek is the priority area. Out-of-town travel requires prior approval and confirmation."],
-      ["Registered driver only", "The vehicle may not be transferred or used by anyone else without AutoRev approval."],
-      ["Vehicle care", "Drivers must maintain the vehicle’s condition, cleanliness, and security."],
-      ["Incidents or accidents", "Damage, incidents, or accidents must be reported to the AutoRev team immediately."],
-    ],
     faqEyebrow: "PROGRAM INFORMATION",
     faqTitle: "What to understand before applying.",
     faqs: [
@@ -139,11 +108,6 @@ const copy = {
       ["What happens if a payment is overdue?", "If payments are overdue for three days, the vehicle is temporarily disabled until the obligation is settled."],
       ["Can I drive out of town or let someone else drive?", "Travel outside Jabodetabek needs prior approval. The vehicle may not be transferred or used by anyone else without AutoRev approval."],
       ["What if I leave before five years?", "Rights, obligations, and consequences of early exit follow the contract. The team will explain them before you sign."],
-    ],
-    terms: [
-      ["3 days", "Overdue before temporary disablement"],
-      ["Jabodetabek", "Priority operating area"],
-      ["Approval", "Required for out-of-town use"],
     ],
     finalEyebrow: "AUTOREV FOUNDING DRIVER",
     finalTitle: "Review the program. Start when you are ready.",
@@ -241,55 +205,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
               </motion.article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className={styles.operations}>
-        <div className={`container ${styles.sectionHead}`}>
-          <RevealBlock>
-            <span className={styles.sectionEyebrow}>{t.operationEyebrow}</span>
-            <h2>{t.operationTitle}</h2>
-          </RevealBlock>
-        </div>
-        <div className={`container ${styles.operationGrid}`}>
-          {t.operations.map(([title, text], index) => {
-            const Icon = [CalendarDays, Clock3, MapPinned, UserRoundCheck, Wrench, ShieldCheck][index];
-            return (
-              <motion.article
-                key={title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: .25 }}
-                transition={{ delay: (index % 4) * .045, duration: .42 }}
-              >
-                <span>0{index + 1}</span>
-                <Icon />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </motion.article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className={styles.terms}>
-        <div className={`container ${styles.termGrid}`}>
-          {t.terms.map(([value, label], index) => {
-            const TermIcon = [CalendarDays, MapPinned, BadgeCheck][index];
-            return (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: .97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * .05, duration: .4 }}
-              >
-                <TermIcon aria-hidden="true" />
-                <strong>{value}</strong>
-                <span>{label}</span>
-              </motion.div>
-            );
-          })}
         </div>
       </section>
 
