@@ -271,11 +271,6 @@ export function MobilityHome({ locale }: { locale: Locale }) {
             <Link className={styles.textLinkLight} href={localizePath(locale, "/autorev-business")}>{t.heroSecondary}<ArrowUpRight aria-hidden="true"/></Link>
           </div>
         </div>
-        <div className={styles.heroFacts} role="list" aria-label={locale === "id" ? "Ringkasan Founding Driver" : "Founding Driver summary"}>
-          <div role="listitem"><small>01</small><strong>{locale === "id" ? "Program EV untuk driver" : "EV program for drivers"}</strong><span>{locale === "id" ? "detail melalui verifikasi awal" : "details through initial review"}</span></div>
-          <div role="listitem"><small>02</small><strong>{locale === "id" ? "Program 5 tahun" : "Five-year program"}</strong><span>{locale === "id" ? "dengan dukungan AutoRev" : "with AutoRev support"}</span></div>
-          <div role="listitem"><small>03</small><strong>EV Car Plus</strong><span>{locale === "id" ? "untuk operasional driver" : "for driver operations"}</span></div>
-        </div>
       </motion.div>
       <form className={styles.heroSearch} onSubmit={submitSearch} role="search" aria-label={locale === "id" ? "Cari mobil rental" : "Search rental cars"}>
         <Search aria-hidden="true"/><input type="search" name="vehicle-search" enterKeyHint="search" autoComplete="off" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t.search} aria-label={t.search}/>
