@@ -102,9 +102,10 @@
   margin-left: auto;
   color: #fff;
   max-width: 690px;
-  font-size: clamp(18px, 1.7vw, 24px);
+  font-size: clamp(24px, 2.1vw, 32px);
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.25;
+  letter-spacing: -.025em;
   text-wrap: balance;
 }
 
@@ -172,28 +173,6 @@
   width: 18px;
   height: 18px;
 }
-
-.roadLine {
-  position: absolute;
-  right: 0;
-  bottom: 38px;
-  left: 0;
-  height: 1px;
-  overflow: hidden;
-  opacity: .38;
-  background: rgba(255, 255, 255, .12);
-}
-
-.roadLine i {
-  position: absolute;
-  width: 16vw;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--fd-accent), transparent);
-  animation: roadPulse 9s linear infinite;
-}
-
-.roadLine i:nth-child(2) { animation-delay: -1.9s; }
-.roadLine i:nth-child(3) { animation-delay: -3.8s; }
 
 .platforms,
 .statusSection,
@@ -459,11 +438,15 @@
 }
 
 .faqList {
-  border-top: 1px solid #cfdbe7;
+  display: grid;
+  gap: 10px;
 }
 
 .faqList details {
-  border-bottom: 1px solid #cfdbe7;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(19, 43, 74, .055);
 }
 
 .faqList summary {
@@ -472,7 +455,7 @@
   grid-template-columns: 42px 1fr 32px;
   align-items: center;
   gap: 16px;
-  padding: 16px 0;
+  padding: 16px 18px;
   cursor: pointer;
   list-style: none;
 }
@@ -524,8 +507,8 @@
 }
 
 .faqList details > p {
-  margin: -3px 40px 0 58px;
-  padding: 0 0 28px;
+  margin: -3px 52px 0 76px;
+  padding: 0 0 26px;
   color: #5f6e82;
   font-size: 16px;
   line-height: 1.7;
@@ -589,11 +572,6 @@
 @keyframes imageArrival {
   from { opacity: .55; transform: scale(1.08); }
   to { opacity: 1; transform: scale(1.02); }
-}
-
-@keyframes roadPulse {
-  from { transform: translateX(-20vw); }
-  to { transform: translateX(120vw); }
 }
 
 @media (max-width: 1050px) {
@@ -754,8 +732,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroImage,
-  .roadLine i {
+  .heroImage {
     animation: none;
   }
 

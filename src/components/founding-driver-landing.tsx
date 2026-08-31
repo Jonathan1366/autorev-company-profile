@@ -23,8 +23,8 @@ const copy = {
   id: {
     eyebrow: "AUTOREV · FOUNDING DRIVER",
     title: ["EV Rental."],
-    salesLine: "Untuk operasional driver.",
-    intro: "Pelajari cakupan operasional dan lanjutkan verifikasi awal bersama tim AutoRev.",
+    salesLine: "Kendarai hari ini. Miliki di akhir program.",
+    intro: "EV yang mendukung perjalanan kerja Anda hari ini, dengan jalur kepemilikan yang jelas setelah seluruh program diselesaikan.",
     heroCta: "Lihat Platform",
     eligibility: "Cek Kelayakan Awal",
     platformEyebrow: "PLATFORM OPERASIONAL",
@@ -40,9 +40,9 @@ const copy = {
     statusEyebrow: "STATUS LAYANAN",
     statusTitle: "Cakupan aktif dan pengembangan.",
     statuses: [
-      ["TERMASUK DALAM PROGRAM", "Kendaraan, jalur kepemilikan, hari libur bebas setoran, meal benefit, charging, serta servis, maintenance, dan asuransi sesuai ketentuan."],
+      ["TERMASUK DALAM PROGRAM", "Kendaraan, jalur kepemilikan, hari libur bebas setoran, charging, serta servis, maintenance, dan asuransi sesuai ketentuan."],
       ["SESUAI VERIFIKASI / KETENTUAN", "Aktivasi akun, kategori layanan platform, cakupan servis, maintenance, asuransi, serta penggunaan charging."],
-      ["DIKEMBANGKAN BERTAHAP", "BPJS, booth atau kantin, paguyuban driver, dan family gathering. Belum dianggap benefit aktif sebelum dikonfirmasi."],
+      ["DIKEMBANGKAN BERTAHAP", "BPJS, paguyuban driver, dan family gathering. Belum dianggap benefit aktif sebelum dikonfirmasi."],
     ],
     faqEyebrow: "INFORMASI PROGRAM",
     faqTitle: "Hal yang perlu dipahami sebelum mendaftar.",
@@ -54,7 +54,6 @@ const copy = {
       ["Saya belum pernah menjadi driver. Apakah bisa mendaftar?", "Bisa. Training sekitar satu minggu tersedia apabila diperlukan, termasuk pengenalan EV dan persiapan akun."],
       ["Apakah akun lama tetap bisa digunakan?", "Bisa, sepanjang akun dan kendaraan memenuhi ketentuan platform terkait."],
       ["Sampai kapan charging gratis?", "Charging gratis tersedia sampai tahun 2029 sesuai ketentuan program. Detail periode dan mekanismenya dijelaskan dalam kontrak."],
-      ["Bagaimana benefit makan diberikan?", "Pada tahap awal, benefit diberikan dalam bentuk uang makan: 2x per minggu untuk Regular dan 4x per minggu untuk Premium. Booth atau kantin direncanakan bertahap."],
       ["Apakah BPJS dan paguyuban sudah tersedia?", "BPJS sedang dipersiapkan bertahap. Paguyuban driver dan family gathering juga masih dalam pengembangan dan belum dianggap benefit aktif sampai dikonfirmasi."],
       ["Apa yang terjadi bila setoran tertunggak?", "Jika setoran tertunggak selama 3 hari, kendaraan dinonaktifkan sementara sampai kewajiban diselesaikan."],
       ["Bolehkah kendaraan dibawa keluar kota atau digunakan orang lain?", "Keluar Jabodetabek memerlukan izin dan konfirmasi. Kendaraan tidak boleh dipindahtangankan atau digunakan orang lain tanpa persetujuan AutoRev."],
@@ -72,8 +71,8 @@ const copy = {
   en: {
     eyebrow: "AUTOREV · FOUNDING DRIVER",
     title: ["EV Rental."],
-    salesLine: "Built for driver operations.",
-    intro: "Explore the operating coverage, then continue with an initial review by the AutoRev team.",
+    salesLine: "Drive it today. Own it at the end of the program.",
+    intro: "An EV made for your working journey today, with a clear path to ownership after the full program is completed.",
     heroCta: "View Platforms",
     eligibility: "Initial Eligibility Check",
     platformEyebrow: "OPERATING PLATFORMS",
@@ -89,9 +88,9 @@ const copy = {
     statusEyebrow: "SERVICE STATUS",
     statusTitle: "Active coverage and development.",
     statuses: [
-      ["INCLUDED IN THE PROGRAM", "Vehicle, ownership path, payment-free days off, meal benefit, charging, and service, maintenance, and insurance under the terms."],
+      ["INCLUDED IN THE PROGRAM", "Vehicle, ownership path, payment-free days off, charging, and service, maintenance, and insurance under the terms."],
       ["SUBJECT TO VERIFICATION / TERMS", "Account activation, platform categories, service, maintenance, insurance scope, and charging usage."],
-      ["BEING DEVELOPED", "BPJS, food booths or canteens, driver community, and family gatherings. These are not active benefits until confirmed."],
+      ["BEING DEVELOPED", "BPJS, driver community, and family gatherings. These are not active benefits until confirmed."],
     ],
     faqEyebrow: "PROGRAM INFORMATION",
     faqTitle: "What to understand before applying.",
@@ -103,7 +102,6 @@ const copy = {
       ["Can beginners apply?", "Yes. Approximately one week of training is available when needed, including EV familiarization and account preparation."],
       ["Can I use my existing account?", "Yes, as long as the account and vehicle meet the relevant platform requirements."],
       ["How long is free charging available?", "Free charging is available through 2029 under the program terms. Timing and mechanics are explained in the contract."],
-      ["How is the meal benefit provided?", "Initially, the benefit is provided as a meal allowance: twice weekly for Regular and four times weekly for Premium. Food booths or canteens are planned in stages."],
       ["Are BPJS and community benefits active?", "BPJS is being prepared in stages. The driver community and family gatherings are also still being developed and are not active benefits until confirmed."],
       ["What happens if a payment is overdue?", "If payments are overdue for three days, the vehicle is temporarily disabled until the obligation is settled."],
       ["Can I drive out of town or let someone else drive?", "Travel outside Jabodetabek needs prior approval. The vehicle may not be transferred or used by anyone else without AutoRev approval."],
@@ -157,7 +155,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             </div>
           </motion.div>
         </div>
-        <div className={styles.roadLine}><i /><i /><i /></div>
       </section>
 
       <section className={styles.platforms} id="platforms">
