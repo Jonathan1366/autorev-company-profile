@@ -18,8 +18,8 @@ export const siteConfig = {
 export const navigation = [
   { href: "/founding-driver", label: { id: "Founding Driver", en: "Founding Driver" } },
   { href: "/#vehicle-catalog", label: { id: "Katalog Mobil", en: "Vehicle Catalog" } },
-  { href: "/autorev-rental", label: { id: "Rental Mobil", en: "Car Rental" } },
-  { href: "/autorev-business", label: { id: "Corporate Rental", en: "Corporate Rental" } },
-  { href: "/contact?type=business", label: { id: "Minta Penawaran", en: "Request a Quote" } },
+  { href: "/autorev-rental", label: { id: "Sewa Mobil", en: "Car Rental" } },
+  { href: "/autorev-business", label: { id: "Solusi Bisnis", en: "Business Solutions" } },
+  { href: "/contact?type=business", label: { id: "Hubungi Kami", en: "Contact Us" } },
   { href: "/about", label: { id: "Tentang", en: "About" } },
 ] as const;

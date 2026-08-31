@@ -15,7 +15,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  return isLocale(locale) ? pageMetadata(locale, "business", locale === "id" ? "Rental armada kendaraan listrik untuk corporate dan owner rental, lepas kunci atau dengan driver." : "Electric fleet rental for companies and rental owners, self drive or with drivers.") : {};
+  return isLocale(locale) ? pageMetadata(locale, "business", locale === "id" ? "Solusi armada listrik dan konvensional untuk operasional perusahaan, kendaraan dinas, serta pemilik usaha rental." : "Electric and conventional fleet solutions for company operations, executive vehicles, and rental business owners.") : {};
 }
 
 export default async function BusinessPage({ params }: Props) {
@@ -23,41 +23,41 @@ export default async function BusinessPage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw as Locale;
   const offers = locale === "id" ? [
-    ["Corporate Lepas Kunci", "EV untuk operasional bulanan dan tahunan."],
-    ["Corporate dengan Driver", "Untuk direksi, tamu, proyek, dan aktivitas perusahaan."],
-    ["Armada untuk Owner Rental", "Pasokan unit EV untuk memperluas bisnis rental."],
-    ["Charging dan Perawatan", "Dukungan operasional agar armada tetap bergerak."],
+    ["Sewa Operasional Lepas Kunci", "Penyediaan mobil listrik atau konvensional untuk kebutuhan perusahaan jangka pendek hingga panjang dengan kendali penuh di tangan tim Anda."],
+    ["Sewa Operasional dengan Pengemudi", "Layanan kendaraan dan pengemudi profesional untuk operasional staf, proyek lapangan, tamu, maupun direksi."],
+    ["Kemitraan Pasokan Armada", "Dukungan pasokan unit EV bagi pemilik usaha rental yang ingin memperluas lini armada hemat energi."],
+    ["Pemeliharaan dan Pengisian Daya", "Dukungan perawatan rutin, penanganan darurat di jalan, dan manajemen pengisian daya agar operasional bisnis tetap berjalan."],
   ] : [
-    ["Corporate Self Drive", "EVs for monthly and annual operations."],
-    ["Corporate with Driver", "For executives, guests, projects, and business travel."],
-    ["Fleet for Rental Owners", "EV supply to expand your rental business."],
-    ["Charging and Care", "Operational support that keeps the fleet moving."],
+    ["Self-Drive Operating Vehicles", "Electric or conventional vehicles for short-term and long-term company needs, with full control in your team’s hands."],
+    ["Operating Vehicles with Drivers", "Professional vehicles and drivers for staff operations, field projects, guests, and executives."],
+    ["Fleet Supply Partnership", "EV supply support for rental business owners looking to expand their energy-efficient fleet."],
+    ["Maintenance and Charging Management", "Routine maintenance, roadside support, and charging management to keep your business moving."],
   ];
 
   return <>
     <PageHero
       locale={locale}
-      eyebrow="AUTOREV BUSINESS"
-      title={locale === "id" ? "EV untuk bisnis Anda." : "EVs for your business."}
-      text={locale === "id" ? "Untuk corporate dan owner rental. Lepas kunci atau dengan driver." : "For companies and rental owners. Self drive or with drivers."}
+      eyebrow="AUTOREV FOR BUSINESS"
+      title={locale === "id" ? "Efisiensi Armada Perusahaan Lewat Mobil Listrik Modern." : "Improve Fleet Efficiency with Modern Electric Vehicles."}
+      text={locale === "id" ? "Solusi kendaraan operasional, mobil dinas eksekutif, hingga pasokan armada usaha rental. Dilengkapi skema sewa fleksibel dan sistem pemantauan terintegrasi." : "Vehicle solutions for company operations, executive travel, and rental fleet supply, supported by flexible rental schemes and integrated monitoring."}
       primaryHref="/contact?type=business"
-      primaryLabel={locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}
-      secondaryLabel={locale === "id" ? "Lihat Layanan" : "View Services"}
+      primaryLabel={locale === "id" ? "Konsultasi Armada Bisnis" : "Discuss Your Business Fleet"}
+      secondaryLabel={locale === "id" ? "Pelajari Layanan" : "Explore Services"}
     ><BusinessHeroVisual locale={locale}/></PageHero>
 
     <EVCinematic locale={locale} scene="city"/>
 
     <section className="section business-services" id="explore">
       <div className="container">
-        <SectionHeading eyebrow={locale === "id" ? "B2B EV RENTAL" : "B2B EV RENTAL"} title={locale === "id" ? "Satu kebutuhan. Armada yang sesuai." : "One need. The right fleet."}/>
+        <SectionHeading eyebrow={locale === "id" ? "LAYANAN B2B UTAMA" : "CORE B2B SERVICES"} title={locale === "id" ? "Solusi Armada untuk Operasional yang Lebih Efisien." : "Fleet Solutions for More Efficient Operations."}/>
         <div className="business-offers">{offers.map(([title, text], index) => <Reveal className="business-offer" key={title} delay={index * .05}>
           <span>0{index + 1}</span>
           <div><Check size={22}/><h2>{title}</h2><p>{text}</p></div>
           <ArrowUpRight size={24}/>
         </Reveal>)}</div>
         <Reveal className="business-note">
-          <p>{locale === "id" ? "Penawaran disesuaikan dengan jumlah unit, durasi, wilayah, dan cakupan layanan." : "Every proposal reflects fleet size, duration, location, and service scope."}</p>
-          <ButtonLink href={localizePath(locale, "/contact?type=business")} variant="primary">{locale === "id" ? "Konsultasi Armada" : "Discuss Your Fleet"}</ButtonLink>
+          <p>{locale === "id" ? "Sampaikan jumlah kebutuhan unit dan pola operasional perusahaan Anda untuk mendapatkan penawaran yang disesuaikan." : "Share the required fleet size and your operating pattern to receive a tailored proposal."}</p>
+          <ButtonLink href={localizePath(locale, "/contact?type=business")} variant="primary">{locale === "id" ? "Minta Penawaran Bisnis" : "Request a Business Proposal"}</ButtonLink>
         </Reveal>
       </div>
     </section>

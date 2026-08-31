@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locale,
         "drivers",
         locale === "id"
-          ? "Founding Driver AutoRev: jalankan EV kategori Car Plus, tuntaskan program 5 tahun, lalu proses menjadi milik sesuai kontrak."
-          : "AutoRev Founding Driver: drive a Car Plus-category EV and complete the five-year path to ownership under the contract.",
+          ? "Founding Driver AutoRev menghadirkan skema setoran harian menuju kepemilikan mobil listrik tanpa uang muka, sesuai verifikasi dan kontrak program."
+          : "AutoRev Founding Driver provides a daily-payment path toward electric car ownership with no down payment, subject to verification and the program contract.",
       )
     : {};
 }

@@ -3,11 +3,11 @@ import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 
 export function RentalHeroVisual({ locale }: { locale: Locale }) {
-  return <PhotoHeroVisual locale={locale} image="/images/autorev-rental-roadtrip-v3.png" altId="Rombongan memulai perjalanan dengan kendaraan listrik" altEn="Friends beginning a journey in an electric vehicle" label="AUTOREV EV RENTAL" titleId="Listrik. Fleksibel." titleEn="Electric. Flexible." metaId="Lepas kunci · Dengan driver" metaEn="Self drive · With driver"/>;
+  return <PhotoHeroVisual locale={locale} image="/images/autorev-rental-roadtrip-v3.png" altId="Rombongan memulai perjalanan dengan kendaraan listrik" altEn="Friends beginning a journey in an electric vehicle" label={locale === "id" ? "AUTOREV SEWA MOBIL" : "AUTOREV CAR RENTAL"} titleId="Fleksibel untuk setiap perjalanan." titleEn="Flexible for every journey." metaId="Lepas kunci · Dengan pengemudi" metaEn="Self drive · With a driver"/>;
 }
 
 export function BusinessHeroVisual({ locale }: { locale: Locale }) {
-  return <PhotoHeroVisual locale={locale} image="/images/autorev-corporate-ev-v2.png" altId="Armada kendaraan listrik AutoRev untuk perusahaan" altEn="AutoRev electric fleet for companies" label="AUTOREV BUSINESS" titleId="EV siap kerja." titleEn="EVs ready for work." metaId="Corporate · Driver · Owner Rental" metaEn="Corporate · Drivers · Rental Owners" icon="business"/>;
+  return <PhotoHeroVisual locale={locale} image="/images/autorev-corporate-ev-v2.png" altId="Armada kendaraan listrik AutoRev untuk perusahaan" altEn="AutoRev electric fleet for companies" label="AUTOREV FOR BUSINESS" titleId="Armada modern siap bekerja." titleEn="Modern fleets ready to work." metaId="Perusahaan · Pengemudi · Usaha Rental" metaEn="Companies · Drivers · Rental Businesses" icon="business"/>;
 }
 
 export function PartnerHeroVisual({ locale }: { locale: Locale }) {

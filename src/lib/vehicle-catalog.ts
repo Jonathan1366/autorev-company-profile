@@ -245,7 +245,7 @@ export const vehicleCategoryLabels: Record<"all" | VehicleCategory, { id: string
   all: { id: "Semua", en: "All" },
   ev: { id: "Mobil Listrik", en: "Electric" },
   family: { id: "MPV & Keluarga", en: "MPV & Family" },
-  corporate: { id: "Corporate", en: "Corporate" },
+  corporate: { id: "Kendaraan Eksekutif", en: "Executive Vehicles" },
   city: { id: "Mobil Kota", en: "City Cars" },
-  group: { id: "Transport Grup", en: "Group Transport" },
+  group: { id: "Transport Pejabat/Grup", en: "Executive/Group Transport" },
 };

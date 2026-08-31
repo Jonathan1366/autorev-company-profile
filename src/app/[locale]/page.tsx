@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return pageMetadata(locale, "home", locale === "id"
-    ? "Rental mobil AutoRev untuk Founding Driver, perjalanan personal, dan kebutuhan perusahaan, dengan pilihan kendaraan listrik maupun konvensional."
-    : "AutoRev car rental for Founding Drivers, personal journeys, and company mobility, with electric and conventional vehicle choices.");
+    ? "Solusi mobilitas AutoRev untuk pengemudi, perjalanan personal, dan kebutuhan perusahaan, dengan pilihan kendaraan listrik maupun konvensional."
+    : "AutoRev mobility solutions for drivers, personal journeys, and company needs, with electric and conventional vehicle choices.");
 }
 
 export default async function HomePage({ params }: Props) {

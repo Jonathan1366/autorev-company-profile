@@ -151,103 +151,103 @@ export function MobilityHome({ locale }: { locale: Locale }) {
   };
 
   const t = locale === "id" ? {
-    heroEyebrow: "FOUNDING DRIVER · RENTAL MOBIL",
-    heroA: "Untuk setiap perjalanan.",
-    heroB: "Ada AutoRev.",
-    heroText: "Untuk kerja dan perjalanan sehari-hari, AutoRev menghadirkan rental mobil yang mudah, jelas, dan didukung tim yang siap membantu.",
+    heroEyebrow: "AUTOREV MOBILITAS INDONESIA",
+    heroA: "Mobilitas Terarah.",
+    heroB: "Bagi Pengemudi, Personal, dan Perusahaan.",
+    heroText: "Dari sewa harian yang praktis, pengelolaan armada operasional bisnis, hingga jalan nyata kepemilikan mobil listrik tanpa modal awal. AutoRev hadir dengan alur yang jelas dan tim yang siap mendampingi.",
     heroPrimary: "Lihat Founding Driver",
-    heroSecondary: "Rental untuk Perusahaan",
-    search: "Cari Limo Green, MPV, mobil listrik...",
-    searchButton: "Cari mobil",
-    pathsEyebrow: "MULAI DARI TUJUAN ANDA",
-    pathsTitle: "Satu perjalanan bisnis yang runtut.",
-    pathsText: "Pilih kebutuhan Anda terlebih dahulu. Kami arahkan ke program, kendaraan, dan pembahasan yang relevan.",
-    catalogTitle: "Mobil untuk setiap cara bergerak.",
-    catalogText: "Limo Green menjadi sorotan awal AutoRev, dilengkapi pilihan EV dan kendaraan konvensional yang dipasarkan resmi di Indonesia.",
+    heroSecondary: "Sewa untuk Perusahaan",
+    search: "Cari Limo Green, MPV, mobil listrik, atau kendaraan dinas...",
+    searchButton: "Cari Mobil",
+    pathsEyebrow: "01 · PILIH TUJUAN ANDA",
+    pathsTitle: "Solusi Kendaraan yang Tepat untuk Setiap Kebutuhan.",
+    pathsText: "Pilih jalur yang sesuai dengan rencana Anda hari ini. Kami akan mengarahkan Anda ke skema, unit, dan perhitungan yang paling masuk akal.",
+    catalogTitle: "Armada Lengkap untuk Setiap Rute Perjalanan.",
+    catalogText: "Menampilkan lini kendaraan listrik unggulan AutoRev seperti VinFast Limo Green dan BYD M6, dilengkapi pilihan armada konvensional tepercaya untuk berbagai skala operasional.",
     catalogSearch: "Cari merek, model, atau kebutuhan...",
     empty: "Belum ada model yang cocok dengan pencarian ini.",
     reset: "Tampilkan semua",
     more: "Tampilkan pilihan lainnya",
     request: "Tanyakan mobil ini",
-    coming: "Segera hadir di AutoRev",
-    onRequest: "Sesuai permintaan",
+    coming: "Alokasi Gelombang Berikutnya",
+    onRequest: "Tersedia via Pemesanan Khusus",
     seats: "kursi",
-    disclaimer: "Merek dan model merupakan referensi pilihan armada. Ketersediaan, varian, warna, dan spesifikasi dikonfirmasi sesuai kebutuhan dan proses pengadaan.",
-    processTitle: "Dari kebutuhan sampai mobil berjalan.",
-    processText: "Tidak perlu memulai dari daftar yang rumit. Ceritakan perjalanan Anda, lalu tim AutoRev membantu menyusun pilihan yang paling masuk akal.",
-    corporateTitle: "Rental corporate, tanpa rute yang berputar-putar.",
-    corporateText: "Dari satu kendaraan untuk perjalanan dinas hingga armada untuk operasional harian—pilih lepas kunci atau dengan driver, EV maupun konvensional.",
-    corporateCta: "Bicarakan Kebutuhan Armada",
-    revTitle: "Saat armada tumbuh, operasinya tetap rapi.",
-    revText: "RevAuto dirancang sebagai sistem fleet management untuk membantu melihat unit, booking, driver, charging, maintenance, biaya, dan laporan dalam satu alur.",
-    revCta: "Pelajari RevAuto",
-    faqTitle: "Pertanyaan sebelum mulai.",
+    disclaimer: "Spesifikasi dan varian kendaraan disesuaikan dengan ketersediaan unit di wilayah Anda. Tim kami akan mengonfirmasi detail unit saat alokasi jadwal disetujui.",
+    processTitle: "Langkah Jelas dari Niat Sampai Mobil Berjalan.",
+    processText: "Kami memangkas birokrasi yang tak perlu. Cukup sampaikan kebutuhan Anda, dan tim AutoRev akan memandu prosesnya hingga kunci ada di tangan Anda.",
+    corporateTitle: "Sewa Operasional Bisnis Tanpa Hambatan Birokrasi.",
+    corporateText: "Mulai dari satu unit kendaraan dinas direksi hingga puluhan armada operasional harian. Kami menyediakan opsi fleksibel lepas kunci maupun dengan pengemudi profesional.",
+    corporateCta: "Diskusi Kebutuhan Bisnis",
+    revTitle: "Saat Armada Membesar, Kontrol Operasional Tetap di Tangan Anda.",
+    revText: "RevAuto adalah platform manajemen armada terintegrasi yang memudahkan pengawasan unit, jadwal perawatan, transaksi pengisian daya, hingga analisis biaya operasional dalam satu layar.",
+    revCta: "Pelajari Sistem RevAuto",
+    faqTitle: "Pertanyaan Sebelum Anda Memulai.",
   } : {
-    heroEyebrow: "FOUNDING DRIVER · CAR RENTAL",
-    heroA: "Wherever you’re going.",
-    heroB: "Go with AutoRev.",
-    heroText: "From workdays to everyday journeys, AutoRev makes car rental simple, clear, and backed by a team ready to help.",
+    heroEyebrow: "AUTOREV MOBILITAS INDONESIA",
+    heroA: "Mobility with Direction.",
+    heroB: "For Drivers, Individuals, and Companies.",
+    heroText: "From practical daily rentals and business fleet operations to a real path toward electric-car ownership without upfront capital. AutoRev brings a clear process and a team ready to support you.",
     heroPrimary: "Explore Founding Driver",
-    heroSecondary: "Corporate Car Rental",
-    search: "Search Limo Green, MPVs, electric cars...",
-    searchButton: "Find a car",
-    pathsEyebrow: "START WITH YOUR GOAL",
-    pathsTitle: "One clear mobility journey.",
-    pathsText: "Choose what you need first. We’ll guide you to the relevant program, vehicle, and discussion.",
-    catalogTitle: "A car for every way you move.",
-    catalogText: "Limo Green leads AutoRev’s initial selection, joined by EVs and conventional vehicles officially marketed in Indonesia.",
+    heroSecondary: "Rent for Your Company",
+    search: "Search Limo Green, MPVs, electric cars, or company vehicles...",
+    searchButton: "Find a Car",
+    pathsEyebrow: "01 · CHOOSE YOUR GOAL",
+    pathsTitle: "The Right Vehicle Solution for Every Need.",
+    pathsText: "Choose the path that fits your plans today. We will guide you toward the most sensible scheme, vehicle, and calculation.",
+    catalogTitle: "A Complete Fleet for Every Route.",
+    catalogText: "Explore AutoRev’s leading electric vehicles, including the VinFast Limo Green and BYD M6, alongside trusted conventional fleets for different operating scales.",
     catalogSearch: "Search brand, model, or use case...",
     empty: "No model matches this search yet.",
     reset: "Show all",
     more: "Show more vehicles",
     request: "Ask about this car",
-    coming: "Coming soon to AutoRev",
-    onRequest: "Available on request",
+    coming: "Next Allocation Wave",
+    onRequest: "Available by Special Order",
     seats: "seats",
-    disclaimer: "Brands and models represent reference fleet choices. Availability, variant, color, and specifications are confirmed according to your needs and sourcing process.",
-    processTitle: "From need to a car on the road.",
-    processText: "You do not need to start with a complicated list. Tell us about the journey, and AutoRev will help shape the most practical options.",
-    corporateTitle: "Corporate rental, without a circular process.",
-    corporateText: "From a single business-trip vehicle to an everyday operating fleet—choose self drive or with a driver, electric or conventional.",
-    corporateCta: "Discuss Your Fleet",
-    revTitle: "As the fleet grows, operations stay organized.",
-    revText: "RevAuto is being designed as a fleet-management system that connects vehicles, bookings, drivers, charging, maintenance, cost, and reporting in one workflow.",
-    revCta: "Explore RevAuto",
-    faqTitle: "Questions before you begin.",
+    disclaimer: "Vehicle specifications and variants depend on unit availability in your area. Our team will confirm the unit details once the allocation schedule is approved.",
+    processTitle: "Clear Steps from Intent to a Car on the Road.",
+    processText: "We remove unnecessary bureaucracy. Tell us what you need, and the AutoRev team will guide the process until the keys are in your hands.",
+    corporateTitle: "Business Mobility without Bureaucratic Barriers.",
+    corporateText: "From one executive vehicle to dozens of daily operating units. We provide flexible self-drive options or professional drivers.",
+    corporateCta: "Discuss Your Business Needs",
+    revTitle: "As Your Fleet Grows, Operational Control Stays in Your Hands.",
+    revText: "RevAuto is an integrated fleet-management platform for monitoring vehicles, maintenance schedules, charging transactions, and operating-cost analysis from one screen.",
+    revCta: "Explore the RevAuto System",
+    faqTitle: "Questions Before You Begin.",
   };
 
   const pathways = locale === "id" ? [
-    { number: "01", eyebrow: "PROGRAM UTAMA", title: "Founding Driver", text: "EV untuk bekerja, dukungan operasional yang jelas, dan tim yang siap membantu sepanjang program.", cta: "Lihat program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
-    { number: "02", eyebrow: "PERSONAL", title: "Rental Mobil", text: "Harian, mingguan, atau bulanan untuk perjalanan personal dan keluarga.", cta: "Lihat rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
-    { number: "03", eyebrow: "PERUSAHAAN", title: "Corporate Rental", text: "Armada untuk perjalanan dinas, shuttle, dan operasional perusahaan.", cta: "Konsultasi armada", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
+    { number: "01", eyebrow: "PROGRAM UTAMA", title: "Founding Driver", text: "Kumpulkan setoran harian menjadi hak milik penuh atas mobil listrik Anda. Tanpa uang muka.", cta: "Pelajari Program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
+    { number: "02", eyebrow: "PERSONAL", title: "Sewa Mobil", text: "Pilihan kendaraan harian, mingguan, atau bulanan untuk mobilitas pribadi dan keluarga.", cta: "Lihat Pilihan Sewa", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
+    { number: "03", eyebrow: "PERUSAHAAN", title: "Solusi Bisnis", text: "Armada mobil listrik dan konvensional untuk perjalanan dinas, operasional, hingga shuttle.", cta: "Konsultasi Armada", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
   ] : [
-    { number: "01", eyebrow: "MAIN PROGRAM", title: "Founding Driver", text: "An EV for work, clear operational support, and a team ready to help throughout the program.", cta: "Explore the program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
-    { number: "02", eyebrow: "PERSONAL", title: "Car Rental", text: "Daily, weekly, or monthly mobility for personal and family journeys.", cta: "Explore rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
-    { number: "03", eyebrow: "COMPANIES", title: "Corporate Rental", text: "Fleet options for business travel, shuttles, and daily operations.", cta: "Discuss your fleet", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
+    { number: "01", eyebrow: "MAIN PROGRAM", title: "Founding Driver", text: "Turn daily payments into full ownership of your electric car. No down payment.", cta: "Explore the Program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png", icon: Route },
+    { number: "02", eyebrow: "PERSONAL", title: "Car Rental", text: "Daily, weekly, or monthly vehicles for personal and family mobility.", cta: "View Rental Options", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png", icon: CarFront },
+    { number: "03", eyebrow: "COMPANIES", title: "Business Solutions", text: "Electric and conventional fleets for business travel, operations, and shuttles.", cta: "Discuss Your Fleet", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png", icon: Building2 },
   ];
 
   const process = locale === "id" ? [
-    ["01", "Ceritakan perjalanan", "Tanggal, durasi, lokasi, jumlah penumpang, dan cara penggunaan."],
-    ["02", "Kami cocokkan pilihan", "EV atau konvensional, personal atau corporate, dengan kebutuhan yang jelas."],
-    ["03", "Konfirmasi detail", "Unit, varian, periode, layanan driver, serta dukungan operasional dikonfirmasi."],
-    ["04", "Mulai bergerak", "Tim membantu serah-terima dan tetap dapat dihubungi saat dibutuhkan."],
+    ["01", "Sampaikan Kebutuhan", "Tanggal, durasi, lokasi, serta rute operasional."],
+    ["02", "Penyelarasan Unit", "EV atau konvensional, lepas kunci atau dengan pengemudi."],
+    ["03", "Konfirmasi Detail", "Unit, jaminan servis, dan aturan main dijelaskan secara transparan."],
+    ["04", "Serah Terima Unit", "Mobil siap jalan dengan dukungan teknis yang utuh."],
   ] : [
-    ["01", "Tell us about the journey", "Dates, duration, location, passenger count, and how the car will be used."],
-    ["02", "We match the options", "Electric or conventional, personal or corporate, aligned to a clear need."],
-    ["03", "Confirm the details", "Vehicle, variant, period, driver service, and operational support are confirmed."],
-    ["04", "Start moving", "Our team supports the handover and remains reachable when needed."],
+    ["01", "Share Your Needs", "Dates, duration, location, and operating routes."],
+    ["02", "Vehicle Alignment", "Electric or conventional, self drive or with a driver."],
+    ["03", "Confirm the Details", "Vehicle, service assurance, and operating terms are explained transparently."],
+    ["04", "Vehicle Handover", "A road-ready car with complete technical support."],
   ];
 
   const faq = locale === "id" ? [
-    ["Apakah semua mobil di katalog langsung tersedia?", "Belum tentu. Katalog menunjukkan pilihan kendaraan yang dapat dibahas. Ketersediaan, varian, warna, dan lokasi dikonfirmasi saat proses permintaan."],
-    ["Apakah tersedia EV dan mobil konvensional?", "Ya. AutoRev memprioritaskan mobilitas listrik, sekaligus menyiapkan pilihan kendaraan konvensional untuk kebutuhan personal dan corporate."],
-    ["Bisa rental dengan driver?", "Bisa. Sampaikan apakah Anda membutuhkan lepas kunci, dengan driver, shuttle, atau pola operasional khusus."],
-    ["Bagaimana cara mengikuti Founding Driver?", "Buka halaman Founding Driver untuk memahami struktur program, persyaratan, paket, dan proses pendaftaran lengkap."],
+    ["Apakah semua mobil di katalog langsung tersedia?", "Katalog menampilkan jajaran kendaraan yang kami operasikan. Ketersediaan warna, varian, dan lokasi alokasi akan langsung dikonfirmasi oleh tim saat Anda melakukan pengajuan."],
+    ["Apakah AutoRev menyediakan mobil listrik dan konvensional?", "Ya. Kami memprioritaskan armada mobil listrik untuk efisiensi masa depan, sekaligus menyediakan pilihan kendaraan konvensional seperti bensin, diesel, dan hybrid untuk kebutuhan medan tertentu."],
+    ["Apakah bisa menyewa mobil lengkap dengan pengemudi?", "Sangat bisa. Kami menyediakan layanan lepas kunci maupun pengemudi berpengalaman untuk kebutuhan pribadi, tamu VIP, maupun operasional kantor."],
+    ["Bagaimana cara bergabung dalam program Founding Driver?", "Anda dapat langsung membuka halaman khusus Founding Driver untuk mempelajari skema setoran harian menuju kepemilikan penuh tanpa uang muka."],
   ] : [
-    ["Are all catalog cars immediately available?", "Not necessarily. The catalog shows vehicle choices available for discussion. Availability, variant, color, and location are confirmed during the request process."],
-    ["Do you offer both EVs and conventional cars?", "Yes. AutoRev prioritizes electric mobility while preparing conventional options for personal and corporate requirements."],
-    ["Can I rent with a driver?", "Yes. Tell us whether you need self drive, a driver, a shuttle, or a specific operating arrangement."],
-    ["How do I join Founding Driver?", "Open the Founding Driver page for the full program structure, requirements, plans, and registration process."],
+    ["Are all catalog cars immediately available?", "The catalog presents the vehicles we operate. Our team will confirm color, variant, and allocation location when you submit a request."],
+    ["Does AutoRev provide electric and conventional cars?", "Yes. We prioritize electric fleets for future efficiency while providing petrol, diesel, and hybrid options for specific terrain and operating needs."],
+    ["Can I rent a car with a driver?", "Absolutely. We provide self-drive rentals and experienced drivers for personal travel, VIP guests, and office operations."],
+    ["How do I join the Founding Driver program?", "Open the Founding Driver page to review the daily-payment path toward full ownership with no down payment."],
   ];
 
   return <div className={styles.page}>
@@ -278,8 +278,8 @@ export function MobilityHome({ locale }: { locale: Locale }) {
       </form>
       <div className={styles.heroIndex} aria-hidden="true">
         <span>FOUNDING DRIVER</span><i/>
-        <span>{locale === "id" ? "EV UNTUK KERJA" : "AN EV FOR WORK"}</span><i/>
-        <span>{locale === "id" ? "DUKUNGAN SETIAP HARI" : "SUPPORT WHEN YOU NEED IT"}</span>
+        <span>{locale === "id" ? "MOBIL LISTRIK SIAP KERJA" : "ELECTRIC CARS READY FOR WORK"}</span><i/>
+        <span>{locale === "id" ? "PENDAMPINGAN TIAP HARI" : "DAILY SUPPORT"}</span>
       </div>
     </section>
 
@@ -305,7 +305,7 @@ export function MobilityHome({ locale }: { locale: Locale }) {
     <section className={styles.catalog} id="vehicle-catalog" aria-labelledby="vehicle-catalog-title">
       <div className="container">
         <Reveal className={styles.catalogIntro}>
-          <div><span>02 · {locale === "id" ? "E-CATALOG MOBIL" : "VEHICLE E-CATALOG"}</span><h2 id="vehicle-catalog-title">{t.catalogTitle}</h2></div>
+          <div><span>02 · {locale === "id" ? "E-KATALOG MOBIL" : "VEHICLE E-CATALOG"}</span><h2 id="vehicle-catalog-title">{t.catalogTitle}</h2></div>
           <div><p>{t.catalogText}</p><SplitLink href={rentalRequestHref(locale)}>{locale === "id" ? "Minta Rekomendasi" : "Get a Recommendation"}</SplitLink></div>
         </Reveal>
         <div className={styles.catalogToolbar}>
@@ -348,12 +348,12 @@ export function MobilityHome({ locale }: { locale: Locale }) {
       <div className={styles.corporateShade} aria-hidden="true"/>
       <div className={`container ${styles.corporateInner}`}>
         <Reveal className={styles.corporateCopy}>
-          <span>04 · CORPORATE RENTAL</span><h2 id="corporate-rental-title">{t.corporateTitle}</h2><p>{t.corporateText}</p>
+          <span>04 · {locale === "id" ? "ARMADA PERUSAHAAN" : "BUSINESS FLEET"}</span><h2 id="corporate-rental-title">{t.corporateTitle}</h2><p>{t.corporateText}</p>
           <div className={styles.corporateBenefits}>
-            <span><CarFront aria-hidden="true"/>{locale === "id" ? "Lepas kunci atau dengan driver" : "Self drive or with a driver"}</span>
-            <span><CalendarRange aria-hidden="true"/>{locale === "id" ? "Periode fleksibel" : "Flexible periods"}</span>
-            <span><Zap aria-hidden="true"/>{locale === "id" ? "EV dan konvensional" : "EV and conventional"}</span>
-            <span><Headphones aria-hidden="true"/>{locale === "id" ? "Dukungan manusia" : "Human support"}</span>
+            <span><CarFront aria-hidden="true"/>{locale === "id" ? "Lepas kunci atau pengemudi profesional" : "Self drive or professional drivers"}</span>
+            <span><CalendarRange aria-hidden="true"/>{locale === "id" ? "Kontrak fleksibel" : "Flexible contracts"}</span>
+            <span><Zap aria-hidden="true"/>{locale === "id" ? "Penghematan energi hingga 60%" : "Energy savings of up to 60%"}</span>
+            <span><Headphones aria-hidden="true"/>{locale === "id" ? "Perawatan terjadwal" : "Scheduled maintenance"}</span>
           </div>
           <SplitLink light href={localizePath(locale, "/autorev-business")}>{t.corporateCta}</SplitLink>
         </Reveal>
@@ -362,12 +362,12 @@ export function MobilityHome({ locale }: { locale: Locale }) {
 
     <section className={styles.trust} aria-labelledby="autorev-experience-title">
       <div className="container">
-        <Reveal className={styles.trustHead}><span>05 · AUTOREV EXPERIENCE</span><h2 id="autorev-experience-title">{locale === "id" ? "Lebih jelas di setiap langkah." : "Clearer at every step."}</h2></Reveal>
+        <Reveal className={styles.trustHead}><span>05 · {locale === "id" ? "PRINSIP AUTOREV" : "AUTOREV PRINCIPLES"}</span><h2 id="autorev-experience-title">{locale === "id" ? "Ketenangan Pikiran di Setiap Kilometer." : "Peace of Mind in Every Kilometer."}</h2></Reveal>
         <div className={styles.trustGrid}>
           {[
-            { icon: ShieldCheck, title: locale === "id" ? "Pilihan yang transparan" : "Transparent choices", text: locale === "id" ? "Status kendaraan dan detail layanan dikonfirmasi sebelum proses berjalan." : "Vehicle status and service details are confirmed before the process moves forward." },
-            { icon: Route, title: locale === "id" ? "Alur yang runtut" : "A clear journey", text: locale === "id" ? "Mulai dari kebutuhan, bukan dari istilah atau daftar yang membingungkan." : "Start with the need, not confusing terminology or lists." },
-            { icon: Headphones, title: locale === "id" ? "Tim saat dibutuhkan" : "People when needed", text: locale === "id" ? "Teknologi membantu proses; tim AutoRev tetap mendampingi percakapan penting." : "Technology supports the process; AutoRev people stay present for important conversations." },
+            { icon: ShieldCheck, title: locale === "id" ? "Transparansi Tanpa Jebakan" : "Transparency without Traps", text: locale === "id" ? "Semua biaya, ketentuan servis, dan skema penggunaan dijelaskan secara terbuka sejak awal. Tidak ada biaya siluman di tengah jalan." : "Every cost, service term, and usage scheme is explained openly from the start. No hidden charges appear along the way." },
+            { icon: Route, title: locale === "id" ? "Alur Kerja yang Ringkas" : "A Streamlined Process", text: locale === "id" ? "Kami menghargai waktu Anda. Seluruh proses diawali dari percakapan langsung yang relevan, bukan formulir rumit yang membingungkan." : "We respect your time. Every process begins with a relevant conversation, not a complicated and confusing form." },
+            { icon: Headphones, title: locale === "id" ? "Manusia di Balik Teknologi" : "People behind the Technology", text: locale === "id" ? "Sistem digital mempermudah proses, namun tim operasional AutoRev selalu siap mendampingi Anda saat terjadi kendala di lapangan." : "Digital systems simplify the process, while the AutoRev operations team remains ready to support you when challenges arise." },
           ].map((item, index) => { const Icon = item.icon; return <Reveal className={styles.trustCard} delay={index * .08} key={item.title}><span><Icon aria-hidden="true"/></span><h3>{item.title}</h3><p>{item.text}</p></Reveal>; })}
         </div>
       </div>
@@ -375,14 +375,14 @@ export function MobilityHome({ locale }: { locale: Locale }) {
 
     <section className={styles.faq} aria-labelledby="rental-faq-title">
       <div className={`container ${styles.faqGrid}`}>
-        <Reveal className={styles.faqIntro}><span>06 · FAQ</span><h2 id="rental-faq-title">{t.faqTitle}</h2><p>{locale === "id" ? "Jika kebutuhan Anda lebih spesifik, ceritakan langsung kepada tim AutoRev." : "If your need is more specific, tell the AutoRev team directly."}</p><Link href={localizePath(locale, "/contact")}>{locale === "id" ? "Hubungi AutoRev" : "Contact AutoRev"}<ArrowUpRight aria-hidden="true"/></Link></Reveal>
+        <Reveal className={styles.faqIntro}><span>06 · FAQ</span><h2 id="rental-faq-title">{t.faqTitle}</h2><p>{locale === "id" ? "Temukan jawaban singkat sebelum memilih layanan AutoRev yang sesuai." : "Find concise answers before choosing the AutoRev service that fits you."}</p><Link href={localizePath(locale, "/contact")}>{locale === "id" ? "Hubungi AutoRev" : "Contact AutoRev"}<ArrowUpRight aria-hidden="true"/></Link></Reveal>
         <div className={styles.faqList}>{faq.map(([question, answer]) => <details key={question}><summary><span>{question}</span><ChevronDown aria-hidden="true"/></summary><p>{answer}</p></details>)}</div>
       </div>
     </section>
 
     <section className={styles.revauto} id="revauto" aria-labelledby="revauto-title">
       <div className={`container ${styles.revGrid}`}>
-        <Reveal className={styles.revCopy}><span><Sparkles aria-hidden="true"/> REVAUTO · FLEET MANAGEMENT</span><h2 id="revauto-title">{t.revTitle}</h2><p>{t.revText}</p><SplitLink light href={localizePath(locale, "/revauto")}>{t.revCta}</SplitLink></Reveal>
+        <Reveal className={styles.revCopy}><span><Sparkles aria-hidden="true"/> REVAUTO · FLEET SYSTEM</span><h2 id="revauto-title">{t.revTitle}</h2><p>{t.revText}</p><SplitLink light href={localizePath(locale, "/revauto")}>{t.revCta}</SplitLink></Reveal>
         <Reveal className={styles.revPanel} delay={.1}>
           <div className={styles.revPanelTop}><span><i/>LIVE OPERATIONS</span><small>{locale === "id" ? "PREVIEW SISTEM" : "SYSTEM PREVIEW"}</small></div>
           <div className={styles.revMetric}><span><CarFront aria-hidden="true"/></span><div><small>{locale === "id" ? "ARMADA" : "FLEET"}</small><strong>{locale === "id" ? "Unit & status" : "Vehicles & status"}</strong></div><ArrowUpRight aria-hidden="true"/></div>

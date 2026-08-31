@@ -4,8 +4,8 @@ import { siteConfig } from "./site";
 
 const titles = {
   home: { id: "Rental Mobil & Founding Driver", en: "Car Rental & Founding Driver" },
-  rental: { id: "Rental Kendaraan Listrik", en: "Electric Vehicle Rental" },
-  business: { id: "Rental EV untuk Bisnis", en: "EV Rental for Business" },
+  rental: { id: "Sewa Mobil Fleksibel", en: "Flexible Car Rental" },
+  business: { id: "Solusi Armada Perusahaan", en: "Business Fleet Solutions" },
   drivers: { id: "Founding Driver · EV Rental Program", en: "Founding Driver · EV Rental Program" },
   partners: { id: "AutoRev Partner", en: "AutoRev Partner" },
   technology: { id: "RevAuto · Sistem Rental EV", en: "RevAuto · EV Rental System" },
