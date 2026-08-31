@@ -1,6 +1,5 @@
 "use client";
 
-import type { PointerEvent as ReactPointerEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,22 +7,17 @@ import {
   ArrowRight,
   BadgeCheck,
   CalendarDays,
-  CarFront,
   Check,
   Clock3,
   FileCheck2,
   MapPinned,
   ShieldCheck,
   UserRoundCheck,
-  Utensils,
   Wrench,
 } from "lucide-react";
 import {
   motion,
-  useMotionValue,
   useReducedMotion,
-  useSpring,
-  useTransform,
 } from "framer-motion";
 import type { Locale } from "@/lib/i18n";
 import { localizePath } from "@/lib/i18n";
@@ -31,71 +25,14 @@ import { siteConfig } from "@/lib/site";
 import { PlatformLogoGrid } from "./platform-logo-grid";
 import styles from "./founding-driver-landing.module.css";
 
-type Plan = {
-  name: string;
-  badge: string;
-  price: string;
-  description: string;
-  accent: "cyan" | "violet";
-  highlights: [string, string, string];
-  benefits: string[];
-  cta: string;
-};
-
 const copy = {
   id: {
     eyebrow: "AUTOREV · FOUNDING DRIVER",
     title: ["EV Rental."],
     salesLine: "Untuk operasional driver.",
-    intro: "Pilih paket yang sesuai dengan kebutuhan operasional Anda.",
-    heroCta: "Lihat Paket",
+    intro: "Pelajari cakupan operasional dan lanjutkan verifikasi awal bersama tim AutoRev.",
+    heroCta: "Lihat Platform",
     eligibility: "Cek Kelayakan Awal",
-    priceEyebrow: "PILIHAN PAKET",
-    priceTitle: "Pilih paket.",
-    priceText:
-      "Bandingkan Regular dan Premium sesuai ritme operasional Anda.",
-    plans: [
-      {
-        name: "Founding Regular",
-        badge: "1 HARI LIBUR · BEBAS SETORAN",
-        price: "Rp300.000",
-        description: "Setoran harian lebih rendah dengan seluruh benefit inti program.",
-        accent: "cyan",
-        highlights: ["1 hari", "2x / minggu", "5 tahun"],
-        benefits: [
-          "Program kepemilikan setelah tenor 5 tahun",
-          "EV kategori Car Plus",
-          "1 hari libur per bulan — bebas setoran",
-          "Benefit makan 2x per minggu",
-          "Gratis charging sampai 2029",
-          "Training dan persiapan akun bila diperlukan",
-          "Servis, maintenance, dan asuransi sesuai program",
-          "Tanpa deposit atau uang muka",
-          "Tanpa pelunasan akhir",
-        ],
-        cta: "Cek Kelayakan Regular",
-      },
-      {
-        name: "Founding Premium",
-        badge: "4 HARI LIBUR · BEBAS SETORAN",
-        price: "Rp350.000",
-        description: "Hari libur lebih banyak dan benefit makan lebih sering.",
-        accent: "violet",
-        highlights: ["4 hari", "4x / minggu", "5 tahun"],
-        benefits: [
-          "Program kepemilikan setelah tenor 5 tahun",
-          "EV kategori Car Plus",
-          "4 hari libur per bulan — bebas setoran",
-          "Benefit makan 4x per minggu",
-          "Gratis charging sampai 2029",
-          "Training dan persiapan akun bila diperlukan",
-          "Servis, maintenance, dan asuransi sesuai program",
-          "Tanpa deposit atau uang muka",
-          "Tanpa pelunasan akhir",
-        ],
-        cta: "Cek Kelayakan Premium",
-      },
-    ] satisfies Plan[],
     platformEyebrow: "PLATFORM OPERASIONAL",
     platformTitle: "Platform operasional yang dapat digunakan.",
     platformText:
@@ -145,9 +82,9 @@ const copy = {
       ["Izin wajib", "Untuk penggunaan luar kota"],
     ],
     finalEyebrow: "FOUNDING DRIVER AUTOREV",
-    finalTitle: "Pelajari paketnya. Mulai saat Anda siap.",
+    finalTitle: "Pelajari programnya. Mulai saat Anda siap.",
     finalText:
-      "Bandingkan Regular dan Premium, lalu bicara dengan tim AutoRev untuk memastikan programnya sesuai dengan kebutuhan operasional Anda.",
+      "Bicara dengan tim AutoRev untuk memastikan programnya sesuai dengan kebutuhan operasional Anda.",
     finalCta: "Cek Kelayakan Awal",
     finalSecondary: "Tanya via WhatsApp",
     disclaimer:
@@ -157,54 +94,9 @@ const copy = {
     eyebrow: "AUTOREV · FOUNDING DRIVER",
     title: ["EV Rental."],
     salesLine: "Built for driver operations.",
-    intro: "Choose the plan that fits your operating needs.",
-    heroCta: "View Plans",
+    intro: "Explore the operating coverage, then continue with an initial review by the AutoRev team.",
+    heroCta: "View Platforms",
     eligibility: "Initial Eligibility Check",
-    priceEyebrow: "PLAN OPTIONS",
-    priceTitle: "Choose a plan.",
-    priceText: "Compare Regular and Premium based on your operating rhythm.",
-    plans: [
-      {
-        name: "Founding Regular",
-        badge: "1 DAY OFF · NO PAYMENT DUE",
-        price: "IDR 300,000",
-        description: "A lower daily payment with every core program benefit.",
-        accent: "cyan",
-        highlights: ["1 day", "2x / week", "5 years"],
-        benefits: [
-          "Ownership path after the five-year term",
-          "Car Plus-category EV",
-          "1 day off per month — no payment due",
-          "2 meal benefits per week",
-          "Free charging through 2029",
-          "Training and account preparation when needed",
-          "Service, maintenance, and insurance under the program",
-          "No security deposit or down payment",
-          "No end-of-term balloon payment",
-        ],
-        cta: "Check Regular Eligibility",
-      },
-      {
-        name: "Founding Premium",
-        badge: "4 DAYS OFF · NO PAYMENT DUE",
-        price: "IDR 350,000",
-        description: "More days off and more frequent meal benefits.",
-        accent: "violet",
-        highlights: ["4 days", "4x / week", "5 years"],
-        benefits: [
-          "Ownership path after the five-year term",
-          "Car Plus-category EV",
-          "4 days off per month — no payment due",
-          "4 meal benefits per week",
-          "Free charging through 2029",
-          "Training and account preparation when needed",
-          "Service, maintenance, and insurance under the program",
-          "No security deposit or down payment",
-          "No end-of-term balloon payment",
-        ],
-        cta: "Check Premium Eligibility",
-      },
-    ] satisfies Plan[],
     platformEyebrow: "OPERATING PLATFORMS",
     platformTitle: "Compatible operating platforms.",
     platformText:
@@ -254,9 +146,9 @@ const copy = {
       ["Approval", "Required for out-of-town use"],
     ],
     finalEyebrow: "AUTOREV FOUNDING DRIVER",
-    finalTitle: "Review the plans. Start when you are ready.",
+    finalTitle: "Review the program. Start when you are ready.",
     finalText:
-      "Compare Regular and Premium, then speak with AutoRev to confirm the program fits your operating needs.",
+      "Speak with AutoRev to confirm the program fits your operating needs.",
     finalCta: "Check Initial Eligibility",
     finalSecondary: "Ask on WhatsApp",
     disclaimer:
@@ -296,7 +188,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
             <strong className={styles.salesLine}>{t.salesLine}</strong>
             <p>{t.intro}</p>
             <div className={styles.heroActions}>
-              <a className={styles.primaryButton} href="#paket">{t.heroCta}<ArrowDown /></a>
+              <a className={styles.primaryButton} href="#platforms">{t.heroCta}<ArrowDown /></a>
               <Link className={styles.ghostButton} href={localizePath(locale, "/contact?type=driver")}>{t.eligibility}<ArrowRight /></Link>
             </div>
           </motion.div>
@@ -304,25 +196,7 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
         <div className={styles.roadLine}><i /><i /><i /></div>
       </section>
 
-      <section className={styles.pricing} id="paket">
-        <div className={`container ${styles.sectionHead}`}>
-          <RevealBlock>
-            <span className={styles.sectionEyebrow}>{t.priceEyebrow}</span>
-            <h2>{t.priceTitle}</h2>
-            <p>{t.priceText}</p>
-          </RevealBlock>
-        </div>
-        <div className={`container ${styles.pricingMobileCue}`} aria-hidden="true">
-          <span>01</span><i /><span>02</span><small>{locale === "id" ? "GESER PAKET" : "SWIPE PLANS"}</small>
-        </div>
-        <div className={`container ${styles.pricingRail}`} aria-label={t.priceTitle}>
-          {t.plans.map((plan, index) => (
-            <PlanCard key={plan.name} plan={plan} locale={locale} index={index} />
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.platforms}>
+      <section className={styles.platforms} id="platforms">
         <div className={`container ${styles.platformLayout}`}>
           <RevealBlock className={styles.platformCopy}>
             <span className={styles.sectionEyebrow}>{t.platformEyebrow}</span>
@@ -465,68 +339,6 @@ export function FoundingDriverLanding({ locale }: { locale: Locale }) {
         </div>
       </section>
     </div>
-  );
-}
-
-function PlanCard({ plan, locale, index }: { plan: Plan; locale: Locale; index: number }) {
-  const reduceMotion = useReducedMotion();
-  const glowX = useMotionValue(0);
-  const glowY = useMotionValue(0);
-  const normalizedX = useMotionValue(0);
-  const normalizedY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(normalizedY, [-.5, .5], [1.6, -1.6]), { stiffness: 250, damping: 28 });
-  const rotateY = useSpring(useTransform(normalizedX, [-.5, .5], [-1.6, 1.6]), { stiffness: 250, damping: 28 });
-
-  function handlePointerMove(event: ReactPointerEvent<HTMLElement>) {
-    if (reduceMotion || event.pointerType === "touch") return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - bounds.left;
-    const y = event.clientY - bounds.top;
-    glowX.set(x);
-    glowY.set(y);
-    normalizedX.set(x / bounds.width - .5);
-    normalizedY.set(y / bounds.height - .5);
-  }
-
-  function handlePointerLeave() {
-    normalizedX.set(0);
-    normalizedY.set(0);
-  }
-
-  const query = new URLSearchParams({ type: "driver", package: plan.name }).toString();
-
-  return (
-    <motion.article
-      className={`${styles.planCard} ${plan.accent === "violet" ? styles.planCardPremium : ""}`}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      style={reduceMotion ? undefined : { rotateX, rotateY, transformPerspective: 1200 }}
-      initial={{ opacity: 0, x: index === 0 ? -22 : 22 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: .2 }}
-      transition={{ duration: .58, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.i className={styles.spotlight} aria-hidden="true" style={{ x: glowX, y: glowY }} />
-      <div className={styles.planTop}>
-        <span>{plan.badge}</span>
-        <small>0{index + 1}</small>
-      </div>
-      <h3>{plan.name}</h3>
-      <p>{plan.description}</p>
-      <div className={styles.price}>
-        <strong>{plan.price}</strong>
-        <span>/ {locale === "id" ? "hari" : "day"}</span>
-      </div>
-      <div className={styles.planHighlights}>
-        <div><CalendarDays /><strong>{plan.highlights[0]}</strong><span>{locale === "id" ? "bebas setoran / bulan" : "payment-free / month"}</span></div>
-        <div><Utensils /><strong>{plan.highlights[1]}</strong><span>{locale === "id" ? "benefit makan" : "meal benefit"}</span></div>
-        <div><CarFront /><strong>{plan.highlights[2]}</strong><span>{locale === "id" ? "masa program" : "program term"}</span></div>
-      </div>
-      <ul>
-        {plan.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}
-      </ul>
-      <Link href={`${localizePath(locale, "/contact")}?${query}`} className={styles.planCta}>{plan.cta}<ArrowRight /></Link>
-    </motion.article>
   );
 }
 

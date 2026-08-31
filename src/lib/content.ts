@@ -15,7 +15,7 @@ export const copy = {
     home: {
       eyebrow: "Founding Driver AutoRev · Jabodetabek",
       title: "EV untuk kerja. Menuju milik.",
-      subtitle: "Operasikan EV Car Plus melalui program lima tahun, mulai Rp300.000 per hari operasional.",
+      subtitle: "Operasikan EV Car Plus melalui program lima tahun dengan dukungan tim AutoRev.",
       ecosystemTitle: "Satu ekosistem. Setiap perjalanan kendaraan.",
       ecosystemText:
         "Dari kendaraan dipesan hingga kembali produktif, AutoRev menyatukan customer, fleet owner, teknisi, bengkel, towing, dan supplier dalam alur yang lebih transparan.",
@@ -54,7 +54,7 @@ export const copy = {
     home: {
       eyebrow: "AutoRev Founding Driver · Greater Jakarta",
       title: "An EV for work. A path to ownership.",
-      subtitle: "Operate a Car Plus EV through a five-year program, from IDR 300,000 per operating day.",
+      subtitle: "Operate a Car Plus EV through a five-year program with support from the AutoRev team.",
       ecosystemTitle: "One ecosystem. Every vehicle journey.",
       ecosystemText:
         "From booking to productive return, AutoRev connects customers, fleet owners, technicians, workshops, towing, and suppliers through a more transparent workflow.",

@@ -64,7 +64,7 @@ const needs: Record<LeadType, { id: string[]; en: string[] }> = {
   business: { id: ["Corporate lepas kunci", "Corporate dengan driver", "Armada untuk owner rental", "Charging dan perawatan"], en: ["Corporate self drive", "Corporate with driver", "Fleet for rental owners", "Charging and maintenance"] },
   system: { id: ["Demo RevAuto", "Kelola armada EV", "Kelola booking dan driver", "Charging dan maintenance", "Invoice dan laporan"], en: ["RevAuto demo", "Manage an EV fleet", "Manage bookings and drivers", "Charging and maintenance", "Invoices and reporting"] },
   partner: { id: ["Bengkel", "Teknisi", "Towing", "Supplier parts", "Replacement rental", "Layanan lainnya"], en: ["Workshop", "Technician", "Towing", "Parts supplier", "Replacement rental", "Other services"] },
-  driver: { id: ["Cek kelayakan Founding Driver", "Bandingkan Regular dan Premium", "Persiapan akun / training", "Konsultasi kontrak program"], en: ["Check Founding Driver eligibility", "Compare Regular and Premium", "Account preparation / training", "Discuss the program contract"] },
+  driver: { id: ["Cek kelayakan Founding Driver", "Pelajari program driver", "Persiapan akun / training", "Konsultasi kontrak program"], en: ["Check Founding Driver eligibility", "Explore the driver program", "Account preparation / training", "Discuss the program contract"] },
   strategic: { id: ["Kemitraan otomotif", "Teknologi", "Insurance / broker", "Investor", "Media / lainnya"], en: ["Automotive partnership", "Technology", "Insurance / broker", "Investor", "Media / other"] },
 };
 
@@ -209,8 +209,8 @@ export function LeadForm({ type, locale, initialPackage = "", initialExperience 
             <Field label={locale === "id" ? "Paket yang diminati" : "Plan of interest"} marker={t.required} error={validation(errors.driverPackage, "Pilih paket atau opsi belum menentukan.", "Choose a plan or the not-decided option.")}>
               <select {...register("driverPackage")}>
                 <option value="">Pilih paket</option>
-                <option value="Founding Regular">Founding Regular · Rp300.000 / hari</option>
-                <option value="Founding Premium">Founding Premium · Rp350.000 / hari</option>
+                <option value="Founding Regular">Founding Regular</option>
+                <option value="Founding Premium">Founding Premium</option>
                 <option value="Belum menentukan">{locale === "id" ? "Belum menentukan" : "Not decided yet"}</option>
               </select>
             </Field>

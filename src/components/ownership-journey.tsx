@@ -282,7 +282,7 @@ export function OwnershipJourney({ locale }: { locale: Locale }) {
                     <div><strong>{chapter.value}</strong><span>{chapter.valueLabel}</span></div>
                   </div>
                   {index === t.chapters.length - 1 && (
-                    <Link href={localizePath(locale, "/founding-driver#paket")}>
+                    <Link href={localizePath(locale, "/founding-driver")}>
                       {t.cta}<ArrowUpRight aria-hidden="true" />
                     </Link>
                   )}

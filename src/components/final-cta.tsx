@@ -8,10 +8,10 @@ const content = {
   id: {
     driver: {
       eyebrow: "FOUNDING DRIVER AUTOREV",
-      title: "Pilih paket yang paling masuk akal untuk Anda.",
-      text: "Bandingkan setoran, hari libur, dan uang makan. Jika masih ragu, cek kelayakan tanpa biaya atau komitmen di awal.",
-      primary: "Bandingkan Paket",
-      primaryHref: "/founding-driver#paket",
+      title: "Lihat apakah program ini sesuai untuk Anda.",
+      text: "Pelajari cakupan program, lalu cek kelayakan tanpa biaya atau komitmen di awal.",
+      primary: "Pelajari Program",
+      primaryHref: "/founding-driver",
       secondary: "Cek Kelayakan",
       secondaryHref: "/contact?type=driver",
     },
@@ -64,10 +64,10 @@ const content = {
   en: {
     driver: {
       eyebrow: "AUTOREV FOUNDING DRIVER",
-      title: "Choose the plan that makes the most sense for you.",
-      text: "Compare daily payments, days off, and meal support. If you are unsure, check eligibility with no fee or upfront commitment.",
-      primary: "Compare Plans",
-      primaryHref: "/founding-driver#paket",
+      title: "See whether the program is right for you.",
+      text: "Review the program coverage, then check eligibility with no fee or upfront commitment.",
+      primary: "Explore the Program",
+      primaryHref: "/founding-driver",
       secondary: "Check Eligibility",
       secondaryHref: "/contact?type=driver",
     },

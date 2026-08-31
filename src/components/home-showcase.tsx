@@ -21,11 +21,11 @@ export function ServiceMarquee({ locale }: { locale: Locale }) {
 export function ServiceGateway({ locale }: { locale: Locale }) {
   const reduce = useReducedMotion();
   const cards = locale === "id" ? [
-    { label: "UNTUK DRIVER", title: "Kerja dengan EV. Menuju milik.", text: "Pilih Regular atau Premium, operasikan EV Car Plus, dan tuntaskan program lima tahun sesuai kontrak.", cta: "Bandingkan Regular & Premium", href: "/founding-driver#paket", image: "/images/autorev-driver-passenger-v3.png" },
+    { label: "UNTUK DRIVER", title: "Kerja dengan EV. Menuju milik.", text: "Operasikan EV Car Plus dan tuntaskan program lima tahun sesuai kontrak.", cta: "Pelajari Program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png" },
     { label: "UNTUK PERJALANAN", title: "Sewa EV dengan cara Anda.", text: "Lepas kunci atau dengan driver, untuk kebutuhan harian, mingguan, hingga bulanan.", cta: "Cek Pilihan Rental", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png" },
     { label: "UNTUK BISNIS", title: "Armada EV yang siap bekerja.", text: "Pilihan unit dan dukungan operasional untuk perusahaan serta pemilik bisnis rental.", cta: "Konsultasikan Armada", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png" },
   ] : [
-    { label: "FOR DRIVERS", title: "Work with an EV. Build toward ownership.", text: "Choose Regular or Premium, operate a Car Plus EV, and complete the five-year program under the contract.", cta: "Compare Regular & Premium", href: "/founding-driver#paket", image: "/images/autorev-driver-passenger-v3.png" },
+    { label: "FOR DRIVERS", title: "Work with an EV. Build toward ownership.", text: "Operate a Car Plus EV and complete the five-year program under the contract.", cta: "Explore the Program", href: "/founding-driver", image: "/images/autorev-driver-passenger-v3.png" },
     { label: "FOR JOURNEYS", title: "Rent an EV your way.", text: "Self drive or with a driver, for daily, weekly, or monthly needs.", cta: "Explore Rental Options", href: "/autorev-rental", image: "/images/autorev-rental-roadtrip-v3.png" },
     { label: "FOR BUSINESS", title: "An EV fleet ready to work.", text: "Vehicle options and operational support for companies and rental business owners.", cta: "Discuss Your Fleet", href: "/autorev-business", image: "/images/autorev-corporate-ev-v2.png" },
   ];

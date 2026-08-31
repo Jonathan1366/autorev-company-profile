@@ -1,9 +1,9 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 11px;
   max-width: 760px;
-  margin: 34px 0 24px;
+  margin: 36px 0 26px;
   padding: 0;
   list-style: none;
 }
@@ -11,19 +11,23 @@
 .tile {
   position: relative;
   min-width: 0;
-  min-height: 88px;
+  min-height: 94px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding: 12px 15px;
-  border: 1px solid rgba(210, 227, 247, .2);
-  border-radius: 15px;
+  padding: 16px 19px;
+  border: 1px solid rgba(210, 227, 247, .24);
+  border-radius: 16px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, .99), rgba(240, 246, 252, .96));
+    linear-gradient(145deg, rgba(255, 255, 255, .98), rgba(235, 243, 250, .94));
   box-shadow:
-    0 12px 30px rgba(0, 4, 14, .15),
+    0 14px 34px rgba(0, 4, 14, .2),
     inset 0 1px 0 rgba(255, 255, 255, .9);
   transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s ease, box-shadow .25s ease;
+}
+
+.tile:last-child {
+  grid-column: 2;
 }
 
 .tile::after {
@@ -52,10 +56,10 @@
 .logo {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 190px;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 56px;
+  max-height: 54px;
   object-fit: contain;
 }
 
@@ -80,7 +84,14 @@
   }
 
   .logo {
-    max-width: 165px;
+    max-width: 100%;
+    max-height: 47px;
+  }
+
+  .tile:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 5px);
   }
 }
 

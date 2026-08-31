@@ -15,7 +15,7 @@ const types: { type: LeadType; icon: typeof CarFront; id: string; en: string }[]
 
 const descriptions: Record<string, { id: string; en: string }> = {
   rental: { id: "Beritahu tanggal, lokasi, dan durasi. Tim kami akan membantu mencocokkan kebutuhan Anda dengan unit yang tersedia.", en: "Share your date, location, and duration. Our team will help match your needs with an available vehicle." },
-  driver: { id: "Cek kesiapan awal untuk Regular atau Premium. Belum ada biaya, komitmen, atau unggah dokumen pada tahap ini.", en: "Check your initial readiness for Regular or Premium. There is no fee, commitment, or document upload at this stage." },
+  driver: { id: "Cek kesiapan awal untuk program Founding Driver. Belum ada biaya, komitmen, atau unggah dokumen pada tahap ini.", en: "Check your initial readiness for the Founding Driver program. There is no fee, commitment, or document upload at this stage." },
   business: { id: "Ceritakan jumlah unit, durasi, dan pola operasional. Kami akan menyiapkan percakapan yang lebih relevan.", en: "Share your fleet size, duration, and operating pattern. We’ll prepare a more relevant first conversation." },
   system: { id: "Ceritakan alur rental Anda saat ini agar demo RevAuto fokus pada masalah yang benar-benar ingin diselesaikan.", en: "Tell us how your rental operation works so the RevAuto demo focuses on the problem you actually want to solve." },
 };
