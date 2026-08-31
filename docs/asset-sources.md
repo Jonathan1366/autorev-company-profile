@@ -1,5 +1,29 @@
 # AutoRev visual asset sources
 
+## Platform brand marks
+
+The platform grid uses tightly cropped SVG/PNG assets with transparent backgrounds. Brand names and marks remain the property of their respective owners; their presence does not imply partnership or endorsement.
+
+- `public/images/platforms/grab.svg`
+  - Source: https://commons.wikimedia.org/wiki/File:Grab_Logo.svg
+  - Original source recorded by Wikimedia: Grab Holdings company profile
+- `public/images/platforms/gojek.svg`
+  - Source: https://commons.wikimedia.org/wiki/File:Gojek_logo_2019.svg
+  - Original source recorded by Wikimedia: Gojek
+- `public/images/platforms/maxim.svg`
+  - Source: https://commons.wikimedia.org/wiki/File:Maxim.svg
+- `public/images/platforms/indrive.svg`
+  - Source: https://commons.wikimedia.org/wiki/File:InDrive_Logo.svg
+- `public/images/platforms/lalamove.png`
+  - Source: https://www.lalamove.com/ja-jp/newsroom/media-assets/logo
+  - Official global horizontal mark; transparent margins were cropped for web use
+- `public/images/platforms/shopee.svg`
+  - Source: https://en.wikipedia.org/wiki/Shopee
+  - Original source recorded by Wikimedia: Shopee website SVG
+- `public/images/platforms/green-sm.svg`
+  - Source: https://commons.wikimedia.org/wiki/File:Green_SM_logo.svg
+  - Original source recorded by Wikimedia: Green SM Indonesia
+
 ## Licensed photography and video
 
 - `public/images/autorev-ev-charging-real.jpg`

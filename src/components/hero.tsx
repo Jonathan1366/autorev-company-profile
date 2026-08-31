@@ -70,7 +70,7 @@ export function Hero({ locale }: { locale: Locale }) {
           </h1>
           <p>{home.subtitle}</p>
           <div className="hero__actions">
-            <ButtonLink href={localizePath(locale, "/founding-driver#paket")} variant="light">{locale === "id" ? "Bandingkan Paket" : "Compare Plans"}</ButtonLink>
+            <ButtonLink href={localizePath(locale, "/founding-driver")} variant="light">{locale === "id" ? "Pelajari Program" : "Explore the Program"}</ButtonLink>
             <ButtonLink href={localizePath(locale, "/contact?type=driver")} variant="ghost">{locale === "id" ? "Cek Kelayakan" : "Check Eligibility"}</ButtonLink>
           </div>
           <div className="hero__proof" aria-label={locale === "id" ? "Ringkasan program" : "Program summary"}>

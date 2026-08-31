@@ -52,8 +52,8 @@ export function HomeBusiness({ locale }: { locale: Locale }) {
 
 export function HomeDriver({ locale }: { locale: Locale }) {
   const points = locale === "id"
-    ? ["Mulai Rp300.000 per hari, masa program 5 tahun.", "Tanpa deposit / DP dan tanpa pelunasan akhir.", "Pilihan 1 atau 4 hari libur per bulan, bebas setoran.", "Benefit makan 2x atau 4x per minggu sesuai paket."]
-    : ["From IDR 300,000 per day over a five-year program term.", "No deposit, down payment, or final balloon payment.", "Choose 1 or 4 payment-free days off each month.", "Two or four weekly meal benefits, depending on the plan."];
+    ? ["Program EV untuk operasional driver.", "Jalur kepemilikan mengikuti kontrak program.", "Persiapan akun dan training bila diperlukan.", "Dukungan operasional bersama tim AutoRev."]
+    : ["An EV program for driver operations.", "The ownership path follows the program contract.", "Account preparation and training when needed.", "Operational support from the AutoRev team."];
   return (
     <section className="section priority-feature priority-feature--light" id="founding-driver">
       <div className="container priority-feature__grid priority-feature__grid--reverse">
@@ -63,7 +63,7 @@ export function HomeDriver({ locale }: { locale: Locale }) {
           <h2>{locale === "id" ? "EV Rental untuk kerja. Dibuat untuk driver." : "EV rental for work. Built around drivers."}</h2>
           <p>{locale === "id" ? "Operasikan EV kategori Car Plus melalui program 5 tahun. Setelah kewajiban program dan verifikasi selesai, alih kepemilikan diproses sesuai kontrak." : "Operate a Car Plus-category EV through a five-year program. Once program obligations and verification are complete, ownership transfer is processed under the contract."}</p>
           <FeaturePoints points={points}/>
-          <ButtonLink href={localizePath(locale,"/founding-driver#paket")} variant="primary">{locale === "id" ? "Lihat Paket Founding" : "Explore Founding Plans"}</ButtonLink>
+          <ButtonLink href={localizePath(locale,"/founding-driver")} variant="primary">{locale === "id" ? "Pelajari Program" : "Explore the Program"}</ButtonLink>
         </Reveal>
       </div>
     </section>
